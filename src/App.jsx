@@ -5,9 +5,9 @@ import {
   Route,
 } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import ExampleLearn from './views/learn';
-import ExampleChallenge from './views/challenge';
-import Home from './views';
+import ExampleLearn from './views/ExampleLearn';
+import ExampleChallenge from './views/ExampleChallenge';
+import Home from './views/Home';
 import './App.css';
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
         <hr />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/learn" element={<ExampleLearn />} />
-          <Route path="/challenge" element={<ExampleChallenge />} />
+          <Route path="/ExampleLearn" element={<ExampleLearn />} />
+          <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
         </Routes>
       </Router>
     </div>

@@ -3,7 +3,7 @@ import React from 'react';
 function ExampleChallenge() {
   return (
 
-    <div className="ExampleChallenge">
+    <div className="mt-3">
       This is Challenge page.
     </div>
   );
