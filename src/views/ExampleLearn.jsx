@@ -2,7 +2,7 @@ import React from 'react';
 
 function ExampleLearn() {
   return (
-    <div className="ExampleLearn">
+    <div className="mt-3">
       This is Learning page.
     </div>
   );
