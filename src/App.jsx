@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import NavBar from './components/NavBar';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
+import IntroduceScrum from './views/IntroduceScrum';
 import Home from './views/Home';
 import './App.css';
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
+            <Route path="/IntroduceScrum" element={<IntroduceScrum />} />
           </Route>
         </Routes>
       </Router>

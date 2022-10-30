@@ -13,6 +13,9 @@ function NavBar() {
         <li>
           <Link to="/ExampleChallenge">Challenge Example</Link>
         </li>
+        <li>
+          <Link to="/IntroduceScrum">IntroduceScrum</Link>
+        </li>
       </ul>
     </div>
   );
