@@ -1,5 +1,9 @@
 import NavBar from './NavBar';
 import BeginMsg from './BeginMsg';
-import Avatar from './Avatar';
+import ChatLog from './ChatLog';
 
-export { NavBar, BeginMsg, Avatar };
+export {
+  NavBar,
+  BeginMsg,
+  ChatLog,
+};

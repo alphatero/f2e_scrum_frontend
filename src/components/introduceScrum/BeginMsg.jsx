@@ -5,7 +5,7 @@ function BeginMsg({ time, text }) {
   return (
     <div className="flex flex-col items-center text-center">
       <p className="text-sm text-gray-400">{ time }</p>
-      { !!text && <p className="text-sm text-gray-400 max-w-[60%]">{text}</p> }
+      { !!text && <p className="text-sm text-gray-400 max-w-[240px]">{text}</p> }
     </div>
   );
 }
