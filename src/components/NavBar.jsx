@@ -1,7 +1,4 @@
-import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
   return (
@@ -17,9 +14,7 @@ function NavBar() {
           <Link to="/ExampleChallenge">Challenge Example</Link>
         </li>
       </ul>
-
     </div>
-
   );
 }
 
