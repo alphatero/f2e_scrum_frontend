@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -48,7 +47,6 @@ function AnimationLayout() {
 
 function App() {
   return (
-
     <div>
       <Router>
         <NavBar />
@@ -62,7 +60,6 @@ function App() {
         </Routes>
       </Router>
     </div>
-
   );
 }
 
