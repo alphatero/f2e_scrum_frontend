@@ -11,6 +11,7 @@ import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views/Home';
 import './App.css';
+import IntroductionRole from './views/IntroductionRole';
 
 const pageVariants = {
   initial: {
@@ -39,6 +40,7 @@ function AnimationLayout() {
       animate="in"
       variants={pageVariants}
       transition={pageTransition}
+      className="h-full"
     >
       <Outlet />
     </motion.div>
@@ -47,7 +49,7 @@ function AnimationLayout() {
 
 function App() {
   return (
-    <div>
+    <div className="h-screen">
       <Router>
         <NavBar />
         <hr />
@@ -56,6 +58,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
+            <Route path="/IntroductionRole" element={<IntroductionRole />} />
           </Route>
         </Routes>
       </Router>
