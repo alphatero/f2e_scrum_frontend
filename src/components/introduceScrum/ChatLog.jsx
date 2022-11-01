@@ -26,7 +26,7 @@ function ChatLog({
         <p className={clsx('inline-block self-start text-xs text-gray-500', reverse && 'self-end')}>{ character }</p>
 
         {/* Chat content */}
-        {content.map((item) => <p className="p-2 rounded-2xl bg-gray-300">{item}</p>)}
+        {content.map((item) => <p className="p-2 rounded-3xl bg-gray-300">{item}</p>)}
       </div>
 
       {/* time */}

@@ -3,6 +3,7 @@ import {
   BeginMsg,
   ChatLog,
 } from '../components/introduceScrum';
+import { SubmitMsg } from '../components/icon';
 
 function IntroduceScrum() {
   const previousPageName = 'Scrum 新手村專案';
@@ -39,19 +40,40 @@ function IntroduceScrum() {
       reverse: true,
     },
   ];
+  const responseMsg = [
+    '（放空 ing...）',
+    '昨日繪製設計規範，目前沒有遇到問題，今日預計將繼續進行規範製作',
+    '中午吃什麼？',
+  ];
 
   return (
     <div>
       <NavBar previousPage={previousPageName} />
       <hr />
       <BeginMsg time={beginMsg.time} text={beginMsg.text} />
-      <div className="mt-5 space-y-5">
+      <section className="mt-5 px-2 pb-5 space-y-5">
         {
           chatLogData.map((item) => <ChatLog character={item.character} content={item.content} time={item.time} reverse={item.reverse} />)
         }
+      </section>
+      <hr />
+      <section className="px-2 py-4 space-y-2">
+        <p className="text-sm text-gray-500">你是設計師，請你選擇在此情境下最合適的答案喔</p>
+        <ul className="flex flex-row gap-4 overflow-x-auto">
+          {
+            responseMsg.map((resMsg) => <li className="shrink-0 p-2 rounded-3xl bg-gray-300">{resMsg}</li>)
+          }
+        </ul>
+      </section>
+      <hr />
+      <div className="mt-3 px-2 flex flex-row items-center gap-3">
+        <label htmlFor="sendMsg" className="flex-1 ">
+          <input id="sendMsg" className="w-full py-2 px-3 border border-solid border-black rounded-3xl" placeholder="請輸入" type="text" />
+        </label>
+        <div className="w-6 shrink-0">
+          <SubmitMsg />
+        </div>
       </div>
-      <h3>IntroduceScrum is here</h3>
-      <p>page content</p>
     </div>
   );
 }
