@@ -1,12 +1,13 @@
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import SpeakingLoading from './SpeakingLoading';
 
 function ChatLog({
-  character, content, time, reverse,
+  character, content, time, submitBySelf,
 }) {
   return (
     <div className={
-        clsx('flex flex-row items-start gap-2 pr-4', reverse && 'flex-row-reverse')
+        clsx('flex flex-row items-start gap-2 pr-4', submitBySelf && 'flex-row-reverse')
       }
     >
 
@@ -23,10 +24,18 @@ function ChatLog({
       <div className="flex flex-col gap-2 max-w-[60%]">
 
         {/* character title */}
-        <p className={clsx('inline-block self-start text-xs text-gray-500', reverse && 'self-end')}>{ character }</p>
+        <p className={clsx('inline-block self-start text-xs text-gray-500', submitBySelf && 'self-end')}>{ character }</p>
 
         {/* Chat content */}
-        {content.map((item) => <p className="p-2 rounded-3xl bg-gray-300">{item}</p>)}
+        {
+          submitBySelf ? (
+            <div className="p-2 h-10 rounded-3xl bg-gray-300">
+              <SpeakingLoading />
+            </div>
+          ) : content.map(
+            (item) => <p className="p-2 rounded-3xl bg-gray-300">{item}</p>,
+          )
+        }
       </div>
 
       {/* time */}
@@ -41,7 +50,7 @@ ChatLog.propTypes = {
   character: PropTypes.string,
   content: PropTypes.string,
   time: PropTypes.string,
-  reverse: PropTypes.bool,
+  submitBySelf: PropTypes.bool,
 };
 
 ChatLog.defaultProps = {
@@ -51,7 +60,7 @@ ChatLog.defaultProps = {
     'msg02',
   ],
   time: '',
-  reverse: false,
+  submitBySelf: false,
 };
 
 export default ChatLog;
