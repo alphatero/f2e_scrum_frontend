@@ -19,3 +19,5 @@ export const IntroductionRoleInfo = {
   ],
   button: '來看他們自我介紹',
 };
+
+export default IntroductionRoleInfo;

@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { PageList } from '../constants/navbarList';
 
-function NavBar() {
+export function NavBar() {
   return (
     <div>
       <ul>

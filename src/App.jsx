@@ -6,7 +6,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import NavBar from './components/NavBar';
+import { NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views/Home';

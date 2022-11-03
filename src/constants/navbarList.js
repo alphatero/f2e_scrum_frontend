@@ -20,3 +20,5 @@ export const PageList = [
     label: 'Introduction Role',
   },
 ];
+
+export default PageList;
