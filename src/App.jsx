@@ -6,12 +6,13 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import NavBar from './components/NavBar';
+import { NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import RoleIntro from './views/RoleIntro';
 import Home from './views/Home';
 import './App.css';
+import IntroductionRole from './views/IntroductionRole';
 
 const pageVariants = {
   initial: {
@@ -40,6 +41,7 @@ function AnimationLayout() {
       animate="in"
       variants={pageVariants}
       transition={pageTransition}
+      className="h-full"
     >
       <Outlet />
     </motion.div>
@@ -48,7 +50,7 @@ function AnimationLayout() {
 
 function App() {
   return (
-    <div>
+    <div className="h-screen">
       <Router>
         <NavBar />
         <hr />
@@ -57,7 +59,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
+<<<<<<< HEAD
             <Route path="/RoleIntro" element={<RoleIntro />} />
+=======
+            <Route path="/IntroductionRole" element={<IntroductionRole />} />
+>>>>>>> e7d96d43bc0d37e65a858467bd42c5a6dfcfaa5f
           </Route>
         </Routes>
       </Router>
