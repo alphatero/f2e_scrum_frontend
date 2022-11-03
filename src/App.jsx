@@ -59,11 +59,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-<<<<<<< HEAD
             <Route path="/RoleIntro" element={<RoleIntro />} />
-=======
             <Route path="/IntroductionRole" element={<IntroductionRole />} />
->>>>>>> e7d96d43bc0d37e65a858467bd42c5a6dfcfaa5f
           </Route>
         </Routes>
       </Router>
