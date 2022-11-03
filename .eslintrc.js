@@ -3,20 +3,15 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'plugin:react/jsx-runtime',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'plugin:react/jsx-runtime'],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
     'max-len': ['warn', { code: 80 }],
+    'react/prop-types': 'off',
   },
 };
