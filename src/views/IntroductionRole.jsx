@@ -16,7 +16,7 @@ function IntroductionRole() {
         <h2 className="font-bold">{title}</h2>
         {article.map((word) => (
           <p key={`article_${word.id}`} className="py-2">
-            {word.contant}
+            {word.content}
           </p>
         ))}
       </article>
