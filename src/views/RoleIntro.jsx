@@ -1,68 +1,65 @@
 import clsx from 'clsx';
+import { useNavigate } from 'react-router-dom';
+import { Button } from '../components';
+import { RoleIntroInfo } from '../constants/roleIntroInfo';
 
 function RoleIntro() {
+  const navigate = useNavigate();
+  const { cards, button } = RoleIntroInfo;
+
+  const backHome = () => {
+    navigate('/');
+  };
+
+  const isOpen = [true, false, false];
+
   return (
-    <div className={clsx({ 'p-4': true })}>
+    <div className="p-4">
+      {
+        cards.map((card, idx) => (
+          <div className={clsx(
+            'grid grid-flow-row auto-rows-max',
+            'border border-zinc-800 rounded-lg',
+            'p-3 mb-5',
+          )}
+          >
+            <div className={clsx('w-full', { 'mb-5': isOpen[idx] })}>
 
-      {/* open card */}
-      <div className={clsx({ 'border border-zinc-800 rounded-lg p-3': true })}>
-        <div className={clsx({ 'float-right ml-3': true })}>
-          <div className={clsx({ 'relative w-48 h-60 justify-items-center': true })}>
-            <div className={clsx({ 'absolute m-auto inset-0 w-5/6 h-5/6 border border-zinc-800': true })} />
-            <img className={clsx({ 'absolute m-auto inset-0 w-48 h-60': true })} alt="PO" src="https://source.unsplash.com/random/150x200" />
+              <div className="float-right ml-3">
+                <div className={clsx('relative', { 'w-40 h-40': isOpen[idx], 'w-24': !isOpen[idx] })}>
+                  <div className={clsx('absolute m-auto inset-0', 'w-32 h-40', 'border border-zinc-800', { hidden: !isOpen[idx] })} />
+                  <img
+                    className={clsx('absolute m-auto inset-0', { 'top-[-40px] w-40 h-52': isOpen[idx], 'top-[20px] h-20': !isOpen[idx] })}
+                    alt={`${card.title}`}
+                    src={`${card.img}`}
+                  />
+                </div>
+              </div>
 
-          </div>
+              <h3 className="text-xl">{card.title}</h3>
+              <h6 className={clsx({ 'mb-8': isOpen[idx] })}>{card.subtitle}</h6>
+              <h6 className={clsx({ hidden: !isOpen[idx] })}>{card.introTitle}</h6>
+              <p className={clsx({ hidden: !isOpen[idx] })}>{card.introBriefly}</p>
 
-        </div>
+            </div>
 
-        PO (Product Owner)
-        <br />
-        產品負責人
-        <br />
-        <br />
-        座右銘
-        只要有我在，就沒有發散的需求，因為只有我有資格說不！
-        <br />
-        <br />
-        我是 Product Owner 產品負責人，叫我PO就可以了，我的工作項目是搜集客戶的需求，
-        釐清並轉化成具有商業價值的 User Story，我最擅長的就是列優先順序喔！再將這些從 Backlog 放至 Sprint當中。
-        <br />
-        <br />
-        我的願景，就是希望我的產品讓客戶會喜歡！
-
-      </div>
-
-      {/* close card */}
-      <div className={clsx({ 'border border-zinc-800 rounded-lg p-3 mt-10': true })}>
-        <div className={clsx({ 'float-right ml-3': true })}>
-          <div className={clsx({ 'relative w-24 h-28 justify-items-center': true })}>
-            <img className={clsx({ 'absolute m-auto inset-0 top-[-18vw] h-20': true })} alt="PO" src="https://source.unsplash.com/random/150x200" />
-
-          </div>
-
-        </div>
-
-        SM (Scrum Master)
-        <br />
-        Scrum 主持人
-
-      </div>
-
-      <div className={clsx({ 'border border-zinc-800 rounded-lg p-3 mt-10': true })}>
-        <div className={clsx({ 'float-right ml-3': true })}>
-          <div className={clsx({ 'relative w-24 h-28 justify-items-center': true })}>
-            <img className={clsx({ 'absolute m-auto inset-0 top-[-18vw] h-20': true })} alt="PO" src="https://source.unsplash.com/random/150x200" />
+            <div className={clsx('w-full', { hidden: !isOpen[idx] })}>
+              {card.intro.map((part) => (
+                <p className="mb-5">
+                  {part}
+                </p>
+              ))}
+            </div>
 
           </div>
 
-        </div>
+        ))
 
-        DEV (Development Team)
-        <br />
-        開發團隊
+      }
 
+      <div className="w-full flex justify-center">
+        <Button onClick={backHome}>{button}</Button>
       </div>
-
     </div>
   );
 }
