@@ -8,7 +8,6 @@ export function ChatLog({
     <div
       className={clsx(
         'flex flex-row items-start gap-2',
-        'pr-4',
         submitBySelf && 'flex-row-reverse',
       )}
     >
@@ -49,7 +48,7 @@ export function ChatLog({
               <SpeakingLoading />
             </div>
           ) : content.map(
-            (item) => <p className="p-2 rounded-3xl bg-gray-300">{item}</p>,
+            (msg) => <p className="p-2 rounded-3xl bg-gray-300">{msg}</p>,
           )
         }
       </div>
