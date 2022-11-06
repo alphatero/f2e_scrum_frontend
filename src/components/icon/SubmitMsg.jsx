@@ -1,4 +1,4 @@
-function SubmitMsg() {
+export function SubmitMsg() {
   return (
     <svg
       viewBox="0 0 25 26"

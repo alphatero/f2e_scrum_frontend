@@ -1,4 +1,4 @@
-function LeftArrow() {
+export function LeftArrow() {
   return (
     <svg
       viewBox="0 0 8 14"

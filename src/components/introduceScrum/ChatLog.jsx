@@ -1,18 +1,26 @@
 import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import SpeakingLoading from './SpeakingLoading';
+import { SpeakingLoading } from './SpeakingLoading';
 
-function ChatLog({
+export function ChatLog({
   character, content, time, submitBySelf,
 }) {
   return (
-    <div className={
-        clsx('flex flex-row items-start gap-2 pr-4', submitBySelf && 'flex-row-reverse')
-      }
+    <div
+      className={clsx(
+        'flex flex-row items-start gap-2',
+        'pr-4',
+        submitBySelf && 'flex-row-reverse',
+      )}
     >
 
       {/* Avatar */}
-      <div className="flex-shrink-0 flex-grow-0 w-8 h-8 overflow-hidden rounded-full bg-gray-300">
+      <div
+        className={clsx(
+          'flex-shrink-0 flex-grow-0',
+          'w-8 h-8',
+          'overflow-hidden rounded-full bg-gray-300',
+        )}
+      >
         <img
           className="object-cover object-center"
           src="#"
@@ -24,7 +32,15 @@ function ChatLog({
       <div className="flex flex-col gap-2 max-w-[60%]">
 
         {/* character title */}
-        <p className={clsx('inline-block self-start text-xs text-gray-500', submitBySelf && 'self-end')}>{ character }</p>
+        <p
+          className={clsx(
+            'inline-block self-start',
+            'text-xs text-gray-500',
+            submitBySelf && 'self-end',
+          )}
+        >
+          { character }
+        </p>
 
         {/* Chat content */}
         {
@@ -45,22 +61,5 @@ function ChatLog({
     </div>
   );
 }
-
-ChatLog.propTypes = {
-  character: PropTypes.string,
-  content: PropTypes.string,
-  time: PropTypes.string,
-  submitBySelf: PropTypes.bool,
-};
-
-ChatLog.defaultProps = {
-  character: 'default character name',
-  content: [
-    'msg01',
-    'msg02',
-  ],
-  time: '',
-  submitBySelf: false,
-};
 
 export default ChatLog;
