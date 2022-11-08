@@ -3,14 +3,14 @@ import {
   NavBar,
   BeginMsg,
   ChatLog,
-} from '../components/introduceScrum';
-import { IntroduceScrumInfo } from '../constants/IntroduceScrumInfo';
-import { ReactComponent as SendMsg } from '../components/icon/icon--send-msg.svg';
+} from '../../components/Chat';
+import { ChatInfo } from '../../constants/chatInfo';
+import { ReactComponent as SendMsg } from '../../components/icon/icon--send-msg.svg';
 
-function IntroduceScrum() {
+function SprintDailyScrum() {
   const {
     previousPageName, beginMsg, chatLogData, responseMsg,
-  } = IntroduceScrumInfo;
+  } = ChatInfo.sprintDailyScrum;
 
   return (
     <div>
@@ -72,4 +72,4 @@ function IntroduceScrum() {
   );
 }
 
-export default IntroduceScrum;
+export default SprintDailyScrum;
