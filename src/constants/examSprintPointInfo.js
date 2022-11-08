@@ -1,9 +1,9 @@
-export const sprintPointSettingInfo = {
+export const ExamSprintPointInfo = {
   title: 'Sprint 實作',
   tasks: [
     {
       id: 0,
-      contant:
+      content:
         '會員系統(登入、註冊、權限管理)',
       priority: '優先度高',
       point: 8,
@@ -11,7 +11,7 @@ export const sprintPointSettingInfo = {
     },
     {
       id: 1,
-      contant:
+      content:
         '前台職缺列表(職缺詳細內容、點選可發送應徵意願)',
       priority: '優先度中',
       point: 8,
@@ -19,7 +19,7 @@ export const sprintPointSettingInfo = {
     },
     {
       id: 2,
-      contant:
+      content:
         '後台職缺管理(資訊上架、下架、顯示應徵者資料)',
       priority: '優先度低',
       point: 5,
@@ -27,7 +27,7 @@ export const sprintPointSettingInfo = {
     },
     {
       id: 3,
-      contant:
+      content:
         '應徵者的線上履歷編輯器',
       priority: '優先度高',
       point: 13,
@@ -37,4 +37,4 @@ export const sprintPointSettingInfo = {
   button: '開始 Sprint ！',
 };
 
-export default sprintPointSettingInfo;
+export default ExamSprintPointInfo;

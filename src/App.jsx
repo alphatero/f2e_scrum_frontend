@@ -12,7 +12,7 @@ import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views/Home';
 import './App.css';
 import IntroductionRole from './views/IntroductionRole';
-import SprintPointSetting from './views/SprintPointSetting';
+import ExamSprintPoint from './views/exam/SprintPoint';
 
 const pageVariants = {
   initial: {
@@ -60,7 +60,7 @@ function App() {
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
             <Route path="/IntroductionRole" element={<IntroductionRole />} />
-            <Route path="/SprintPointSetting" element={<SprintPointSetting />} />
+            <Route path="/ExamSprintPoint" element={<ExamSprintPoint />} />
           </Route>
         </Routes>
       </Router>
