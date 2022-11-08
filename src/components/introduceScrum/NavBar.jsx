@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { LeftArrow } from '../icon';
+import { ReactComponent as ArrowLeft } from '../icon/icon--arrow-left.svg';
 
 export function NavBar({ previousPage }) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export function NavBar({ previousPage }) {
         className="w-2"
         onClick={goBack}
       >
-        <LeftArrow />
+        <ArrowLeft />
       </button>
       <p className="inline-block">{ previousPage }</p>
     </div>

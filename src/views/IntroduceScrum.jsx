@@ -5,7 +5,7 @@ import {
   ChatLog,
 } from '../components/introduceScrum';
 import { IntroduceScrumInfo } from '../constants/IntroduceScrumInfo';
-import { SubmitMsg } from '../components/icon';
+import { ReactComponent as SendMsg } from '../components/icon/icon--send-msg.svg';
 
 function IntroduceScrum() {
   const {
@@ -65,7 +65,7 @@ function IntroduceScrum() {
           />
         </label>
         <div className="w-6 shrink-0">
-          <SubmitMsg />
+          <SendMsg />
         </div>
       </div>
     </div>
