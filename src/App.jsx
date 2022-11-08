@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
-import RoleIntro from './views/RoleIntro';
+import ProductOwner from './views/introduction/ProductOwner';
 import Home from './views/Home';
 import './App.css';
 import IntroductionRole from './views/IntroductionRole';
@@ -59,7 +59,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-            <Route path="/RoleIntro" element={<RoleIntro />} />
+            <Route path="/ProductOwner" element={<ProductOwner />} />
             <Route path="/IntroductionRole" element={<IntroductionRole />} />
           </Route>
         </Routes>
