@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import Icons from '../Icons';
+import { Icons } from '../Icons';
 
 export function NavBar({ previousPage }) {
   const navigate = useNavigate();

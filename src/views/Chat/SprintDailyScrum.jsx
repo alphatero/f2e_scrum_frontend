@@ -3,8 +3,8 @@ import {
   NavBar,
   BeginMsg,
   ChatLog,
-} from '../../components/that';
-import Icons from '../../components/Icons';
+} from '../../components/chat';
+import { Icons } from '../../components';
 import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {

@@ -21,7 +21,7 @@ export const PageList = [
   },
   {
     id: 4,
-    link: '/ChatSprintDailyScrum',
+    link: '/Chat/SprintDailyScrum',
     label: 'Chat/SprintDailyScrum',
   },
 ];
