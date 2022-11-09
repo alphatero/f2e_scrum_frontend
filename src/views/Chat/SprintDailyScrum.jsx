@@ -3,9 +3,9 @@ import {
   NavBar,
   BeginMsg,
   ChatLog,
-} from '../../components/Chat';
+} from '../../components/that';
+import Icons from '../../components/Icons';
 import { ChatInfo } from '../../constants/chatInfo';
-import { ReactComponent as SendMsg } from '../../components/icon/icon--send-msg.svg';
 
 function SprintDailyScrum() {
   const {
@@ -65,7 +65,7 @@ function SprintDailyScrum() {
           />
         </label>
         <div className="w-6 shrink-0">
-          <SendMsg />
+          <Icons.SendMsg />
         </div>
       </div>
     </div>
