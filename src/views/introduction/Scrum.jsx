@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components';
-import { IntroductionRoleInfo } from '../constants/introductionRoleInfo';
+import { Button } from '../../components';
+import { IntroductionRoleInfo } from '../../constants/introductionRoleInfo';
 
-function IntroductionRole() {
+function Scrum() {
   const navigate = useNavigate();
   const { title, article, button } = IntroductionRoleInfo;
 
@@ -23,9 +23,10 @@ function IntroductionRole() {
 
       <img src="/images/introduction-role.png" alt="" />
 
+      <Button onClick={backHome}>上一頁</Button>
       <Button onClick={backHome}>{button}</Button>
     </div>
   );
 }
 
-export default IntroductionRole;
+export default Scrum;
