@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
-import ChatSprintDailyScrum from './views/hat/SprintDailyScrum';
+import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
 import IntroductionRole from './views/IntroductionRole';
