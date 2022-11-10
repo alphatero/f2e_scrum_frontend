@@ -24,7 +24,7 @@ function Scrum() {
       <img src="/images/introduction-role.png" alt="" />
 
       <Button onClick={backHome}>上一頁</Button>
-      <Button onClick={backHome}>{button}</Button>
+      <Button>{button}</Button>
     </div>
   );
 }
