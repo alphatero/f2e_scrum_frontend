@@ -22,7 +22,12 @@ export const PageList = [
   {
     id: 4,
     link: '/Chat/SprintDailyScrum',
-    label: 'Chat/SprintDailyScrum',
+    label: 'Chat/SprintDailyScrum'
+  },
+  {
+    id: 6,
+    link: '/Exam/ProductBacklog',
+    label: 'Product Backlog',
   },
 ];
 
