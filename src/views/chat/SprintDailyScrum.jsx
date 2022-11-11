@@ -53,7 +53,7 @@ function SprintDailyScrum() {
           'my-3 px-2',
         )}
       >
-        <label htmlFor="sendMsg" className="flex-1 ">
+        <label htmlFor="sendMsg" className="flex-1">
           <input
             id="sendMsg"
             className={clsx(
