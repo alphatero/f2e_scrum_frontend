@@ -19,6 +19,11 @@ export const PageList = [
     link: '/IntroductionRole',
     label: 'Introduction Role',
   },
+  {
+    id: 2,
+    link: '/Role',
+    label: 'Role',
+  },
 ];
 
 export default PageList;
