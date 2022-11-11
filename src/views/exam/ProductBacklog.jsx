@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
-import { ProductBacklogInfo } from '../../constants/productBacklogInfo';
+import { ExamProductBacklogInfo } from '../../constants/examProductBacklogInfo';
 
 function ProductBacklog() {
   const navigate = useNavigate();
-  const { tasks, button } = ProductBacklogInfo;
+  const { tasks, button } = ExamProductBacklogInfo;
 
   const backHome = () => {
     navigate('/');

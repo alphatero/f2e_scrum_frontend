@@ -1,4 +1,4 @@
-export const ProductBacklogInfo = {
+export const ExamProductBacklogInfo = {
   title: 'Sprint Backlog 實作',
   tasks: [
     {
@@ -33,4 +33,4 @@ export const ProductBacklogInfo = {
   button: '開始 Sprint ！',
 };
 
-export default ProductBacklogInfo;
+export default ExamProductBacklogInfo;
