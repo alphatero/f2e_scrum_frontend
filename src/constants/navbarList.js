@@ -20,9 +20,9 @@ export const PageList = [
     label: 'Introduction Role',
   },
   {
-    id: 5,
-    link: '/ProductOwner',
-    label: 'Product Owner',
+    id: 2,
+    link: '/Role',
+    label: 'Role',
   },
 ];
 

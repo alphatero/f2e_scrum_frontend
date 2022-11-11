@@ -1,4 +1,4 @@
-export const ProductOwnerInfo = {
+export const RoleInfo = {
   cards: [
     {
       img: 'https://source.unsplash.com/random/150x200',
@@ -38,4 +38,4 @@ export const ProductOwnerInfo = {
   button: '接下來看看 Sprint 在做什麼！',
 };
 
-export default ProductOwnerInfo;
+export default RoleInfo;

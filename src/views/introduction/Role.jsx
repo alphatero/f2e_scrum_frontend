@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
-import { ProductOwnerInfo } from '../../constants/productOwnerInfo';
+import { RoleInfo } from '../../constants/roleInfo';
 
-function ProductOwner() {
+function Role() {
   const navigate = useNavigate();
-  const { cards, button } = ProductOwnerInfo;
+  const { cards, button } = RoleInfo;
 
   const backHome = () => {
     navigate('/');
@@ -92,4 +92,4 @@ function ProductOwner() {
   );
 }
 
-export default ProductOwner;
+export default Role;
