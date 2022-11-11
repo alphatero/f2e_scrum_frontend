@@ -18,16 +18,25 @@ function ExamSprintPoint() {
 
         {tasks.map((task) => (
           <div className={clsx(
-            'grid grid-cols-4 gap-2',
-            'w-full p-3',
-            'rounded-lg bg-zinc-200',
+            'grid grid-cols-5 gap-2',
+            'w-full p-3 rounded-lg',
+            'bg-zinc-200',
           )}
           >
-            <div className="col-span-3">
+            <div className="col-span-4">
               <p>{task.content}</p>
             </div>
-            <div>
-              <span className="rounded-lg p-1 bg-white text-center">{task.priority}</span>
+            <div className="text-right">
+              <div className={clsx(
+                'inline-block',
+                'w-10 h-10 rounded-lg p-2',
+                'bg-white text-center',
+              )}
+              >
+                <span className="">{task.point}</span>
+
+              </div>
+
             </div>
           </div>
         ))}
@@ -36,9 +45,8 @@ function ExamSprintPoint() {
       <div className="w-full h-5 text-center m-3">﹀ ﹀ ﹀</div>
       <p className="w-full h-5 text-right mb-1">優先度高</p>
       <div className={clsx(
-        'border border-zinc-800',
+        'border border-zinc-800 rounded-lg',
         'p-3 space-y-3 h-[30vh]',
-        'rounded-lg',
       )}
       >
         {/* drag to here */}
