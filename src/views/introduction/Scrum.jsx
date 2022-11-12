@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
-import { IntroductionRoleInfo } from '../../constants/introductionRoleInfo';
+import { scrumInfo } from '../../constants/introduction';
 
-function Scrum() {
+export function Scrum() {
   const navigate = useNavigate();
-  const { title, article, button } = IntroductionRoleInfo;
+  const { title, article, button } = scrumInfo;
 
   const backHome = () => {
     navigate('/');
