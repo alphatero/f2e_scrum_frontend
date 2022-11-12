@@ -19,6 +19,11 @@ export const pageList = [
     link: '/introduction/scrum',
     label: 'Introduction Scrum',
   },
+  {
+    id: 6,
+    link: '/Exam/ProductBacklog',
+    label: 'Product Backlog',
+  },
 ];
 
 export default pageList;
