@@ -11,7 +11,7 @@ import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views/Home';
 import './App.css';
-import IntroductionRole from './views/IntroductionRole';
+import { Scrum } from './views/introduction';
 import ProductBacklog from './views/exam/ProductBacklog';
 
 const pageVariants = {
@@ -59,7 +59,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-            <Route path="/IntroductionRole" element={<IntroductionRole />} />
+            <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
           </Route>
         </Routes>

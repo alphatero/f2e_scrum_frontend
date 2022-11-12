@@ -1,4 +1,4 @@
-export const IntroductionRoleInfo = {
+export const scrumInfo = {
   title: 'Scrum 在做什麼？',
   article: [
     {
@@ -20,4 +20,4 @@ export const IntroductionRoleInfo = {
   button: '來看他們自我介紹',
 };
 
-export default IntroductionRoleInfo;
+export default scrumInfo;
