@@ -61,7 +61,6 @@ function App() {
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
             <Route path="/Chat/SprintDailyScrum" element={<ChatSprintDailyScrum />} />
-            <Route path="/IntroductionRole" element={<IntroductionRole />} />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
           </Route>
