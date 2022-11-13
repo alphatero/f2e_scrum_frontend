@@ -6,7 +6,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { NavBar } from './components';
+import { BgBubble, NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views/Home';
@@ -51,6 +51,7 @@ function AnimationLayout() {
 function App() {
   return (
     <div className="h-screen">
+      <BgBubble />
       <Router>
         <NavBar />
         <hr />
