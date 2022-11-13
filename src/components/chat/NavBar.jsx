@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Icons } from '../Icons';
 
@@ -8,15 +9,20 @@ export function NavBar({ previousPage }) {
     navigate(preRoute);
   };
   return (
-    <div className="flex flex-row items-center gap-3 px-5 py-3">
+    <div className={clsx(
+      'flex flex-row items-center gap-3',
+      'px-5 py-3',
+      'bg-teal-500',
+    )}
+    >
       <button
         type="button"
         className="w-2"
         onClick={goBack}
       >
-        <Icons.ArrowLeft />
+        <Icons.ArrowLeft className="text-white" />
       </button>
-      <p className="inline-block">{ previousPage }</p>
+      <p className="inline-block text-white">{ previousPage }</p>
     </div>
   );
 }
