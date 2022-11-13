@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
+import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
 import { Scrum } from './views/introduction';
@@ -59,6 +60,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
+            <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
           </Route>

@@ -20,6 +20,11 @@ export const pageList = [
     label: 'Introduction Scrum',
   },
   {
+    id: 4,
+    link: '/chat/sprint-daily-scrum',
+    label: 'Chat SprintDailyScrum',
+  },
+  {
     id: 6,
     link: '/Exam/ProductBacklog',
     label: 'Product Backlog',
