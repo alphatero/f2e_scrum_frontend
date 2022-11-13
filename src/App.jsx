@@ -60,7 +60,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-            <Route path="/Chat/SprintDailyScrum" element={<ChatSprintDailyScrum />} />
+            <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
           </Route>
