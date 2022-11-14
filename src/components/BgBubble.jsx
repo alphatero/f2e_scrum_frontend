@@ -38,6 +38,7 @@ export function BgBubble({ children }) {
       ],
     },
   ];
+
   return (
     <>
       <ul className="fixed inset-0 -z-10">
