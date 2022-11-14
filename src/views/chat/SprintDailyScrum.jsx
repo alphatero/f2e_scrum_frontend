@@ -37,10 +37,18 @@ function SprintDailyScrum() {
       <hr />
 
       <section className="px-2 py-4 space-y-2">
-        <p className="text-sm text-gray-500">你是設計師，請你選擇在此情境下最合適的答案喔</p>
+        <p className="text-xs text-slate-600">你是設計師，請你選擇在此情境下最合適的答案喔</p>
         <ul className="flex flex-row gap-4 overflow-x-auto">
           {
-            responseMsg.map((resMsg) => <li className="shrink-0 p-2 rounded-3xl bg-gray-300">{resMsg}</li>)
+            responseMsg.map((resMsg) => (
+              <li className={clsx(
+                'shrink-0 py-2 px-4',
+                'rounded-3xl bg-teal-500 text-white text-sm',
+              )}
+              >
+                {resMsg}
+              </li>
+            ))
           }
         </ul>
       </section>

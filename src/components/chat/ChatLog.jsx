@@ -34,7 +34,7 @@ export function ChatLog({
         <p
           className={clsx(
             'inline-block self-start',
-            'text-xs text-gray-500',
+            'text-xs text-slate-700',
             submitBySelf && 'self-end',
           )}
         >
@@ -44,18 +44,30 @@ export function ChatLog({
         {/* Chat content */}
         {
           submitBySelf ? (
-            <div className="p-2 h-10 rounded-3xl bg-gray-300">
+            <div className={clsx(
+              'py-2 px-4 h-10',
+              'rounded-3xl text-sm bg-gray-300 drop-shadow-md',
+            )}
+            >
               <SpeakingLoading />
             </div>
           ) : content.map(
-            (msg) => <p className="p-2 rounded-3xl bg-gray-300">{msg}</p>,
+            (msg) => (
+              <div className={clsx(
+                'py-2 px-4 rounded-3xl',
+                'bg-teal-500 text-sm text-white drop-shadow-md',
+              )}
+              >
+                <p>{msg}</p>
+              </div>
+            ),
           )
         }
       </div>
 
       {/* time */}
       <div className="mt-auto">
-        <p className="text-xs text-gray-500">{ time }</p>
+        <p className="text-xs text-slate-700">{ time }</p>
       </div>
     </div>
   );

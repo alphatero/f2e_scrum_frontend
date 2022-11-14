@@ -22,7 +22,7 @@ export function NavBar({ previousPage }) {
       >
         <Icons.ArrowLeft className="text-white" />
       </button>
-      <p className="inline-block text-white">{ previousPage }</p>
+      <p className="inline-block text-white text-xs">{ previousPage }</p>
     </div>
   );
 }
