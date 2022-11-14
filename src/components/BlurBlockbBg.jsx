@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-export function BlurBlockBUI(props) {
-  const { childrenUI } = props;
+export function BlurBlockbBg(props) {
+  const { children } = props;
   return (
 
     <div className={clsx(
@@ -9,10 +9,10 @@ export function BlurBlockBUI(props) {
       'bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10',
     )}
     >
-      {childrenUI}
+      {children}
     </div>
 
   );
 }
 
-export default BlurBlockBUI;
+export default BlurBlockbBg;
