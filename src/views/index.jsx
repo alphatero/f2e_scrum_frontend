@@ -23,21 +23,21 @@ function Home() {
 
         <div className={clsx(
           'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mb-20',
-          'bg-white/[.8]',
+          'bg-white bg-opacity-80',
         )}
         >
           {speechBubble[0].content}
         </div>
         <div className={clsx(
-          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mb-10 ml-[50%]',
-          'bg-white/[.8]',
+          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mb-10 ml-48',
+          'bg-white bg-opacity-80',
         )}
         >
           {speechBubble[1].content}
         </div>
         <div className={clsx(
-          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 ml-[-15px]',
-          'bg-white/[.8]',
+          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 -ml-4',
+          'bg-white bg-opacity-80',
         )}
         >
           {speechBubble[2].content}
@@ -46,15 +46,15 @@ function Home() {
         <div className="text-8xl">Scrum？</div>
 
         <div className={clsx(
-          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mt-20 ml-[-15px]',
-          'bg-white/[.8] ',
+          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mt-20 -ml-4',
+          'bg-white bg-opacity-80',
         )}
         >
           {speechBubble[3].content}
         </div>
         <div className={clsx(
-          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mt-20 ml-[33%]',
-          'bg-white/[.8] text-center',
+          'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mt-20 ml-32',
+          'bg-white bg-opacity-80 text-center',
         )}
         >
           <div>{speechBubble[4].content}</div>
