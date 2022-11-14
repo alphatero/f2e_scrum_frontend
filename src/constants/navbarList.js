@@ -21,7 +21,7 @@ export const PageList = [
   },
   {
     id: 7,
-    link: '/ExamSprintPoint',
+    link: '/exam/sprint-point',
     label: 'Exam Sprint Point',
   },
 ];

@@ -43,7 +43,7 @@ function ExamSprintPoint() {
 
       </div>
       <div className="w-full h-5 text-center m-3">﹀ ﹀ ﹀</div>
-      <p className="w-full h-5 text-right mb-1">優先度高</p>
+      <p className="w-full h-5 text-right mb-1">0 /20 point</p>
       <div className={clsx(
         'border border-zinc-800 rounded-lg',
         'p-3 space-y-3 h-[30vh]',
