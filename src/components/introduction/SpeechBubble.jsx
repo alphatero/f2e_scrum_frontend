@@ -5,7 +5,7 @@ export function SpeechBubble(props) {
   return (
 
     <div className={clsx(
-      'shadow-inner shadow-teal-500 w-full border border-gray-100 rounded-md p-3',
+      'shadow-inner-blur-5px shadow-teal-500/40 w-full border border-gray-100 rounded-3xl p-3',
       'bg-white',
     )}
     >
