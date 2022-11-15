@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../components';
-import { IntroductionRoleInfo } from '../constants/introductionRoleInfo';
+import { Button } from '../../components';
+import { scrumInfo } from '../../constants/introduction';
 
-function IntroductionRole() {
+export function Scrum() {
   const navigate = useNavigate();
-  const { title, article, button } = IntroductionRoleInfo;
+  const { title, article, button } = scrumInfo;
 
   const backHome = () => {
     navigate('/');
@@ -16,16 +16,17 @@ function IntroductionRole() {
         <h2 className="font-bold">{title}</h2>
         {article.map((word) => (
           <p key={`article_${word.id}`} className="py-2">
-            {word.contant}
+            {word.content}
           </p>
         ))}
       </article>
 
       <img src="/images/introduction-role.png" alt="" />
 
-      <Button onClick={backHome}>{button}</Button>
+      <Button onClick={backHome}>上一頁</Button>
+      <Button>{button}</Button>
     </div>
   );
 }
 
-export default IntroductionRole;
+export default Scrum;
