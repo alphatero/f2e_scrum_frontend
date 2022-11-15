@@ -6,12 +6,14 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { NavBar } from './components';
+import { BgBubble, NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
 import Home from './views';
+import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import './App.css';
-import IntroductionRole from './views/IntroductionRole';
+import { Scrum } from './views/introduction';
+import ProductBacklog from './views/exam/ProductBacklog';
 
 const pageVariants = {
   initial: {
@@ -50,6 +52,7 @@ function AnimationLayout() {
 function App() {
   return (
     <div className="h-screen">
+      <BgBubble />
       <Router>
         <NavBar />
         <hr />
@@ -58,7 +61,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-            <Route path="/IntroductionRole" element={<IntroductionRole />} />
+            <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
+            <Route path="/introduction/scrum" element={<Scrum />} />
+            <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
           </Route>
         </Routes>
       </Router>
