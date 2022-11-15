@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { SpeakingLoading } from './SpeakingLoading';
 
-export function ChatLog({
-  character, content, time, submitBySelf,
-}) {
+export function ChatLog({ data }) {
+  const {
+    character, content, time, submitBySelf,
+  } = data;
+
   return (
     <div
       className={clsx(
@@ -53,10 +55,12 @@ export function ChatLog({
             </div>
           ) : content.map(
             (msg) => (
-              <div className={clsx(
-                'py-2 px-4 rounded-3xl',
-                'bg-teal-500 text-sm text-white drop-shadow-md',
-              )}
+              <div
+                key={msg.length}
+                className={clsx(
+                  'py-2 px-4 rounded-3xl',
+                  'bg-teal-500 text-sm text-white drop-shadow-md',
+                )}
               >
                 <p>{msg}</p>
               </div>

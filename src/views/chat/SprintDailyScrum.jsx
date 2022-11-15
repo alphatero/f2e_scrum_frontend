@@ -1,10 +1,10 @@
-import clsx from 'clsx';
 import {
   NavBar,
   BeginMsg,
   ChatLog,
+  ChoiceResponse,
+  SubmitMsg,
 } from '../../components/chat';
-import { Icons } from '../../components';
 import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {
@@ -19,16 +19,12 @@ function SprintDailyScrum() {
       <hr className="mb-5" />
 
       <BeginMsg time={beginMsg.time} text={beginMsg.text} />
+
       <section className="px-2 py-5 space-y-5">
         {
           chatLogData.map(
             (item) => (
-              <ChatLog
-                character={item.character}
-                content={item.content}
-                time={item.time}
-                submitBySelf={item.submitBySelf}
-              />
+              <ChatLog key={item.id} data={item} />
             ),
           )
         }
@@ -36,46 +32,16 @@ function SprintDailyScrum() {
 
       <hr />
 
-      <section className="px-2 py-4 space-y-2">
-        <p className="text-xs text-slate-600">你是設計師，請你選擇在此情境下最合適的答案喔</p>
-        <ul className="flex flex-row gap-4 overflow-x-auto">
-          {
-            responseMsg.map((resMsg) => (
-              <li className={clsx(
-                'shrink-0 py-2 px-4',
-                'rounded-3xl bg-teal-500 text-white text-sm',
-              )}
-              >
-                {resMsg}
-              </li>
-            ))
-          }
-        </ul>
+      <section className="px-2 py-4 space-y-2 bg-white/50">
+        <ChoiceResponse
+          caption={responseMsg.caption}
+          selectList={responseMsg.selectList}
+        />
       </section>
 
       <hr />
 
-      <div
-        className={clsx(
-          'flex flex-row items-center gap-3',
-          'my-3 px-2',
-        )}
-      >
-        <label htmlFor="sendMsg" className="flex-1">
-          <input
-            id="sendMsg"
-            className={clsx(
-              'w-full py-2 px-3',
-              'border border-solid border-gray-400 rounded-3xl',
-            )}
-            placeholder="請輸入"
-            type="text"
-          />
-        </label>
-        <div className="w-6 shrink-0">
-          <Icons.SendMsg />
-        </div>
-      </div>
+      <SubmitMsg />
     </div>
   );
 }
