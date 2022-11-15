@@ -1,4 +1,4 @@
-export const PageList = [
+export const pageList = [
   {
     id: 0,
     link: '/',
@@ -16,8 +16,18 @@ export const PageList = [
   },
   {
     id: 3,
-    link: '/IntroductionRole',
-    label: 'Introduction Role',
+    link: '/introduction/scrum',
+    label: 'Introduction Scrum',
+  },
+  {
+    id: 4,
+    link: '/chat/sprint-daily-scrum',
+    label: 'Chat SprintDailyScrum',
+  },
+  {
+    id: 6,
+    link: '/Exam/ProductBacklog',
+    label: 'Product Backlog',
   },
   {
     id: 7,
@@ -26,4 +36,4 @@ export const PageList = [
   },
 ];
 
-export default PageList;
+export default pageList;
