@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
-import { PageList } from '../constants/navbarList';
+import { pageList } from '../constants/navbarList';
 
 export function NavBar() {
   return (
     <div>
       <ul>
-        {PageList.map((page) => (
+        {pageList.map((page) => (
           <li key={`page_${page.id}`}>
             <Link to={page.link}>{page.label}</Link>
           </li>
