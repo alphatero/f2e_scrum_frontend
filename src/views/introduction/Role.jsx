@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { RoleInfo } from '../../constants/roleInfo';
 
-function FrameUI({ ChildUI }) {
+function Frame({ children }) {
   return (
     <div className={clsx(
       'grid grid-flow-row auto-rows-max',
@@ -11,13 +11,12 @@ function FrameUI({ ChildUI }) {
       'p-3 mb-5',
     )}
     >
-      {ChildUI}
-
+      {children}
     </div>
   );
 }
 
-function ChildOpenUI({ card }) {
+function ChildOpen({ card }) {
   return (
     <div className="w-full">
       <div className="w-full mb-5 flex">
@@ -37,8 +36,8 @@ function ChildOpenUI({ card }) {
             />
             <img
               className={clsx('absolute m-auto inset-0 top-[-40px]', 'w-40 h-52')}
-              alt={`${card.title}`}
-              src={`${card.img}`}
+              alt={card.title}
+              src={card.img}
             />
           </div>
         </div>
@@ -56,7 +55,7 @@ function ChildOpenUI({ card }) {
   );
 }
 
-function ChildCloseUI({ card }) {
+function ChildClose({ card }) {
   return (
     <div className="w-full flex">
 
@@ -66,7 +65,7 @@ function ChildCloseUI({ card }) {
       </div>
       <div className="flex-none">
         <div className="relative w-24">
-          <img className="absolute m-auto inset-0 top-[20px] h-20" alt={`${card.title}`} src={`${card.img}`} />
+          <img className="absolute m-auto inset-0 top-[20px] h-20" alt={card.title} src={card.img} />
         </div>
 
       </div>
@@ -88,13 +87,13 @@ function Role() {
     <div className="p-4">
       {
         cards.map((card, idx) => (isOpen[idx] ? (
-
-          <FrameUI ChildUI={<ChildOpenUI card={card} />} />
-
+          <Frame>
+            <ChildOpen card={card} />
+          </Frame>
         ) : (
-
-          <FrameUI ChildUI={<ChildCloseUI card={card} />} />
-
+          <Frame>
+            <ChildClose card={card} />
+          </Frame>
         )))
       }
 
