@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ExamProductBacklogInfo } from '../../constants/examProductBacklogInfo';
+import { ArrowDownCircle } from '../../components/exam';
 
 function ProductBacklog() {
   const navigate = useNavigate();
@@ -35,7 +36,9 @@ function ProductBacklog() {
         }
 
       </div>
-      <div className="w-full h-5 text-center m-3">﹀ ﹀ ﹀</div>
+      <div className="w-full h-5 text-center m-3">
+        <ArrowDownCircle />
+      </div>
       <p className="w-full h-5 text-right mb-1">優先度高</p>
       <div className={clsx('border border-zinc-800 rounded-lg', 'p-3 space-y-3 h-[30vh]')}>
         {/* drag to here */}
