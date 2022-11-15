@@ -2,7 +2,6 @@ import clsx from 'clsx';
 
 export function TaskItem(props) {
   const { title, priority, point } = props;
-  const markStyle = (priority ? '' : 'w-10');
   const mark = (priority || point);
 
   return (
@@ -13,16 +12,17 @@ export function TaskItem(props) {
       'bg-teal-500 text-white',
     )}
     >
-      <div className="col-span-3">
-        <p>{title}</p>
+      <div className="col-span-3 grid justify-items-start place-items-center">
+        <div className="w-full text-left"><p>{title}</p></div>
+
       </div>
-      <div>
+      <div className="grid justify-items-end place-items-center">
         <div className="text-right">
           <div className={clsx(
             'inline-block',
-            markStyle,
             'h-10 rounded-lg p-2',
             'bg-white text-zinc-600 text-center',
+            (priority ? '' : 'w-10'),
           )}
           >
             <span>{mark}</span>
