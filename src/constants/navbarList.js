@@ -26,12 +26,7 @@ export const pageList = [
   },
   {
     id: 6,
-    link: '/Exam/ProductBacklog',
-    label: 'Product Backlog',
-  },
-  {
-    id: 6,
-    link: '/Exam/ProductBacklog',
+    link: '/exam/product-backlog',
     label: 'Product Backlog',
   },
 ];
