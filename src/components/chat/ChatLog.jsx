@@ -46,13 +46,7 @@ export function ChatLog({ data }) {
         {/* Chat content */}
         {
           submitBySelf ? (
-            <div className={clsx(
-              'py-2 px-4 h-10',
-              'rounded-3xl text-sm bg-gray-300 drop-shadow-md',
-            )}
-            >
-              <SpeakingLoading />
-            </div>
+            <SpeakingLoading />
           ) : content.map(
             (msg) => (
               <div
