@@ -17,7 +17,7 @@ function ProductBacklog() {
         {
           tasks.map((task) => (
             <div
-              key={task.id}
+              key={`task_${task.id}`}
               className={clsx(
                 'grid grid-cols-4 gap-2',
                 'w-full p-3',
