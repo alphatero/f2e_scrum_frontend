@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export function ChoiceResponse({ caption, selectList }) {
+export function ChoiceResponse({ caption, selectList, setChoiceMsg }) {
   return (
     <>
       <p className="text-xs text-slate-600">{ caption }</p>
@@ -15,7 +15,12 @@ export function ChoiceResponse({ caption, selectList }) {
                 'hover:bg-teal-300 active:bg-teal-600',
               )}
             >
-              {item.text}
+              <button
+                type="submit"
+                onClick={() => setChoiceMsg(item.text)}
+              >
+                { item.text }
+              </button>
             </li>
           ))
         }

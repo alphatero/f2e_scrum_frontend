@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   NavBar,
   BeginMsg,
@@ -12,6 +13,11 @@ function SprintDailyScrum() {
     previousPageName, beginMsg, chatLogData, responseMsg,
   } = ChatInfo.sprintDailyScrum;
 
+  const [choiceMsg, setChoiceMsg] = useState('');
+  const [sendMsg, setSendMsg] = useState('');
+  useEffect(() => {
+    console.log('sendMsg: ', sendMsg);
+  }, [sendMsg]);
   return (
     <div>
       <NavBar previousPage={previousPageName} />
@@ -34,6 +40,7 @@ function SprintDailyScrum() {
 
       <section className="px-2 py-4 space-y-2 bg-white/50">
         <ChoiceResponse
+          setChoiceMsg={setChoiceMsg}
           caption={responseMsg.caption}
           selectList={responseMsg.selectList}
         />
@@ -41,7 +48,10 @@ function SprintDailyScrum() {
 
       <hr />
 
-      <SubmitMsg />
+      <SubmitMsg
+        setSendMsg={setSendMsg}
+        choiceMsg={choiceMsg}
+      />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { Icons } from '../Icons';
 
-export function SubmitMsg() {
+export function SubmitMsg({ choiceMsg, setSendMsg }) {
   return (
     <div
       className={clsx(
@@ -9,20 +9,24 @@ export function SubmitMsg() {
         'my-3 px-2',
       )}
     >
-      <label htmlFor="sendMsg" className="flex-1">
-        <input
-          id="sendMsg"
-          className={clsx(
-            'w-full py-2 px-3',
-            'border border-solid border-gray-400 rounded-3xl',
-          )}
-          placeholder="請輸入"
-          type="text"
-        />
-      </label>
-      <div className="w-6 shrink-0">
+      <textarea
+        id="sendMsg"
+        className={clsx(
+          'w-full py-2 px-3',
+          'border border-solid border-gray-400 rounded-3xl',
+          'resize-none outline-none',
+        )}
+        placeholder="請輸入"
+        value={choiceMsg}
+        disabled
+      />
+      <button
+        onClick={() => setSendMsg(choiceMsg)}
+        type="submit"
+        className="w-6 shrink-0"
+      >
         <Icons.SendMsg />
-      </div>
+      </button>
     </div>
   );
 }
