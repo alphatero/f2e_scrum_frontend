@@ -31,7 +31,7 @@ export const pageList = [
   },
   {
     id: 2,
-    link: '/Role',
+    link: '/introduction/role',
     label: 'Role',
   },
 ];
