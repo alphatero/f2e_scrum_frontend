@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { BgBubble, NavBar } from './components';
 import ExampleLearn from './views/ExampleLearn';
 import ExampleChallenge from './views/ExampleChallenge';
+import Role from './views/introduction/Role';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
@@ -65,6 +66,7 @@ function App() {
             <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
             <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
             <Route path="/introduction/scrum" element={<Scrum />} />
+            <Route path="/introduction/role" element={<Role />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
           </Route>
         </Routes>

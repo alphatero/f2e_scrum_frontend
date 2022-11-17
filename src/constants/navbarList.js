@@ -31,6 +31,11 @@ export const pageList = [
   },
   {
     id: 7,
+    link: '/introduction/role',
+    label: 'Role',
+  },
+  {
+    id: 8,
     link: '/exam/sprint-point',
     label: 'Exam Sprint Point',
   },
