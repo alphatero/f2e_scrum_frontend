@@ -26,8 +26,13 @@ export const pageList = [
   },
   {
     id: 6,
-    link: '/Exam/ProductBacklog',
+    link: '/exam/product-backlog',
     label: 'Product Backlog',
+  },
+  {
+    id: 7,
+    link: '/exam/sprint-point',
+    label: 'Exam Sprint Point',
   },
 ];
 
