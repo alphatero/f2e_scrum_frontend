@@ -14,12 +14,11 @@ function Home() {
   return (
 
     <div className={clsx(
-      'h-full w-full',
-      "bg-black bg-[url('https://source.unsplash.com/random/150x200')] bg-cover bg-center",
+      'grid grid-flow-row auto-rows-max space-y-5',
+      'h-screen w-full',
     )}
     >
-
-      <div className="absolute m-auto inset-0 w-fit h-fit">
+      <div className="place-self-center justify-self-center">
 
         <div className={clsx(
           'w-fit h-fit border-4 border-white rounded-3xl py-2 px-5 mb-20',
@@ -62,10 +61,9 @@ function Home() {
         </div>
 
       </div>
-
       <div className={clsx(
-        'absolute inset-x-0 bottom-0',
-        'm-auto w-full flex justify-center',
+        'grid justify-center',
+        'w-full',
       )}
       >
         <Button onClick={backHome}>{button}</Button>
