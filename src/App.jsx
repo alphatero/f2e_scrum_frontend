@@ -6,9 +6,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BgBubble, NavBar } from './components';
-import ExampleLearn from './views/ExampleLearn';
-import ExampleChallenge from './views/ExampleChallenge';
+import { BgBubble } from './components';
 import Role from './views/introduction/Role';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
@@ -56,15 +54,15 @@ function App() {
     <div className="h-screen">
       <BgBubble />
       <Router>
-        <NavBar />
         <hr />
         <Routes>
           <Route element={<AnimationLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/ExampleLearn" element={<ExampleLearn />} />
-            <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
             <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
-            <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
+            <Route
+              path="/chat/sprint-daily-scrum"
+              element={<ChatSprintDailyScrum />}
+            />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/introduction/role" element={<Role />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
