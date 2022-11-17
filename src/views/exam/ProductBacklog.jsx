@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components/exam';
+import { Button } from '../../components';
 import { ExamProductBacklogInfo } from '../../constants/examProductBacklogInfo';
 
 function ProductBacklog() {
@@ -45,6 +45,10 @@ function ProductBacklog() {
       <p className="w-full h-5 text-right mb-1">優先度低</p>
 
       <div className="flex justify-center">
+        <Button onClick={backHome} isRabbit speechText="拖曳任務試試看吧！">{button}</Button>
+      </div>
+
+      <div className="flex justify-center mt-3">
         <Button onClick={backHome}>{button}</Button>
       </div>
 
