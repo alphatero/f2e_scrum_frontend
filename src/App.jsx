@@ -61,7 +61,7 @@ function App() {
               element={<ChatSprintDailyScrum />}
             />
             <Route path="/introduction/scrum" element={<Scrum />} />
-            <Route path="/Exam/ProductBacklog" element={<ProductBacklog />} />
+            <Route path="/exam/product-backlog" element={<ProductBacklog />} />
           </Route>
         </Routes>
       </Router>
