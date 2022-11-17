@@ -20,12 +20,16 @@ export function SubmitMsg({ choiceMsg, setSendMsg }) {
         value={choiceMsg}
         disabled
       />
+
       <button
         onClick={() => setSendMsg(choiceMsg)}
         type="submit"
         className="w-6 shrink-0"
       >
-        <Icons.SendMsg />
+        <Icons.SendMsg className={clsx(
+          choiceMsg ? 'text-slate-700' : 'text-slate-300',
+        )}
+        />
       </button>
     </div>
   );

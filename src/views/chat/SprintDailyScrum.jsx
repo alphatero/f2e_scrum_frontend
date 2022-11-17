@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useState, useEffect } from 'react';
 import {
   NavBar,
@@ -12,12 +13,14 @@ function SprintDailyScrum() {
   const {
     previousPageName, beginMsg, chatLogData, responseMsg,
   } = ChatInfo.sprintDailyScrum;
-
   const [choiceMsg, setChoiceMsg] = useState('');
   const [sendMsg, setSendMsg] = useState('');
+
   useEffect(() => {
     console.log('sendMsg: ', sendMsg);
-  }, [sendMsg]);
+    console.log('choiceMsg: ', choiceMsg);
+  }, [sendMsg, choiceMsg]);
+
   return (
     <div className="flex flex-col h-full">
       <NavBar previousPage={previousPageName} />
