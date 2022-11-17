@@ -17,11 +17,13 @@ function ProductBacklog() {
       <div className="border border-zinc-800 rounded-lg p-3 space-y-3">
         {
           tasks.map((task) => (
-            <div className={clsx(
-              'grid grid-cols-4 gap-2',
-              'w-full p-3',
-              'rounded-lg bg-zinc-200',
-            )}
+            <div
+              key={`task_${task.id}`}
+              className={clsx(
+                'grid grid-cols-4 gap-2',
+                'w-full p-3',
+                'rounded-lg bg-zinc-200',
+              )}
             >
               <div className="col-span-3">
                 <p>{task.content}</p>

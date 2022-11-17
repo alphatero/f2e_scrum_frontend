@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ReactComponent as ArrowDown } from '../../assets/icon/arrow-down.svg';
+import { Icons } from '../Icons';
 
 export function ArrowDownCircle() {
   return (
@@ -11,7 +11,7 @@ export function ArrowDownCircle() {
     )}
     >
       <div className="grid w-full h-full">
-        <ArrowDown className="place-self-center justify-self-center" />
+        <Icons.ArrowDown className="place-self-center justify-self-center" />
       </div>
     </div>
 
