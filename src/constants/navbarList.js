@@ -30,7 +30,7 @@ export const pageList = [
     label: 'Product Backlog',
   },
   {
-    id: 2,
+    id: 7,
     link: '/introduction/role',
     label: 'Role',
   },

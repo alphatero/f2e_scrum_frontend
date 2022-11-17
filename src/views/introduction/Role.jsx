@@ -46,7 +46,7 @@ function ChildOpen({ card }) {
 
       <div className="w-full">
         {card.intro.map((part) => (
-          <p className="mb-5">
+          <p key={part} className="mb-5">
             {part}
           </p>
         ))}
@@ -57,7 +57,7 @@ function ChildOpen({ card }) {
 
 function ChildClose({ card }) {
   return (
-    <div className="w-full flex">
+    <div className="w-full flex" key={`childclose_${card.id}`}>
 
       <div className="flex-1">
         <h3 className="text-xl">{card.title}</h3>
@@ -87,12 +87,12 @@ function Role() {
     <div className="p-4">
       {
         cards.map((card, idx) => (isOpen[idx] ? (
-          <Frame>
-            <ChildOpen card={card} />
+          <Frame key={`card_${card.id}`}>
+            <ChildOpen key={`child_${card.id}`} card={card} />
           </Frame>
         ) : (
-          <Frame>
-            <ChildClose card={card} />
+          <Frame key={`card_${card.id}`}>
+            <ChildClose key={`child_${card.id}`} card={card} />
           </Frame>
         )))
       }
