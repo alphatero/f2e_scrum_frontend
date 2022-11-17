@@ -12,6 +12,7 @@ import ExampleChallenge from './views/ExampleChallenge';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
+import ExamSprintPoint from './views/exam/SprintPoint';
 import { Scrum } from './views/introduction';
 import ProductBacklog from './views/exam/ProductBacklog';
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/ExampleLearn" element={<ExampleLearn />} />
             <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
+            <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
             <Route path="/chat/sprint-daily-scrum" element={<ChatSprintDailyScrum />} />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
