@@ -19,14 +19,18 @@ function SprintDailyScrum() {
     console.log('sendMsg: ', sendMsg);
   }, [sendMsg]);
   return (
-    <div>
+    <div className="flex flex-col h-full">
       <NavBar previousPage={previousPageName} />
 
       <hr className="mb-5" />
 
       <BeginMsg time={beginMsg.time} text={beginMsg.text} />
 
-      <section className="px-2 py-5 space-y-5">
+      <section className={clsx(
+        'flex flex-col flex-1',
+        'px-2 py-5 space-y-5 overflow-y-auto',
+      )}
+      >
         {
           chatLogData.map(
             (item) => (
