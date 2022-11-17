@@ -10,6 +10,7 @@ import { BgBubble } from './components';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
+import ExamSprintPoint from './views/exam/SprintPoint';
 import { Scrum } from './views/introduction';
 import ProductBacklog from './views/exam/ProductBacklog';
 
@@ -56,6 +57,7 @@ function App() {
         <Routes>
           <Route element={<AnimationLayout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
             <Route
               path="/chat/sprint-daily-scrum"
               element={<ChatSprintDailyScrum />}
