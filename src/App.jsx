@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BgBubble } from './components';
+import Role from './views/introduction/Role';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
@@ -63,6 +64,7 @@ function App() {
               element={<ChatSprintDailyScrum />}
             />
             <Route path="/introduction/scrum" element={<Scrum />} />
+            <Route path="/introduction/role" element={<Role />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
           </Route>
         </Routes>
