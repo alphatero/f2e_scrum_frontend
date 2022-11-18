@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BgBubble } from './components';
-import Role from './views/introduction/Role';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';

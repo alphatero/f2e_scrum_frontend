@@ -35,11 +35,7 @@ function ChildOpen({ card }) {
               'w-32 h-40',
             )}
             />
-            <img
-              className={clsx('absolute m-auto inset-0 top-[-40px]', 'w-40 h-52')}
-              alt={card.title}
-              src={card.img}
-            />
+            <RolePhoto topcss="-top-10" widthcss="w-40" heightcss="h-52" />
           </div>
         </div>
 
@@ -66,7 +62,7 @@ function ChildClose({ card }) {
       </div>
       <div className="flex-none">
         <div className="relative w-24">
-          <img className="absolute m-auto inset-0 top-[20px] h-20" alt={card.title} src={card.img} />
+          <RolePhoto topcss="top-5" heightcss="h-20" />
         </div>
 
       </div>
@@ -74,7 +70,7 @@ function ChildClose({ card }) {
   );
 }
 
-function Role() {
+export function Role() {
   const navigate = useNavigate();
   const { cards, button } = RoleInfo;
 
