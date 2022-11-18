@@ -14,6 +14,7 @@ import './App.css';
 import ExamSprintPoint from './views/exam/SprintPoint';
 import { Scrum } from './views/introduction';
 import ProductBacklog from './views/exam/ProductBacklog';
+import DndSample from './views/exam/DndSample';
 
 const pageVariants = {
   initial: {
@@ -66,6 +67,7 @@ function App() {
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/introduction/role" element={<Role />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
+            <Route path="/dnd" element={<DndSample />} />
           </Route>
         </Routes>
       </Router>
