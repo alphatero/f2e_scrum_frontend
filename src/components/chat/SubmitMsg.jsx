@@ -1,7 +1,12 @@
 import clsx from 'clsx';
 import { Icons } from '../Icons';
 
-export function SubmitMsg({ choiceMsg, setSendMsg }) {
+export function SubmitMsg({ choiceMsg, setChoiceMsg, setSendMsg }) {
+  const handleClick = (msg) => {
+    if (!msg) return;
+    setSendMsg(msg);
+    setChoiceMsg('');
+  };
   return (
     <div
       className={clsx(
@@ -18,11 +23,10 @@ export function SubmitMsg({ choiceMsg, setSendMsg }) {
         )}
         placeholder="請輸入"
         value={choiceMsg}
-        disabled
       />
 
       <button
-        onClick={() => setSendMsg(choiceMsg)}
+        onClick={() => handleClick(choiceMsg)}
         type="submit"
         className="w-6 shrink-0"
       >

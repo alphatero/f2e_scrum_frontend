@@ -6,6 +6,38 @@ export function ChatLog({ data }) {
     character, content, time, submitBySelf,
   } = data;
 
+  const switchMsg = (selfSubmit, text) => {
+    if (selfSubmit && !text) {
+      return <SpeakingLoading />;
+    }
+    if (selfSubmit) {
+      return (
+        <div
+          key={text}
+          className={clsx(
+            'py-2 px-4 rounded-3xl',
+            'bg-white text-sm text-slate-500 drop-shadow-md',
+          )}
+        >
+          <p>{text}</p>
+        </div>
+      );
+    }
+    return text.map(
+      (textItem) => (
+        <div
+          key={textItem.length}
+          className={clsx(
+            'py-2 px-4 rounded-3xl',
+            'bg-teal-500 text-sm text-white drop-shadow-md',
+          )}
+        >
+          <p>{textItem}</p>
+        </div>
+      ),
+    );
+  };
+
   return (
     <div
       className={clsx(
@@ -43,23 +75,9 @@ export function ChatLog({ data }) {
           { character }
         </p>
 
-        {/* Chat content */}
+        {/* Chat msg */}
         {
-          submitBySelf ? (
-            <SpeakingLoading />
-          ) : content.map(
-            (msg) => (
-              <div
-                key={msg.length}
-                className={clsx(
-                  'py-2 px-4 rounded-3xl',
-                  'bg-teal-500 text-sm text-white drop-shadow-md',
-                )}
-              >
-                <p>{msg}</p>
-              </div>
-            ),
-          )
+          switchMsg(submitBySelf, content)
         }
       </div>
 

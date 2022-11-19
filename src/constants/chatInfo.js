@@ -5,6 +5,13 @@ export const ChatInfo = {
       time: '上午 9:30',
       text: 'Scrum Master 已邀請 PO, 工程師, 系統分析師, 我, Bossss 加入群組',
     },
+    speakingLoadingData: {
+      id: null,
+      character: '我',
+      content: null,
+      time: '',
+      submitBySelf: true,
+    },
     chatLogData: [
       {
         id: 0,
@@ -29,13 +36,6 @@ export const ChatInfo = {
         content: ['我昨天在準備需求訪談內容，目前也還沒遇到問題，預計今日會與客戶訪談內容。'],
         time: '上午 9:35',
         submitBySelf: false,
-      },
-      {
-        id: 3,
-        character: '我',
-        content: null,
-        time: '',
-        submitBySelf: true,
       },
     ],
     responseMsg: {

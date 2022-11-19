@@ -11,36 +11,47 @@ import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {
   const {
-    previousPageName, beginMsg, chatLogData, responseMsg,
+    previousPageName, beginMsg, speakingLoadingData, chatLogData, responseMsg,
   } = ChatInfo.sprintDailyScrum;
+
+  const [currentChatLogData, setCurrentChatLogData] = useState(chatLogData);
   const [choiceMsg, setChoiceMsg] = useState('');
   const [sendMsg, setSendMsg] = useState('');
 
+  const updateChatLogData = (msg) => {
+    const time = new Date().toLocaleTimeString();
+    const newLog = {
+      id: currentChatLogData.length,
+      character: '我',
+      content: msg,
+      time,
+      submitBySelf: true,
+    };
+    setCurrentChatLogData((existingItems) => [...existingItems, newLog]);
+  };
+
   useEffect(() => {
-    console.log('sendMsg: ', sendMsg);
-    console.log('choiceMsg: ', choiceMsg);
-  }, [sendMsg, choiceMsg]);
+    if (sendMsg) updateChatLogData(sendMsg);
+  }, [sendMsg]);
 
   return (
     <div className="flex flex-col h-full">
       <NavBar previousPage={previousPageName} />
-
-      <hr className="mb-5" />
-
-      <BeginMsg time={beginMsg.time} text={beginMsg.text} />
 
       <section className={clsx(
         'flex flex-col flex-1',
         'px-2 py-5 space-y-5 overflow-y-auto',
       )}
       >
+        <BeginMsg time={beginMsg.time} text={beginMsg.text} />
         {
-          chatLogData.map(
+          currentChatLogData.map(
             (item) => (
-              <ChatLog key={item.id} data={item} />
+              <ChatLog key={item.id + item.time} data={item} />
             ),
           )
         }
+        <ChatLog data={speakingLoadingData} />
       </section>
 
       <hr />
@@ -57,6 +68,7 @@ function SprintDailyScrum() {
 
       <SubmitMsg
         setSendMsg={setSendMsg}
+        setChoiceMsg={setChoiceMsg}
         choiceMsg={choiceMsg}
       />
     </div>

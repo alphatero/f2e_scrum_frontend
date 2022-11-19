@@ -15,10 +15,7 @@ export function ChoiceResponse({ caption, selectList, setChoiceMsg }) {
                 'hover:bg-teal-300 active:bg-teal-600',
               )}
             >
-              <button
-                type="submit"
-                onClick={() => setChoiceMsg(item.text)}
-              >
+              <button type="submit" onClick={() => setChoiceMsg(item.text)}>
                 { item.text }
               </button>
             </li>
