@@ -11,10 +11,11 @@ import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {
   const {
-    previousPageName, beginMsg, speakingLoadingData, chatLogData, responseMsg,
+    previousPageName, beginMsg, chattingLog, speakingLoadingData, chatLogData, responseMsg,
   } = ChatInfo.sprintDailyScrum;
 
-  const [currentChatLogData, setCurrentChatLogData] = useState(chatLogData);
+  // const [currentChatLogData, setCurrentChatLogData] = useState(chatLogData);
+  const [currentChatLogData, setCurrentChatLogData] = useState(chattingLog);
   const [choiceMsg, setChoiceMsg] = useState('');
   const [sendMsg, setSendMsg] = useState('');
 
@@ -27,12 +28,41 @@ function SprintDailyScrum() {
       time,
       submitBySelf: true,
     };
+    console.log('updateChatLogData: ');
+    console.log(currentChatLogData);
     setCurrentChatLogData((existingItems) => [...existingItems, newLog]);
   };
 
   useEffect(() => {
+    console.log('===---useEffect console.log---===');
+    console.log('currentChatLogData: ', currentChatLogData);
+    console.log('sendMsg: ', sendMsg);
     if (sendMsg) updateChatLogData(sendMsg);
   }, [sendMsg]);
+
+  // const msgLog = chatLogData;
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!chatLogData.length > 0) return;
+      console.log('===---before push---===');
+      console.log('currentChatLogData: ', currentChatLogData);
+      console.log('currentChatLogData length: ', currentChatLogData.length);
+      console.log('chatLogData: ', chatLogData);
+      console.log('chatLogData length: ', chatLogData.length);
+      setCurrentChatLogData(
+        () => currentChatLogData.push(
+          chatLogData.shift(),
+        ),
+      );
+      console.log('===---after push---===');
+      console.log('currentChatLogData: ', currentChatLogData);
+      console.log('currentChatLogData length: ', currentChatLogData.length);
+      console.log('chatLogData: ', chatLogData);
+      console.log('chatLogData length: ', chatLogData.length);
+    }, 1500);
+    // eslint-disable-next-line consistent-return
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex flex-col h-full">
@@ -45,11 +75,15 @@ function SprintDailyScrum() {
       >
         <BeginMsg time={beginMsg.time} text={beginMsg.text} />
         {
-          currentChatLogData.map(
-            (item) => (
-              <ChatLog key={item.id + item.time} data={item} />
-            ),
-          )
+          currentChatLogData.length > 0
+            ? currentChatLogData.map(
+              (item) => (
+                <ChatLog
+                  key={item.id + item.time}
+                  data={item}
+                />
+              ),
+            ) : null
         }
         <ChatLog data={speakingLoadingData} />
       </section>

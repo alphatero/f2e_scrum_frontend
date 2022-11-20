@@ -5,14 +5,7 @@ export const ChatInfo = {
       time: '上午 9:30',
       text: 'Scrum Master 已邀請 PO, 工程師, 系統分析師, 我, Bossss 加入群組',
     },
-    speakingLoadingData: {
-      id: null,
-      character: '我',
-      content: null,
-      time: '',
-      submitBySelf: true,
-    },
-    chatLogData: [
+    chattingLog: [
       {
         id: 0,
         character: 'Scrum Master',
@@ -23,6 +16,25 @@ export const ChatInfo = {
         time: '上午 9:30',
         submitBySelf: false,
       },
+    ],
+    speakingLoadingData: {
+      id: null,
+      character: '我',
+      content: null,
+      time: '',
+      submitBySelf: true,
+    },
+    chatLogData: [
+      // {
+      //   id: 0,
+      //   character: 'Scrum Master',
+      //   content: [
+      //     '我們開始這個 sprint 的每日站會囉！每日站會主要要講三件事情',
+      //     '1. 昨天做了什麼事情 2. 執行上有沒有遇到困難 3. 預計今日要做什麼  大家試著講講看吧！',
+      //   ],
+      //   time: '上午 9:30',
+      //   submitBySelf: false,
+      // },
       {
         id: 1,
         character: '工程師',
