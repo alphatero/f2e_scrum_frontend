@@ -1,3 +1,4 @@
+// import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { scrumInfo } from '../../constants/introduction';
@@ -21,7 +22,22 @@ export function Scrum() {
         ))}
       </article>
 
-      <img src="/images/introduction-role.png" alt="" />
+      <div className="flex justify-center items-center relative">
+        <span className="flex w-72">
+          {/* <Icons.TrianglePath /> */}
+          {/* <Icons.PathBall className="absolute" /> */}
+
+          {/*
+          <motion.div
+            style={{ width: '116px', height: '50px' }}
+            animate={{ scale: [1, 2] }}
+            transition={{ duration: 1 }}
+          >
+            <Icons.CurrentRole className="absolute w-72" />
+          </motion.div> */}
+          {/* <Icons.TriangleTitle className="absolute" /> */}
+        </span>
+      </div>
 
       <Button onClick={backHome}>上一頁</Button>
       <Button>{button}</Button>
