@@ -12,7 +12,7 @@ import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import Home from './views/Home';
 import './App.css';
 import ExamSprintPoint from './views/exam/SprintPoint';
-import { Scrum } from './views/introduction';
+import { Scrum, IntroProductBacklog } from './views/introduction';
 import ProductBacklog from './views/exam/ProductBacklog';
 
 const pageVariants = {
@@ -65,6 +65,7 @@ function App() {
             />
             <Route path="/introduction/scrum" element={<Scrum />} />
             <Route path="/introduction/role" element={<Role />} />
+            <Route path="/introduction/product-backlog" element={<IntroProductBacklog />} />
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
           </Route>
         </Routes>
