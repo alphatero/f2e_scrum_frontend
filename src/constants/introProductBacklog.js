@@ -17,6 +17,7 @@ export const IntroProductBacklogInfo = {
     },
   ],
   img: {
+    rabbitUrl: '/images/introduction-product-backlog-rabbit.png',
     url: '/images/introduction-product-backlog.jpg',
     attribution: '圖片來源. 新加坡鈦坦科技-活的待辦清單',
   },

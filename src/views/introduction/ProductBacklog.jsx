@@ -28,7 +28,7 @@ export function IntroProductBacklog() {
         </div>
         <div className="place-self-end">
           {/* TODO: replace by rabbit compo */}
-          <img src="https://source.unsplash.com/random/30×50" alt="" />
+          <img src={img.rabbitUrl} alt="" />
         </div>
       </div>
       <div className="w-full">
@@ -71,8 +71,8 @@ export function IntroProductBacklog() {
           </div>
         </div>
       </div>
-      {/* <div><img src="/images/introduction-role.png" alt="" /></div> */}
       <div className="space-y-4 mt-4">
+        {/* TODO: replace by Button with Rabbit compo */}
         <div className="flex justify-center">
           <Button>{button}</Button>
         </div>
