@@ -1,78 +1,62 @@
 // import clsx from 'clsx';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'; //
-import { useState } from 'react';
+// import { useState } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TaskItem } from '../../components/exam';
 
 function DndSample() {
-  const [items] = useState([
+  const tasks = [
+    {
+      id: 0,
+      title: 'Read chapters for next class',
+      priority: '優先度高',
+      seq: 0,
+    },
     {
       id: 1,
-      content: 'item1',
+      title: 'Brainsotrm project ideas',
+      priority: '優先度中',
+      seq: 1,
     },
     {
       id: 2,
-      content: 'item2',
+      title: 'run the project',
+      priority: '優先度低',
+      seq: 2,
     },
-    {
-      id: 3,
-      content: 'item3',
-    },
-  ]);
+  ];
 
   return (
-    <div className="p-4">
+    <DndProvider backend={HTML5Backend}>
+      <div className="p-4 space-y-5">
+        <TaskItem key={tasks[0].id} task={tasks[0]} />
+      </div>
+    </DndProvider>
 
-      <DragDropContext
-        onBeforeCapture={() => console.log('onBeforeCapture')} // eslint-disable-line no-console
-        onBeforeDragStart={() => console.log('onBeforeDragStart')} // eslint-disable-line no-console
-        onDragStart={() => console.log('onDragStart')} // eslint-disable-line no-console
-        onDragUpdate={() => console.log('onDragUpdate')} // eslint-disable-line no-console
-        onDragEnd={() => console.log('onDragEnd')} // eslint-disable-line no-console
-      >
-        <Droppable droppableId="droppable-1">
-          {(provided) => (
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            <div {...provided.droppableProps} ref={provided.innerRef}>
-              {/*
-                provided.innerRef
-                套件的機制所需, 直接去取用 dom 的 ref, 就是套用的例行公事
-              */}
+  // <DndProvider>
+  //   <div className="p-4 space-y-5">
 
-              {items.map((item, index) => (
-              // 以 map 方式渲染每個拖曳卡片 (Draggable)
+  //     <div className="p-4 border border-zinc-600 space-y-2">
+  //       {
+  //         tasks.map((task) => (
 
-                <Draggable key={`item_${item.id}`} draggableId={`item_${item.id}`} index={index}>
-                  {/* // draggableId: 該卡片的唯一識別ID */}
-                  {(dragProvided) => (
-                  /*
-                    ...provided.droppableProps
-                    ...provided.draggableProps
-                    ...provided.dragHandleProps
-                    單純展開其他必要的 props
-                  */
+  //           <div ref={dragPreview} style={{ opacity: isDragging ? 0.5 : 1 }}>
+  //             <TaskItem ref={drag} key={task.id} title={task.title} priority={task.priority} />
+  //           </div>
+  //         ))
+  //       }
+  //     </div>
+  //     <div
+  //       ref={drop}
+  //       style={{ backgroundColor: isOver ? 'red' : 'white' }}
+  //       className="p-4 border border-zinc-600 space-y-2"
+  //     >
+  //       {/* place here */}
+  //       {canDrop ? 'Release to drop' : 'Drag a box here'}
+  //     </div>
 
-                    <div
-                      ref={dragProvided.innerRef}
-                      // eslint-disable-next-line react/jsx-props-no-spreading
-                      {...dragProvided.draggableProps}
-                      // eslint-disable-next-line react/jsx-props-no-spreading
-                      {...dragProvided.dragHandleProps}
-                    >
-
-                      {/* 實際上的卡片內容 */}
-                      {item.content}
-                      {/* 實際上的卡片內容 */}
-
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-            </div>
-          )}
-        </Droppable>
-        <div>Hello world</div>
-      </DragDropContext>
-    </div>
-
+  //   </div>
+  // </DndProvider>
   );
 }
 
