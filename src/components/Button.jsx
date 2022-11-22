@@ -27,9 +27,17 @@ export function Button(
     <div className={clsx(
       'relative grid',
       widthClass,
-      (isRabbit ? 'h-36' : ''),
+      (isRabbit ? 'min-h-36' : ''),
     )}
     >
+      {
+        speechText && (
+          <div className="w-fit mb-5 pl-16">
+            <SpeechBubble text={speechText} />
+          </div>
+        )
+      }
+
       <button
         type="button"
         className={clsx(
@@ -50,14 +58,6 @@ export function Button(
           className="absolute left-0 bottom-0"
           alt=""
         />
-        )
-      }
-
-      {
-        speechText && (
-          <div className="absolute left-20 bottom-20 w-fit">
-            <SpeechBubble text={speechText} />
-          </div>
         )
       }
 
