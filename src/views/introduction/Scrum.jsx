@@ -6,6 +6,7 @@ import {
   RoleTriangle,
   BlurBlockBg,
   ScrumMessageBox,
+  Tag,
 } from '../../components';
 import { scrumInfo } from '../../constants/introduction';
 
@@ -53,15 +54,7 @@ export function Scrum() {
               </p>
             ))}
             <div className="mt-6 mb-4">
-              <div
-                className={clsx(
-                  'inline-block',
-                  'py-2 px-3 -translate-x-5',
-                  'text-white bg-primary rounded-r-full',
-                )}
-              >
-                <p>{sectionTitle}</p>
-              </div>
+              <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
               <p key={`article_${word.id}`} className="py-2">
