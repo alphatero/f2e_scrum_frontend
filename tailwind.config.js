@@ -19,9 +19,28 @@ module.exports = {
           '80%': { borderRadius: '76% 92% 90% 77%' },
           '90%': { borderRadius: '83% 77% 99% 88%' },
         },
+        floating: {
+          '0% 100%': { transform: 'translateY(0%)' },
+          '25%': { transform: 'translateY(1%)' },
+          '50%': { transform: 'translateY(0%)' },
+          '75%': { transform: 'translateY(-1%)' },
+        },
+        appearUp: {
+          '0%': {
+            transform: 'translateY(35px)',
+          },
+          '50%': {
+            transform: 'translateY(15px)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
       },
       animation: {
         bloop: 'bloop 12s linear infinite',
+        floating: 'floating 4s linear infinite',
+        appear: 'appearUp 5s linear',
       },
     },
   },

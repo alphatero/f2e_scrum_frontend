@@ -1,28 +1,28 @@
 import clsx from 'clsx';
 
-export function TextBubble({ data }) {
+export function TextBubble({ data, classList }) {
   const { id, content } = data;
 
   const renderHTML = (msg) => ({ __html: msg });
 
   const speechBubbleClassList = [
-    'ml-6',
-    'mr-6',
-    'ml-5',
-    'mr-5',
+    'ml-6 mr-auto',
+    'mr-6 ml-auto',
+    'ml-5 mr-auto',
+    'mr-5 ml-auto',
   ];
 
   return (
     <div className={clsx(
-      (id % 2) ? 'ml-auto' : 'mr-auto',
       speechBubbleClassList[id],
+      classList,
       'relative py-2 px-5 rounded-3xl',
       'border border-solid border-white',
-      'bg-white/50',
+      'text-sm bg-white/50',
     )}
     >
       <span className="text-sm" dangerouslySetInnerHTML={renderHTML(content)} />
-      <div className="inset-0 blur-sm" />
+      <div className="absolute inset-0 blur-3xl" />
     </div>
   );
 }
