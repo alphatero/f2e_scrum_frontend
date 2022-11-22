@@ -2,7 +2,7 @@ export const RoleInfo = {
   cards: [
     {
       id: 0,
-      img: 'https://source.unsplash.com/random/150x200',
+      img: '/images/introduction-role-po.png',
       title: 'PO (Product Owner)',
       subtitle: '產品負責人',
       introTitle: '座右銘',
@@ -14,7 +14,7 @@ export const RoleInfo = {
     },
     {
       id: 1,
-      img: 'https://source.unsplash.com/random/150x200',
+      img: '/images/introduction-role-sm.png',
       title: 'SM (Scrum Master)',
       subtitle: 'Scrum 主持人',
       introTitle: '座右銘',
@@ -26,7 +26,7 @@ export const RoleInfo = {
     },
     {
       id: 2,
-      img: 'https://source.unsplash.com/random/150x200',
+      img: '/images/introduction-role-dev.png',
       title: 'DEV (Development Team)',
       subtitle: '開發團隊',
       introTitle: '座右銘',
