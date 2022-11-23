@@ -39,7 +39,8 @@ module.exports = {
       },
       animation: {
         bloop: 'bloop 12s linear infinite',
-        floating: 'floating 4s linear infinite',
+        'floating-a': 'floating 4s linear infinite',
+        'floating-b': 'floating 4s ease-in infinite reverse',
         appear: 'appearUp 5s linear',
       },
     },
