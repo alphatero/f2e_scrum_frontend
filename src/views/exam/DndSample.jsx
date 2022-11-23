@@ -1,8 +1,10 @@
 // import clsx from 'clsx';
 // import { useState } from 'react';
+// import { DndProvider } from 'react-dnd';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TaskItem } from '../../components/exam';
+// import { ItemTypes } from '../../constants/dnd';
 
 function DndSample() {
   const tasks = [
@@ -26,11 +28,27 @@ function DndSample() {
     },
   ];
 
+  // 用 useDrop 定義拖放區
+  // const [, drop] = useDrop({
+  //   accept: ItemTypes.TASKITEM,
+  //   // 這裡可以取得拖曳物件的 item 屬性，就是在useDrag中設定的 item
+  //   drop: (item) => {
+  //     // 制定拖放後的動作
+  //     console.log('Drop on todo', item); // eslint-disable-line no-console
+  //   },
+  // });
+
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="p-4 space-y-5">
-        <TaskItem key={tasks[0].id} task={tasks[0]} />
+        {
+          tasks.map((task) => (
+            <TaskItem key={task.id} task={task} />
+          ))
+        }
+
       </div>
+
     </DndProvider>
 
   // <DndProvider>

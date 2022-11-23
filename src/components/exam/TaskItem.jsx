@@ -1,18 +1,18 @@
 import clsx from 'clsx';
-import { useDrag } from 'react-dnd';
+import { useDrag, useDrop } from 'react-dnd';
 import { ItemTypes } from '../../constants/dnd';
 
 export function TaskItem({ task }) {
   // const { title, priority, point } = props;
   const {
-    id: taskId, title, priority = null, point = null, seq: taskSeq,
+    id, title, priority = null, point = null, seq,
   } = task;
   const mark = (priority || point);
 
-  // 用useDrag定義拖曳行為: 陣列的第一個元素用於蒐集拖曳狀態的屬性
+  // 用 useDrag 定義拖曳行為: 陣列的第一個元素用於蒐集拖曳狀態的屬性
   const [{ isDragging }, drag] = useDrag({
     type: ItemTypes.TASKITEM,
-    item: () => ({ taskId, taskSeq }),
+    item: () => ({ taskId: id, taskSeq: seq }),
 
     // 蒐集狀態
     collect: (monitor) => ({
@@ -20,8 +20,18 @@ export function TaskItem({ task }) {
     }),
   });
 
+  // 用 useDrop 定義拖放區
+  const [, drop] = useDrop({
+    accept: ItemTypes.TASKITEM,
+    // 這裡可以取得拖曳物件的 item 屬性，就是在useDrag中設定的 item
+    drop: (item) => {
+      // 制定拖放後的動作
+      console.log('Drop on todo', item); // eslint-disable-line no-console
+    },
+  });
+
   return (
-    <div ref={drag}>
+    <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
 
       <div className={clsx(
         'grid grid-cols-4 gap-2',
@@ -49,6 +59,9 @@ export function TaskItem({ task }) {
         </div>
       </div>
 
+      <div ref={drop} className="border border-zinc-600 h-20">
+        {/* place here */}
+      </div>
     </div>
   );
 }
