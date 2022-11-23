@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import { SpeakingLoading } from './SpeakingLoading';
 
 export function ChatLog({ data }) {
@@ -10,6 +11,7 @@ export function ChatLog({ data }) {
     if (selfSubmit && !text) {
       return <SpeakingLoading />;
     }
+
     if (selfSubmit) {
       return (
         <div
@@ -23,18 +25,46 @@ export function ChatLog({ data }) {
         </div>
       );
     }
-    return text.map(
-      (textItem) => (
-        <div
-          key={textItem.length}
-          className={clsx(
-            'py-2 px-4 rounded-3xl',
-            'bg-teal-500 text-sm text-white drop-shadow-md',
-          )}
-        >
-          <p>{textItem}</p>
-        </div>
-      ),
+
+    const itemMotion = {
+      enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 1 } },
+      exit: { opacity: 0, x: -20 },
+    };
+
+    const mainMotion = {
+      enter: {
+        opacity: 1,
+        transition: { staggerChildren: 0.5, delayChildren: 0.2 },
+      },
+      exit: {
+        opacity: 0,
+        transition: { staggerChildren: 0.05, staggerDirection: -1 },
+      },
+    };
+
+    return (
+      <motion.ul
+        className="flex flex-col space-y-2"
+        variants={mainMotion}
+        initial="exit"
+        animate="enter"
+        exit="exit"
+      >
+        {text.map(
+          (textItem) => (
+            <motion.li
+              variants={itemMotion}
+              key={textItem.length}
+              className={clsx(
+                'py-2 px-4 rounded-3xl',
+                'bg-teal-500 text-sm text-white drop-shadow-md',
+              )}
+            >
+              <p>{textItem}</p>
+            </motion.li>
+          ),
+        )}
+      </motion.ul>
     );
   };
 

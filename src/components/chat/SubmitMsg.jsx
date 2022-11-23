@@ -23,6 +23,7 @@ export function SubmitMsg({ choiceMsg, setChoiceMsg, setSendMsg }) {
         )}
         placeholder="請輸入"
         value={choiceMsg}
+        readOnly
       />
 
       <button
