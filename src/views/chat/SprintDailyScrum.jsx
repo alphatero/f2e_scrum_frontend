@@ -12,7 +12,7 @@ import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {
   const {
-    previousPageName, beginMsg, chattingLog, speakingLoadingData, responseMsg,
+    previousPageName, beginMsg, chattingLog, speakingLoadingData, responseMsg, requestMsg,
   } = ChatInfo.sprintDailyScrum;
 
   const [currentChatLogData, setCurrentChatLogData] = useState(chattingLog);
@@ -29,17 +29,9 @@ function SprintDailyScrum() {
       submitBySelf: true,
     };
 
-    const res = {
-      id: 13555,
-      character: 'Scrum Master',
-      content: [
-        '鉛筆你做啊！',
-      ],
-      time,
-      submitBySelf: false,
-    };
+    const resMsg = requestMsg.find((req) => req.text === msg);
 
-    setCurrentChatLogData((existingItems) => [...existingItems, newLog, res]);
+    setCurrentChatLogData((existingItems) => [...existingItems, newLog, ...resMsg.requestList]);
   };
 
   const mainMotion = {
@@ -82,6 +74,7 @@ function SprintDailyScrum() {
           initial="exit"
           animate="enter"
           exit="exit"
+          className="flex flex-col space-y-2"
         >
 
           {
