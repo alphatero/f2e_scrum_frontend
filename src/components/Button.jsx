@@ -1,18 +1,68 @@
 import clsx from 'clsx';
+import { SpeechBubble } from './introduction';
 
-export function Button({ children, onClick, className }) {
+export function Button(
+  {
+    children, onClick, className,
+    btnType = 'primary', disabled = false, isRabbit = false,
+    speechText = null,
+  },
+) {
+  const btn = {
+    primary: `
+    text-white bg-teal-500 
+    hover:bg-teal-400 
+    active:bg-teal-600 
+    disabled:bg-slate-300
+    `,
+    secondary: `
+    border border-teal-500 text-teal-500 
+    hover:border-teal-400 hover:bg-teal-50 hover:text-teal-400 
+    active:border-teal-600 active:text-teal-600 
+    disabled:border-slate-300 disabled:text-slate-300
+    `,
+  };
+
   return (
-    <button
-      type="button"
-      className={clsx(
-        'flex justify-center ',
-        'py-4 w-3/4 md:w-60 rounded-3xl',
-        className,
-      )}
-      onClick={onClick}
+    <div className={clsx(
+      'relative grid',
+      className,
+      (isRabbit ? 'min-h-36' : ''),
+    )}
     >
-      <p>{children}</p>
-    </button>
+      {
+        speechText && (
+          <div className="w-fit mb-5 pl-16">
+            <SpeechBubble text={speechText} />
+          </div>
+        )
+      }
+
+      <button
+        type="button"
+        className={clsx(
+          'place-self-end justify-center',
+          'w-full py-4 rounded-3xl',
+          btn[btnType],
+        )}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        <p>{children}</p>
+      </button>
+
+      {
+        isRabbit && (
+        <img
+          src="/images/rabbit-look-right.png"
+          className="absolute left-0 bottom-0"
+          alt=""
+        />
+        )
+      }
+
+    </div>
+
   );
 }
 
