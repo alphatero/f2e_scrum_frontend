@@ -69,7 +69,7 @@ function SprintDailyScrum() {
   }, [sendMsg]);
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full max-w-5xl mx-auto">
       <ChatNavBar previousPage={previousPageName} />
 
       <section
