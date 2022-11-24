@@ -108,7 +108,7 @@ function SprintDailyScrum() {
         </motion.ul>
 
         {!lastMsg && (
-        <Button className="text-white bg-primary" onClick={nextPage}>
+        <Button btnType="primary" onClick={nextPage}>
           進入 Review
           {' '}
           {'>>'}
