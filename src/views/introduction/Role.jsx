@@ -1,17 +1,17 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components';
+import { Button, BlurBlockBg } from '../../components';
 import { RoleInfo } from '../../constants/roleInfo';
 
 function Frame({ children }) {
   return (
     <div className={clsx(
       'grid grid-flow-row auto-rows-max',
-      'border border-zinc-800 rounded-lg',
-      'p-3 mb-5',
+      'rounded-lg mb-5',
     )}
     >
-      {children}
+      <BlurBlockBg styleType="BlurBlockB">{children}</BlurBlockBg>
+
     </div>
   );
 }
