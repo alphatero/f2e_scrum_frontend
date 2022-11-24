@@ -30,7 +30,7 @@ export const ExamProductBacklogInfo = {
       seq: 3,
     },
   ],
-  button: '開始 Sprint ！',
+  button: '接下來要進入 Sprint 囉！',
 };
 
 export default ExamProductBacklogInfo;
