@@ -10,7 +10,7 @@ function Frame({ children }) {
       'rounded-lg mb-5',
     )}
     >
-      <BlurBlockBg rounded="rounded-lg">{children}</BlurBlockBg>
+      <BlurBlockBg className="backdrop-blur-md rounded-lg p-3">{children}</BlurBlockBg>
 
     </div>
   );
