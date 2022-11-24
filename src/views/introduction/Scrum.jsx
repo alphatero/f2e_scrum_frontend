@@ -29,8 +29,8 @@ export function Scrum() {
   };
 
   return (
-    <div className="flex flex-col mt-4">
-      <div className="px-4 flex">
+    <div className="flex flex-col pt-4">
+      <div className="px-4 flex max-w-5xl mx-auto">
         <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4')}>
 
           <ScrumMessageBox />
@@ -45,7 +45,7 @@ export function Scrum() {
           />
         </div>
       </div>
-      <BlurBlockBg>
+      <BlurBlockBg styleType="BlurBlockA">
         <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
           <article className="flex flex-col px-5">
             {titles.map((title) => (
@@ -65,10 +65,11 @@ export function Scrum() {
 
           <RoleTriangle />
 
-          <Button className="bg-primary text-white" onClick={nextPage}>{button}</Button>
+          <Button className="w-full" onClick={nextPage}>{button}</Button>
 
           <Button
-            className="border border-primary text-primary"
+            className="w-full"
+            btnType="primary"
             onClick={backHome}
           >
             回上頁
