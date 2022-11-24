@@ -4,8 +4,10 @@ import { SpeakingLoading } from './SpeakingLoading';
 
 export function ChatLog({ data }) {
   const {
-    character, content, time, submitBySelf,
+    character, content, submitBySelf,
   } = data;
+
+  const time = new Date().toLocaleTimeString();
 
   const switchMsg = (selfSubmit, text) => {
     if (selfSubmit && !text) {

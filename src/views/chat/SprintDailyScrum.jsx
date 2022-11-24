@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import {
-  NavBar,
+  ChatNavBar,
   BeginMsg,
   ChatLog,
   ChoiceResponse,
   SubmitMsg,
-} from '../../components/chat';
+  Button,
+} from '../../components';
 import { ChatInfo } from '../../constants/chatInfo';
 
 function SprintDailyScrum() {
@@ -16,8 +17,10 @@ function SprintDailyScrum() {
   } = ChatInfo.sprintDailyScrum;
 
   const [currentChatLogData, setCurrentChatLogData] = useState(chattingLog);
+  const [lastMsg, setLastMsg] = useState(speakingLoadingData);
   const [choiceMsg, setChoiceMsg] = useState('');
   const [sendMsg, setSendMsg] = useState('');
+  const ref = useRef(null);
 
   const updateChatLogData = (msg) => {
     const time = new Date().toLocaleTimeString();
@@ -30,6 +33,10 @@ function SprintDailyScrum() {
     };
 
     const resMsg = requestMsg.find((req) => req.text === msg);
+
+    if (msg === responseMsg.selectList[1].text) {
+      setLastMsg(null);
+    }
 
     setCurrentChatLogData((existingItems) => [...existingItems, newLog, ...resMsg.requestList]);
   };
@@ -55,18 +62,22 @@ function SprintDailyScrum() {
     exit: { opacity: 0, x: 20 },
   };
 
+  const nextPage = () => {};
+
   useEffect(() => {
     if (sendMsg) updateChatLogData(sendMsg);
   }, [sendMsg]);
 
   return (
     <div className="flex flex-col h-full">
-      <NavBar previousPage={previousPageName} />
+      <ChatNavBar previousPage={previousPageName} />
 
-      <section className={clsx(
-        'flex flex-col flex-1',
-        'px-2 py-5 space-y-5 overflow-y-auto',
-      )}
+      <section
+        className={clsx(
+          'flex flex-col flex-1',
+          'px-2 py-5 space-y-5 overflow-y-auto',
+        )}
+        ref={ref}
       >
         <BeginMsg time={beginMsg.time} text={beginMsg.text} />
         <motion.ul
@@ -76,23 +87,33 @@ function SprintDailyScrum() {
           exit="exit"
           className="flex flex-col space-y-2"
         >
-
           {
-          [...currentChatLogData, speakingLoadingData].map(
-            (item) => {
-              const motionValue = item.character === '我' ? selfMotion : itemMotion;
+            [...currentChatLogData, lastMsg].map(
+              (item) => {
+                if (!item) return null;
 
-              return (
-                <motion.li key={item.id + item.time} variants={motionValue}>
-                  <ChatLog
-                    data={item}
-                  />
-                </motion.li>
-              );
-            },
-          )
+                const motionValue = item.character === '我' ? selfMotion : itemMotion;
+
+                return (
+                  <motion.li key={item.id + item.time} variants={motionValue}>
+                    <ChatLog
+                      data={item}
+                    />
+                  </motion.li>
+                );
+              },
+            )
+
         }
         </motion.ul>
+
+        {!lastMsg && (
+        <Button className="text-white bg-primary" onClick={nextPage}>
+          進入 Review
+          {' '}
+          {'>>'}
+        </Button>
+        )}
 
       </section>
 

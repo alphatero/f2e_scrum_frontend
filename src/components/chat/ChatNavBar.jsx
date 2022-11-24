@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Icons } from '../Icons';
 
-export function NavBar({ previousPage }) {
+export function ChatNavBar({ previousPage }) {
   const navigate = useNavigate();
   const goBack = () => {
     const preRoute = '/';
@@ -27,4 +27,4 @@ export function NavBar({ previousPage }) {
   );
 }
 
-export default NavBar;
+export default ChatNavBar;

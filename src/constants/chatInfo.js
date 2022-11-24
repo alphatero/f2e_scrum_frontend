@@ -97,7 +97,7 @@ export const ChatInfo = {
             content: [
               '好的！看起來大家大致上沒問題，那請大家今天也繼續加油！',
             ],
-            time: '上午 9:30',
+            time: '',
             submitBySelf: false,
           },
         ],
