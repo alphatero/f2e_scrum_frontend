@@ -5,8 +5,8 @@ export function BlurBlockBg(props) {
   return (
 
     <div className={clsx(
-      'w-full border border-gray-100 rounded-md',
-      'bg-gray-400 bg-clip-padding bg-opacity-10',
+      'w-full border-2 border-gray-100 rounded-t-2xl',
+      'bg-white/60 bg-clip-padding bg-opacity-10',
       'backdrop-filter backdrop-blur-md',
     )}
     >
