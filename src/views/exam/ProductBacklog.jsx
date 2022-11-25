@@ -48,7 +48,11 @@ function ProductBacklog() {
       <p className="w-full h-5 text-right mb-1">優先度低</p>
 
       <div className="flex justify-center">
-        <Button onClick={backHome}>{button}</Button>
+        <Button onClick={backHome} className="w-4/5 md:w-3/5" btnType="primary" isRabbit speechText="拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！拖曳任務試試看吧！" disabled>{button}</Button>
+      </div>
+
+      <div className="flex justify-center mt-3">
+        <Button onClick={backHome} className="w-4/5 md:w-1/3" btnType="secondary">{button}</Button>
       </div>
 
     </div>

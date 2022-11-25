@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        primary: '#14B8A6',
+      },
       boxShadow: {
         'inner-blur-5px': 'inset 0px 0px 5px 1px rgb(0 0 0 / 0.05)',
       },
@@ -30,6 +33,9 @@ module.exports = {
         bloop: 'bloop 12s linear infinite',
         'floating-a': 'floating 4s linear infinite',
         'floating-b': 'floating 4s ease-in infinite reverse',
+      },
+      transitionProperty: {
+        height: 'height',
       },
     },
   },

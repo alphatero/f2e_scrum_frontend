@@ -1,9 +1,15 @@
+import clsx from 'clsx';
+
 export function BeginMsg({ time, text }) {
   return (
-    <div className="flex flex-col items-center text-center">
-      <p className="text-sm text-gray-500">{ time }</p>
+    <div className={clsx(
+      'flex flex-col items-center',
+      'text-center text-xs text-slate-700',
+    )}
+    >
+      <p>{ time }</p>
       {
-        !!text && <p className="max-w-[240px] text-sm text-gray-500">{text}</p>
+        !!text && <p className="max-w-[240px]">{text}</p>
       }
     </div>
   );
