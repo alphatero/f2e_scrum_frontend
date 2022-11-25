@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components';
+import { Button, BlurBlockBg } from '../../components';
+import { SpeechBubble, Tag } from '../../components/introduction';
 import { IntroProductBacklogInfo } from '../../constants/introProductBacklog';
 
 export function IntroProductBacklog() {
@@ -17,51 +18,39 @@ export function IntroProductBacklog() {
     <div className="w-full h-screen flex-col">
       <div className="grid grid-cols-4 gap-3 px-4 pt-4">
         <div className="col-span-3 pb-7">
-          {/* TODO: replace by speech bubble compo */}
-          <div className={clsx(
-            'shadow-inner-blur-5px shadow-teal-500/40 w-full border border-gray-100 rounded-3xl p-3',
-            'bg-white',
-          )}
-          >
-            {speech}
-          </div>
+          <SpeechBubble text={speech} />
+
         </div>
         <div className="place-self-end">
-          {/* TODO: replace by rabbit compo */}
           <img src={img.rabbitUrl} alt="" />
         </div>
       </div>
       <div className="w-full">
-        {/* TODO: replace by BlurBlockBg compo */}
+
         <div className={clsx(
-          'w-full border border-gray-100 rounded-md',
-          'bg-gray-400 bg-clip-padding bg-opacity-10',
-          'backdrop-filter backdrop-blur-md',
+          'w-full border rounded-t-3xl',
         )}
         >
-          <div className="flex flex-col space-y-4">
-            {/* TODO: replace by Tag compo */}
-            <div className={clsx(
-              'w-fit border rounded-r-3xl p-3',
-              'text-white bg-amber-400',
-            )}
-            >
-              {tag}
-            </div>
+          <BlurBlockBg styleType="BlurBlockA">
+            <div className="flex flex-col space-y-4">
 
-            <div className="p-4">
-              {content}
-            </div>
+              <Tag text={tag} className="mt-5 -translate-x-4 w-fit bg-amber-400" />
 
-            <div className="p-4">
-              {
+              <div className="p-4">
+                {content}
+              </div>
+
+              <div className="p-4">
+                {
                 remarks.map((item) => (
                   <p key={`remark_${item.id}`} className="font-bold">{item.content}</p>
                 ))
               }
+              </div>
+
             </div>
 
-          </div>
+          </BlurBlockBg>
 
         </div>
         <div className="flex flex-col">
@@ -72,12 +61,11 @@ export function IntroProductBacklog() {
         </div>
       </div>
       <div className="space-y-4 mt-4">
-        {/* TODO: replace by Button with Rabbit compo */}
         <div className="flex justify-center">
-          <Button>{button}</Button>
+          <Button btnType="primary" className="w-full">{button}</Button>
         </div>
         <div className="flex justify-center">
-          <Button onClick={backHome}>上一頁</Button>
+          <Button btnType="secondary" className="w-full" onClick={backHome}>回上頁</Button>
         </div>
       </div>
 
