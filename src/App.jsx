@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { BgBubble } from './components';
+import Home from './views';
 import Role from './views/introduction/Role';
 import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
-import Home from './views/Home';
 import './App.css';
 import ExamSprintPoint from './views/exam/SprintPoint';
 import { Scrum, IntroProductBacklog } from './views/introduction';
