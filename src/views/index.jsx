@@ -1,7 +1,7 @@
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-// import { Button } from '../components';
 import { motion } from 'framer-motion';
+import { Button } from '../components';
 import { TextBubble } from '../components/home';
 import { HomeInfo } from '../constants/homeInfo';
 import { Icons } from '../components/Icons';
@@ -9,7 +9,6 @@ import { Icons } from '../components/Icons';
 function Home() {
   const navigate = useNavigate();
   const { speechBubble, button } = HomeInfo;
-  // const { button } = HomeInfo;
 
   const rotateDeg = (rotateTime) => {
     const finalDeg = -44;
@@ -53,12 +52,12 @@ function Home() {
     return setting;
   };
 
-  const backHome = () => {
-    navigate('/');
+  const nextPage = () => {
+    navigate('/introduction/scrum');
   };
 
   return (
-    <div className="relative flex items-center flex-col h-full">
+    <div className="relative flex items-center flex-col mx-auto h-full max-w-[375px]">
 
       <TextBubble
         classList="absolute top-12"
@@ -138,16 +137,7 @@ function Home() {
       />
 
       <div className="w-full mt-auto mb-5 px-4">
-        <button
-          type="button"
-          onClick={backHome}
-          className={clsx(
-            'w-full block py-4 rounded-2xl',
-            'bg-teal-500 hover:bg-teal-400 active:bg-teal-600 disabled:bg-slate-300',
-          )}
-        >
-          { button }
-        </button>
+        <Button onClick={nextPage}>{button}</Button>
       </div>
 
       <img
