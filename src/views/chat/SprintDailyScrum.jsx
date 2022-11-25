@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import useResizeObserver from 'use-resize-observer';
 import { useRef, useState, useEffect } from 'react';
 import {
