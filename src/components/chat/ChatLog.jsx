@@ -4,7 +4,7 @@ import { SpeakingLoading } from './SpeakingLoading';
 
 export function ChatLog({ data }) {
   const {
-    character, content, submitBySelf,
+    character, content, submitBySelf, avatar,
   } = data;
 
   const time = new Date().toLocaleTimeString();
@@ -88,7 +88,7 @@ export function ChatLog({ data }) {
       >
         <img
           className="object-cover object-center"
-          src="#"
+          src={avatar}
           alt="avatar alt"
         />
       </div>

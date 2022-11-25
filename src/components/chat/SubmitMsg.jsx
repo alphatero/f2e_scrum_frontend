@@ -7,6 +7,7 @@ export function SubmitMsg({ choiceMsg, setChoiceMsg, setSendMsg }) {
     setSendMsg(msg);
     setChoiceMsg('');
   };
+
   return (
     <div
       className={clsx(
