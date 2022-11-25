@@ -26,6 +26,9 @@ module.exports = {
       animation: {
         bloop: 'bloop 12s linear infinite',
       },
+      transitionProperty: {
+        height: 'height',
+      },
     },
   },
   plugins: [],
