@@ -25,23 +25,11 @@ module.exports = {
           '50%': { transform: 'translateY(0%)' },
           '75%': { transform: 'translateY(-1%)' },
         },
-        appearUp: {
-          '0%': {
-            transform: 'translateY(35px)',
-          },
-          '50%': {
-            transform: 'translateY(15px)',
-          },
-          '100%': {
-            transform: 'translateY(0)',
-          },
-        },
       },
       animation: {
         bloop: 'bloop 12s linear infinite',
         'floating-a': 'floating 4s linear infinite',
         'floating-b': 'floating 4s ease-in infinite reverse',
-        appear: 'appearUp 5s linear',
       },
     },
   },
