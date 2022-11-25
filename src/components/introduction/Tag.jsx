@@ -1,13 +1,14 @@
 import clsx from 'clsx';
 
 export function Tag(props) {
-  const { text, bgClass } = props;
+  const { text, className } = props;
   return (
 
     <div className={clsx(
-      'w-fit border rounded-r-3xl p-3',
-      'text-white',
-      bgClass,
+      'inline-block',
+      'py-2 px-3 -translate-x-8',
+      'text-white bg-primary rounded-r-full',
+      className,
     )}
     >
       {text}

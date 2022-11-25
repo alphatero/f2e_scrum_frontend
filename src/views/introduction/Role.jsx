@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components'; // TODO: replace by Button with Rabbit compo
+import { Button, BlurBlockBg } from '../../components';
 import { RoleInfo } from '../../constants/roleInfo';
 
 function Frame({ children, onClick }) {
@@ -14,18 +14,7 @@ function Frame({ children, onClick }) {
       onClick={onClick}
       aria-hidden="true"
     >
-      {/* TODO: replace by BlurBlockBg compo */}
-      <div className={clsx(
-        'w-full border-2 border-white',
-        'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-        'backdrop-filter',
-        'p-3',
-        'rounded-md',
-        'backdrop-blur-md',
-      )}
-      >
-        {children}
-      </div>
+      <BlurBlockBg styleType="BlurBlockB">{children}</BlurBlockBg>
     </div>
   );
 }
@@ -84,7 +73,6 @@ function ChildClose({ card, closeH }) {
             className={clsx(
               'absolute m-auto inset-x-0 bottom-0 top-5 h-20',
               'transition duration-1000 ease-linear',
-              // closeH[`card_${card.id}`],
             )}
             alt={card.title}
             src={card.img}
@@ -129,8 +117,10 @@ function Role() {
       }
 
       <div className="relative w-full flex justify-center">
-        {/* TODO: replace by Button with Rabbit compon */}
-        <Button onClick={backHome}>{button}</Button>
+        <Button onClick={backHome} className="w-full max-w-5xl">{button}</Button>
+      </div>
+      <div className="relative w-full flex justify-center mt-3">
+        <Button onClick={backHome} className="w-full max-w-5xl" btnType="secondary">回上頁</Button>
       </div>
     </div>
 
