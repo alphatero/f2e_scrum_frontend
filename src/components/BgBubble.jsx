@@ -46,7 +46,8 @@ export function BgBubble({ children }) {
           bubbleStyleLists.map((item) => (
             <li
               className={clsx(
-                'absolute rounded-full animate-bloop',
+                // 'absolute rounded-full animate-bloop',
+                'absolute rounded-full',
                 item.classList,
               )}
               key={`bubbleLists-${item.id}`}

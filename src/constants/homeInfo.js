@@ -13,22 +13,12 @@ export const HomeInfo = {
     {
       id: 2,
       content:
-        'What is',
+        '公司說要導入，不會用怎麼辦？',
     },
     {
       id: 3,
       content:
-        '公司說要導入，不會用怎麼辦？',
-    },
-    {
-      id: 4,
-      content:
-        '馬上要參與Scrum專案了，',
-    },
-    {
-      id: 5,
-      content:
-        '哪裡可以讓我快速了解？',
+        '馬上要參與Scrum專案了，<br />哪裡可以讓我快速了解？',
     },
   ],
   button: '點我進入',
