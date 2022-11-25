@@ -27,6 +27,7 @@ function SprintDailyScrum() {
     const newLog = {
       id: currentChatLogData.length,
       character: '我',
+      avatar: '/images/chat-ui.png',
       content: msg,
       time,
       submitBySelf: true,
