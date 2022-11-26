@@ -84,7 +84,7 @@ function ChildClose({ card, closeH }) {
   );
 }
 
-function Role() {
+export function Role() {
   const navigate = useNavigate();
   const { cards, button } = RoleInfo;
 
