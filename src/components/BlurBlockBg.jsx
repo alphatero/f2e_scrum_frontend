@@ -2,7 +2,7 @@ import clsx from 'clsx';
 
 export function BlurBlockBg(props) {
   const {
-    children, styleType = 'BlurBlockA',
+    children, styleType = 'BlurBlockA', className,
   } = props;
 
   const type = {
@@ -14,7 +14,8 @@ export function BlurBlockBg(props) {
     <div className={clsx(
       'w-full max-w-5xl border border-white p-3 mx-auto',
       'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-      'backdrop-filter ',
+      'backdrop-filter',
+      className,
       type[styleType],
     )}
     >
