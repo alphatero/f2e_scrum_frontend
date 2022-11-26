@@ -63,8 +63,6 @@ function ProductBacklog() {
   };
 
   const backHome = () => {
-    console.log(isOrderCorrect);
-
     navigate('/');
   };
 
