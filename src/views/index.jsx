@@ -1,7 +1,7 @@
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-// import { Button } from '../components';
 import { motion } from 'framer-motion';
+import { Button } from '../components';
 import { TextBubble } from '../components/home';
 import { HomeInfo } from '../constants/homeInfo';
 import { Icons } from '../components/Icons';
@@ -9,7 +9,6 @@ import { Icons } from '../components/Icons';
 function Home() {
   const navigate = useNavigate();
   const { speechBubble, button } = HomeInfo;
-  // const { button } = HomeInfo;
 
   const rotateDeg = (rotateTime) => {
     const finalDeg = -44;
@@ -40,23 +39,45 @@ function Home() {
     duration: 4,
   };
 
-  const backHome = () => {
-    navigate('/');
+  const setHomeRotate = (delaySec = 3) => {
+    const setting = {
+      animate: {
+        rotateZ: [0, 20, 0],
+      },
+      transition: {
+        delay: delaySec,
+        duration: 1.2,
+      },
+    };
+    return setting;
+  };
+
+  const nextPage = () => {
+    navigate('/introduction/scrum');
   };
 
   return (
-    <div className="flex items-center flex-col h-full">
+    <div className="relative flex items-center flex-col mx-auto h-full max-w-[375px]">
 
-      <TextBubble classList="mt-14 animation-appear" data={speechBubble[0]} />
+      <TextBubble
+        classList="absolute top-12"
+        data={speechBubble[0]}
+        delaySec={4.5}
+      />
 
-      <TextBubble classList="mt-8" data={speechBubble[1]} />
+      <TextBubble
+        classList="absolute top-20"
+        data={speechBubble[1]}
+        delaySec={4.7}
+      />
 
-      <div className="w-full mt-2">
+      <div className="absolute top-[28%] left-[50%] translate-x-[-50%] w-full">
         <div className="w-24 ml-4">
           <img src="/images/home-slogan--what-is.png" alt="what is" />
         </div>
         <div className="flex items-end justify-center relative space-x-1">
-          <Icons.HomeTitle.S className="shrink-0 mr-11 z-10" />
+          <Icons.HomeTitle.S className="mr-11 z-10" />
+
           <motion.div
             key="TitleC"
             initial="initial"
@@ -67,42 +88,70 @@ function Home() {
           >
             <Icons.HomeTitle.C />
           </motion.div>
-          <Icons.HomeTitle.R className="-z-10" />
-          <Icons.HomeTitle.U className="z-10" />
-          <Icons.HomeTitle.M className="-z-10" />
-          <Icons.HomeTitle.QuestionMark className="transition delay-500 rotate-[20deg] translate-y-1 z-10" />
+
+          <motion.div
+            animate={setHomeRotate().animate}
+            transition={setHomeRotate(3.3).transition}
+          >
+            <Icons.HomeTitle.R className="-z-10" />
+          </motion.div>
+
+          <motion.div
+            animate={setHomeRotate().animate}
+            transition={setHomeRotate(3.4).transition}
+          >
+            <Icons.HomeTitle.U className="-z-10" />
+          </motion.div>
+
+          <motion.div
+            animate={setHomeRotate().animate}
+            transition={setHomeRotate(3.5).transition}
+          >
+            <Icons.HomeTitle.M className="-z-10" />
+          </motion.div>
+
+          <motion.div
+            animate={{
+              rotateZ: 20,
+            }}
+            transition={{
+              delay: 3.6,
+              duration: 1.0,
+            }}
+          >
+            <Icons.HomeTitle.QuestionMark className="z-10" />
+          </motion.div>
         </div>
       </div>
 
-      <TextBubble classList="mt-12" data={speechBubble[2]} />
+      <TextBubble
+        classList="absolute top-[40%]"
+        data={speechBubble[2]}
+        delaySec={5}
+      />
 
-      <TextBubble classList="mt-12" data={speechBubble[3]} />
+      <TextBubble
+        classList="absolute top-[50%]"
+        data={speechBubble[3]}
+        delaySec={5.3}
+      />
 
       <div className="w-full mt-auto mb-5 px-4">
-        <button
-          type="button"
-          onClick={backHome}
-          className={clsx(
-            'w-full block py-4 rounded-2xl',
-            'bg-teal-500 hover:bg-teal-400 active:bg-teal-600 disabled:bg-slate-300',
-          )}
-        >
-          { button }
-        </button>
+        <Button onClick={nextPage}>{button}</Button>
       </div>
 
       <img
-        className="fixed top-[-20%] left-[-4%] -z-10 animate-floating-a"
+        className="fixed top-[-125px] left-[calc(50%-225px)] -z-10 animate-floating-a"
         src="/images/home-bg-img-S.png"
         alt="home-bg-img-S"
       />
       <img
-        className="fixed w-[80%] top-[33%] right-[-1%] -z-10 animate-floating-b"
+        className="fixed top-[215px] right-[calc(50%-130px)] -z-10 animate-floating-b"
         src="/images/home-bg-img-C.png"
         alt="home-bg-img-C"
       />
       <img
-        className="fixed bottom-[-12%] right-[-5%] -z-10 animate-floating-a"
+        className="fixed bottom-[-50px] left-[calc(50%-25px)] -z-10 animate-floating-a"
         src="/images/home-bg-img-question-mark.png"
         alt="home-bg-img-question-mark"
       />
