@@ -52,7 +52,6 @@ function AnimationLayout() {
 function App() {
   return (
     <div className="h-screen">
-      <BgBubble />
       <Router>
         <hr />
         <Routes>
@@ -70,6 +69,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
+      <BgBubble />
     </div>
   );
 }
