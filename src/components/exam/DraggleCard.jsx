@@ -3,7 +3,7 @@
 import { Draggable } from 'react-beautiful-dnd';
 import clsx from 'clsx';
 
-export function DraggleCard({ item, index }) {
+export function DraggleCard({ item, index, type }) {
   return (
     <Draggable draggableId={item.id} index={index}>
       {(provided, snapshot) => (
@@ -21,10 +21,8 @@ export function DraggleCard({ item, index }) {
           <div className="col-span-3">
             <p>{item.content}</p>
           </div>
-          <div>
-            <div>
-              <span className={clsx('rounded-lg p-2 text-center whitespace-nowrap', 'bg-white text-slate-700 text-xs')}>{item.priority}</span>
-            </div>
+          <div className={clsx(type === 'point' && 'min-w-[30px]')}>
+            <span className={clsx('rounded-lg p-2 text-center whitespace-nowrap block', 'bg-white text-slate-700 text-xs')}>{item.priority}</span>
           </div>
         </div>
       )}
