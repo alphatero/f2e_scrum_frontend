@@ -38,7 +38,6 @@ export const chatReviewInfo = {
     character: '我',
     avatar: '/images/chat-ui.png',
     content: null,
-    time: '',
     submitBySelf: true,
   },
   requestMsg: [
@@ -77,7 +76,6 @@ export const chatReviewInfo = {
           content: [
             '設計師最近有開發什麼新美食嗎？等等開完會跟我報告一下XD',
           ],
-          time: '上午 9:30',
           submitBySelf: false,
         },
         {
@@ -87,7 +85,6 @@ export const chatReviewInfo = {
           content: [
             '設計師，我們開完會再來討論吃的，要認真開會哦！',
           ],
-          time: '上午 9:30',
           submitBySelf: false,
         },
       ],
