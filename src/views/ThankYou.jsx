@@ -8,7 +8,7 @@ import { Icons } from '../components/Icons';
 
 function ThankYou() {
   const navigate = useNavigate();
-  const { speechBubble, button } = ThankInfo;
+  const { speechBubble, bottomText, button } = ThankInfo;
 
   const homeVariants = {
     initial: {
@@ -47,8 +47,8 @@ function ThankYou() {
     return setting;
   };
 
-  const nextPage = () => {
-    navigate('/introduction/scrum');
+  const backHome = () => {
+    navigate('/');
   };
 
   return (
@@ -132,7 +132,8 @@ function ThankYou() {
       />
 
       <div className="w-full mt-auto mb-5 px-4">
-        <Button onClick={nextPage}>{button}</Button>
+        <p className="pb-5">{bottomText}</p>
+        <Button onClick={backHome}>{button}</Button>
       </div>
 
       <img
