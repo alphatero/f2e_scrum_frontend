@@ -6,12 +6,17 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { NavBar } from './components';
-import ExampleLearn from './views/ExampleLearn';
-import ExampleChallenge from './views/ExampleChallenge';
-import Home from './views/Home';
+import { BgBubble } from './components';
+import Home from './views';
+import Role from './views/introduction/Role';
+// import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
+import {
+  Chat, SprintDailyScrum, SprintReview, SprintRetro,
+} from './views/chat';
 import './App.css';
-import IntroductionRole from './views/IntroductionRole';
+import ExamSprintPoint from './views/exam/SprintPoint';
+import { Scrum, IntroProductBacklog } from './views/introduction';
+import ProductBacklog from './views/exam/ProductBacklog';
 
 const pageVariants = {
   initial: {
@@ -51,17 +56,24 @@ function App() {
   return (
     <div className="h-screen">
       <Router>
-        <NavBar />
         <hr />
         <Routes>
           <Route element={<AnimationLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/ExampleLearn" element={<ExampleLearn />} />
-            <Route path="/ExampleChallenge" element={<ExampleChallenge />} />
-            <Route path="/IntroductionRole" element={<IntroductionRole />} />
+            <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
+            <Route path="/chat" element={<Chat />}>
+              <Route path="sprint-daily-scrum" element={<SprintDailyScrum />} />
+              <Route path="sprint-review" element={<SprintReview />} />
+              <Route path="sprint-retro" element={<SprintRetro />} />
+            </Route>
+            <Route path="/introduction/scrum" element={<Scrum />} />
+            <Route path="/introduction/role" element={<Role />} />
+            <Route path="/introduction/product-backlog" element={<IntroProductBacklog />} />
+            <Route path="/exam/product-backlog" element={<ProductBacklog />} />
           </Route>
         </Routes>
       </Router>
+      <BgBubble />
     </div>
   );
 }
