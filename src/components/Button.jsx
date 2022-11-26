@@ -32,7 +32,7 @@ export function Button(
     >
       {
         speechText && (
-          <div className="w-fit mb-5 pl-16">
+          <div className="w-fit mb-5 pl-16 text-xs text-slate-700">
             <SpeechBubble text={speechText} />
           </div>
         )
@@ -42,7 +42,7 @@ export function Button(
         type="button"
         className={clsx(
           'place-self-end justify-center',
-          'w-full py-4 rounded-3xl',
+          'w-full py-4 rounded-2xl',
           btn[btnType],
         )}
         onClick={onClick}
@@ -55,7 +55,7 @@ export function Button(
         isRabbit && (
         <img
           src="/images/rabbit-look-right.png"
-          className="absolute left-0 bottom-0"
+          className="absolute left-0 bottom-0 -translate-x-2"
           alt=""
         />
         )
