@@ -21,8 +21,8 @@ function Frame({ children, onClick }) {
 
 function Child({ card, openState }) {
   const defaultClass = 'transition-all duration-300 origin-top overflow-hidden';
-  const closeClass = 'h-0 scale-y-0 opacity-0';
-  const openClass = 'h-100 scale-y-1 opacity-1';
+  const closeClass = 'h-0 opacity-0 duration-700';
+  const openClass = 'h-100 opacity-1';
   return (
     <>
       <div className={clsx('w-full flex', openState && 'mb-5')}>
