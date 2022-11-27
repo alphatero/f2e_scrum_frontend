@@ -73,15 +73,8 @@ export function IntroductionLayout({ info }) {
             ) : <RoleTriangle />
           }
 
-          <Button className="w-full" onClick={nextPage}>{button}</Button>
-
-          <Button
-            className="w-full"
-            btnType="primary-outline"
-            onClick={backHome}
-          >
-            回上頁
-          </Button>
+          <Button onClick={nextPage}>{button}</Button>
+          <Button btnType="primary-outline" onClick={backHome}>回上頁</Button>
         </div>
       </BlurBlockBg>
     </div>

@@ -111,12 +111,12 @@ export function Role() {
       }
 
       <div className={clsx(
-        'mt-auto mx-auto w-full md:max-w-[360px]',
+        'mt-auto mx-auto w-full',
         'flex justify-center items-center flex-col gap-5',
       )}
       >
-        <Button onClick={nextPage} className="w-full max-w-5xl">{button}</Button>
-        <Button onClick={backHome} className="w-full max-w-5xl" btnType="secondary">回上頁</Button>
+        <Button onClick={nextPage}>{button}</Button>
+        <Button onClick={backHome} btnType="secondary">回上頁</Button>
       </div>
     </div>
 

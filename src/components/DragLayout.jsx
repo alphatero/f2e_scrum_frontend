@@ -183,13 +183,7 @@ export function DragLayout({ info, speechTexts }) {
       </div>
 
       <div className="flex justify-center mt-3 max-w-5xl mx-auto">
-        <Button
-          onClick={backHome}
-          className="w-full"
-          btnType="secondary"
-        >
-          回上頁
-        </Button>
+        <Button onClick={backHome} btnType="secondary">回上頁</Button>
       </div>
 
     </div>
