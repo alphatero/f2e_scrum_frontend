@@ -13,7 +13,7 @@ import {
   Chat, SprintDailyScrum, SprintReview, SprintRetro,
 } from './views/chat';
 import {
-  Introduction, Scrum, IntroProductBacklog, Role, SprintGuide,
+  Introduction, Scrum, IntroProductBacklog, IntroSprintPoint, Role, SprintGuide,
 } from './views/introduction';
 import './App.css';
 import ExamSprintPoint from './views/exam/SprintPoint';
@@ -73,6 +73,7 @@ function App() {
               <Route path="role" element={<Role />} />
               <Route path="product-backlog" element={<IntroProductBacklog />} />
               <Route path="sprint-guide" element={<SprintGuide />} />
+              <Route path="sprint-point" element={<IntroSprintPoint />} />
             </Route>
             <Route path="/exam/product-backlog" element={<ProductBacklog />} />
             <Route path="/thank-you" element={<ThankYou />} />
