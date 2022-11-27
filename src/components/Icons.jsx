@@ -8,11 +8,13 @@ import { ReactComponent as HomeTitleU } from '../assets/icon/home-title--u.svg';
 import { ReactComponent as HomeTitleM } from '../assets/icon/home-title--m.svg';
 import { ReactComponent as HomeTitleQuestionMark } from '../assets/icon/home-title--question-mark.svg';
 import { ReactComponent as HomeTitleExclamationMark } from '../assets/icon/home-title--exclamation-mark.svg';
+import { ReactComponent as Shared } from '../assets/icon/shared.svg';
 
 export const Icons = {
   ArrowLeft,
   SendMsg,
   ArrowDown,
+  Shared,
   HomeTitle: {
     S: HomeTitleS,
     C: HomeTitleC,

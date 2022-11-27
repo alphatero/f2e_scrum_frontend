@@ -1,3 +1,7 @@
+function time() {
+  return new Date().toLocaleTimeString();
+}
+
 export const chatReviewInfo = {
   page: 'chatReview',
   previousPageName: '/chat/sprint-daily-scrum',
@@ -17,6 +21,7 @@ export const chatReviewInfo = {
         '我們來檢視在這兩週內，有沒有遇到什麼問題，導致上個sprint的東西要延到下個sprint才能做完，或是這週有哪些項目提早做完，也許下個sprint我們可以再多安排項目進來做 大家試著講講看吧！\n大家試著講講看吧！',
       ],
       submitBySelf: false,
+      time: time(),
     },
     {
       id: 1,
@@ -24,6 +29,7 @@ export const chatReviewInfo = {
       avatar: '/images/chat-dev.png',
       content: ['這個sprint中，環境建置上因遇到....困難，所以這個sprint沒有如期完成QQ'],
       submitBySelf: false,
+      time: time(),
     },
     {
       id: 2,
@@ -31,6 +37,7 @@ export const chatReviewInfo = {
       avatar: '/images/chat-dev.png',
       content: ['目前需求訪談過程很順利，客戶與我們的目標一致，在整個過程中非常順利，我在這次完成了需求訪談。'],
       submitBySelf: false,
+      time: time(),
     },
   ],
   speakingLoadingData: {
@@ -53,6 +60,7 @@ export const chatReviewInfo = {
             '設計師回神喔～～',
           ],
           submitBySelf: false,
+          time: time(),
         },
         {
           id: 101,
@@ -62,6 +70,7 @@ export const chatReviewInfo = {
             '設計師別發呆～快回來喔！！',
           ],
           submitBySelf: false,
+          time: time(),
         },
       ],
     },
@@ -77,6 +86,7 @@ export const chatReviewInfo = {
             '設計師最近有開發什麼新美食嗎？等等開完會跟我報告一下XD',
           ],
           submitBySelf: false,
+          time: time(),
         },
         {
           id: 11,
@@ -86,6 +96,7 @@ export const chatReviewInfo = {
             '設計師，我們開完會再來討論吃的，要認真開會哦！',
           ],
           submitBySelf: false,
+          time: time(),
         },
       ],
     },
@@ -100,7 +111,7 @@ export const chatReviewInfo = {
           content: [
             '好的！看起來大家大致上沒問題，那請大家今天也繼續加油！',
           ],
-          time: '',
+          time: time(),
           submitBySelf: false,
         },
       ],

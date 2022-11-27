@@ -45,6 +45,10 @@ export function ChatRoom({ props }) {
 
     const resMsg = requestMsg.find((req) => req.text === msg);
 
+    for (let i = 0; i < resMsg.requestList.length; i += 1) {
+      resMsg.requestList[i].time = time;
+    }
+
     if (msg === responseMsg.selectList[1].text) {
       setLastMsg(null);
     }
@@ -64,12 +68,12 @@ export function ChatRoom({ props }) {
   };
 
   const itemMotion = {
-    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 2 } },
+    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 2.5 } },
     exit: { opacity: 0, x: -20 },
   };
 
   const selfMotion = {
-    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 0.5 } },
+    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 1 } },
     exit: { opacity: 0, x: 20 },
   };
 
@@ -81,7 +85,7 @@ export function ChatRoom({ props }) {
     if (bottomRef.current) {
       setTimeout(() => {
         bottomRef.current.scrollIntoView({ behavior: 'smooth' });
-      }, 1500);
+      }, 1000);
     }
   }, [height]);
 
@@ -141,6 +145,7 @@ export function ChatRoom({ props }) {
           setChoiceMsg={setChoiceMsg}
           caption={responseMsg.caption}
           selectList={responseMsg.selectList}
+          disabled={!lastMsg}
         />
       </section>
 

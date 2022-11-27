@@ -1,3 +1,7 @@
+function time() {
+  return new Date().toLocaleTimeString();
+}
+
 export const chatScrumInfo = {
   page: 'chat-sprint-daily-scrum',
   nextPage: '/chat/sprint-review',
@@ -16,6 +20,7 @@ export const chatScrumInfo = {
         '我們開始這個 sprint 的每日站會囉！每日站會主要要講三件事情',
         '1. 昨天做了什麼事情 2. 執行上有沒有遇到困難 3. 預計今日要做什麼  大家試著講講看吧！',
       ],
+      time: time(),
       submitBySelf: false,
     },
     {
@@ -24,6 +29,7 @@ export const chatScrumInfo = {
       avatar: '/images/chat-dev.png',
       content: ['我昨天在建制開發環境，目前還沒有遇到問題，今天預計會繼續把環境建置完畢！'],
       submitBySelf: false,
+      time: time(),
     },
     {
       id: 2,
@@ -31,6 +37,7 @@ export const chatScrumInfo = {
       avatar: '/images/chat-dev.png',
       content: ['我昨天在準備需求訪談內容，目前也還沒遇到問題，預計今日會與客戶訪談內容。'],
       submitBySelf: false,
+      time: time(),
     },
   ],
   speakingLoadingData: {
@@ -53,6 +60,7 @@ export const chatScrumInfo = {
             '設計師你在放空嗎XD',
           ],
           submitBySelf: false,
+          time: time(),
         },
         {
           id: 101,
@@ -62,6 +70,7 @@ export const chatScrumInfo = {
             '設計師快回來喔！！',
           ],
           submitBySelf: false,
+          time: time(),
         },
       ],
     },
@@ -77,6 +86,7 @@ export const chatScrumInfo = {
             '設計師這麼愛吃呀～等等我的午餐也交給你囉（笑',
           ],
           submitBySelf: false,
+          time: time(),
         },
         {
           id: 11,
@@ -86,6 +96,7 @@ export const chatScrumInfo = {
             '設計師，喜歡吃沒有錯～但我們還是要把重點放在開會喔！請認真XD',
           ],
           submitBySelf: false,
+          time: time(),
         },
       ],
     },
@@ -101,6 +112,7 @@ export const chatScrumInfo = {
             '好的！看起來大家大致上沒問題，那請大家今天也繼續加油！',
           ],
           submitBySelf: false,
+          time: time(),
         },
       ],
     },
