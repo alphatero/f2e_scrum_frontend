@@ -136,7 +136,7 @@ function Home() {
         delaySec={5.3}
       />
 
-      <div className="w-full mt-auto mb-5 px-4">
+      <div className="w-full mt-auto mx-auto mb-5 px-4">
         <Button onClick={nextPage}>{button}</Button>
       </div>
 
