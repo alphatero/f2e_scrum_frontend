@@ -8,16 +8,14 @@ import {
 import { motion } from 'framer-motion';
 import { BgBubble } from './components';
 import Home from './views';
-// import ChatSprintDailyScrum from './views/chat/SprintDailyScrum';
 import {
   Chat, SprintDailyScrum, SprintReview, SprintRetro,
 } from './views/chat';
 import {
-  Introduction, Scrum, IntroProductBacklog, Role, SprintGuide,
+  Introduction, Scrum, IntroProductBacklog, IntroSprintPoint, Role, SprintGuide,
 } from './views/introduction';
+import { Exam, ExamProductBacklog, ExamSprintPoint } from './views/exam';
 import './App.css';
-import ExamSprintPoint from './views/exam/SprintPoint';
-import ProductBacklog from './views/exam/ProductBacklog';
 import ThankYou from './views/ThankYou';
 
 const pageVariants = {
@@ -62,7 +60,13 @@ function App() {
         <Routes>
           <Route element={<AnimationLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/exam/sprint-point" element={<ExamSprintPoint />} />
+            <Route
+              path="/exam"
+              element={<Exam />}
+            >
+              <Route path="product-backlog" element={<ExamProductBacklog />} />
+              <Route path="sprint-point" element={<ExamSprintPoint />} />
+            </Route>
             <Route path="/chat" element={<Chat />}>
               <Route path="sprint-daily-scrum" element={<SprintDailyScrum />} />
               <Route path="sprint-review" element={<SprintReview />} />
@@ -73,8 +77,9 @@ function App() {
               <Route path="role" element={<Role />} />
               <Route path="product-backlog" element={<IntroProductBacklog />} />
               <Route path="sprint-guide" element={<SprintGuide />} />
+              <Route path="sprint-point" element={<IntroSprintPoint />} />
             </Route>
-            <Route path="/exam/product-backlog" element={<ProductBacklog />} />
+            <Route path="/exam/product-backlog" element={<ExamProductBacklog />} />
             <Route path="/thank-you" element={<ThankYou />} />
           </Route>
         </Routes>

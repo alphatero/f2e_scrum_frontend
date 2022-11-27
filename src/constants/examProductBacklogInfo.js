@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid';
 
 export const ExamProductBacklogInfo = {
+  type: 'backlog',
   title: 'Sprint Backlog 實作',
   tasks: [
     {
