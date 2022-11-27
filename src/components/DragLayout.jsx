@@ -4,12 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
 import { Button } from './Button';
-// import { BlurBlockBg } from './BlurBlockBg';
 import { ArrowDownCircle, DroppableComponent, DraggleCard } from './exam';
 
 export function DragLayout({ info, speechTexts }) {
   const navigate = useNavigate();
-  const { tasks, button, type } = info;
+  const {
+    tasks, button, type, next,
+  } = info;
   const [itemObj, setItemObj] = useState({
     candidate: {
       items: tasks,
@@ -75,7 +76,7 @@ export function DragLayout({ info, speechTexts }) {
 
     // 確認productBacklog順序
     const checkProductBacklogOrder = () => {
-      if (type === 'backLog') {
+      if (type === 'backlog') {
         return handleBackLog();
       }
       return handlePoint();
@@ -86,6 +87,10 @@ export function DragLayout({ info, speechTexts }) {
 
   const backHome = () => {
     navigate('/');
+  };
+
+  const nextPage = () => {
+    navigate(next);
   };
 
   useEffect(() => {
@@ -165,7 +170,7 @@ export function DragLayout({ info, speechTexts }) {
 
       <div className="flex justify-center mt-8 max-w-5xl mx-auto">
         <Button
-          onClick={backHome}
+          onClick={nextPage}
           className="w-full"
           btnType="primary"
           isRabbit

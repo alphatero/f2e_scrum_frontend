@@ -8,9 +8,6 @@ export function ChatLog({ data }) {
     character, content, submitBySelf, avatar, end, time,
   } = data;
 
-  console.log(time);
-  // const time = new Date().toLocaleTimeString();
-
   const switchMsg = (selfSubmit, text) => {
     if (selfSubmit && !text) {
       return <SpeakingLoading />;
