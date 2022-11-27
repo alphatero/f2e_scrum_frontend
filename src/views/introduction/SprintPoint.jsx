@@ -36,7 +36,7 @@ export function IntroSprintPoint() {
           />
         </div>
       </div>
-      <BlurBlockBg styleType="BlurBlockA" className="h-full">
+      <BlurBlockBg styleType="BlurBlockA">
         <div className={clsx(
           'flex flex-col justify-between items-center',
           'h-full space-y-4 py-4',
@@ -70,7 +70,7 @@ export function IntroSprintPoint() {
           </article>
 
           <div className={clsx(
-            'mt-auto mx-auto w-full',
+            'mx-auto w-full',
             'flex justify-center items-center flex-col gap-5',
           )}
           >

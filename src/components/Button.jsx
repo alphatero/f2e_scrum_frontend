@@ -4,6 +4,7 @@ import { SpeechBubble } from './introduction';
 export function Button(
   {
     children, onClick, className,
+    maxWidthSetting = 'max-w-[358px]',
     btnType = 'primary', disabled = false, isRabbit = false,
     speechText = null,
   },
@@ -32,7 +33,8 @@ export function Button(
 
   return (
     <div className={clsx(
-      'relative grid w-full max-w-[358px]',
+      'relative grid w-full',
+      maxWidthSetting,
       className,
       (isRabbit ? 'min-h-36' : ''),
     )}
