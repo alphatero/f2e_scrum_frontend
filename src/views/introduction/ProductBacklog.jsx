@@ -25,7 +25,7 @@ export function IntroProductBacklog() {
 
           <ScrumMessageBox />
 
-          <p className="text-xs mx-4">{guide}</p>
+          <p className="mx-4 text-xs md:text-base">{guide}</p>
         </div>
         <div className="relative object-contain flex">
           <img
@@ -38,12 +38,12 @@ export function IntroProductBacklog() {
       <BlurBlockBg styleType="BlurBlockA">
         <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
           <article className="flex flex-col px-5">
-            <div className="mt-6 mb-4">
+            <div className="">
               <Tag text={tagText} type="hint" />
             </div>
-            <p className="py-2">{article}</p>
+            <p className="pt-4 pb-5 text-sm md:text-base">{article}</p>
             {remarks.map((remark) => (
-              <p key={`title_${remark.id}`} className="font-bold text-lg">
+              <p key={`title_${remark.id}`} className="font-bold text-sm md:text-base">
                 {remark.content}
               </p>
             ))}
@@ -52,7 +52,7 @@ export function IntroProductBacklog() {
           <div>
             <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
             <a href={image.reference} className="text-teal-500 underline text-xs">
-              圖片來源. 新加坡鈦坦科技-Scrum
+              圖片來源. 新加坡鈦坦科技-活的待辦清單
             </a>
           </div>
 
