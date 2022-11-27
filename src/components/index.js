@@ -5,3 +5,4 @@ export * from './BlurBlockBg';
 export * from './chat';
 export * from './introduction';
 export * from './ChatRoom';
+export * from './IntroductionLayout';
