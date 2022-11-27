@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.speakLoadingDot {
+  aspect-ratio: 2;
+  --_a: no-repeat radial-gradient(circle closest-side,rgba(82, 100, 117, 1) 90%,#0000);
+  --_b: no-repeat radial-gradient(circle closest-side,rgba(82, 100, 117, 0.66) 90%,#0000);
+  --_c: no-repeat radial-gradient(circle closest-side,rgba(82, 100, 117, 0.30) 90%,#0000);
+  background: 
+    var(--_a) 0%   50%,
+    var(--_b) 50%  50%,
+    var(--_c) 100% 50%;
+  background-size: calc(100%/3) 50%;
+  animation: loadingDot 1s infinite linear;
+}
+
+@keyframes loadingDot {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
