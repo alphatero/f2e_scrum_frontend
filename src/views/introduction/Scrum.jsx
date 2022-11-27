@@ -57,8 +57,8 @@ export function Scrum() {
               <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
-              <p key={`article_${word.id}`} className="py-2">
-                {word.content}
+              <p key={word} className="py-2">
+                {word}
               </p>
             ))}
           </article>
@@ -69,7 +69,7 @@ export function Scrum() {
 
           <Button
             className="w-full"
-            btnType="primary"
+            btnType="primary-outline"
             onClick={backHome}
           >
             回上頁

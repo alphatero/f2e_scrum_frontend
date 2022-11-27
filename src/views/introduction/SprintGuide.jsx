@@ -8,7 +8,7 @@ import {
   ScrumMessageBox,
   Tag,
 } from '../../components';
-import { scrumInfo } from '../../constants/introduction';
+import { sprintGuideInfo } from '../../constants/introductionSprintGuide';
 
 export function SprintGuide() {
   const navigate = useNavigate();
@@ -18,7 +18,8 @@ export function SprintGuide() {
     button,
     sectionTitle,
     guide,
-  } = scrumInfo;
+    image,
+  } = sprintGuideInfo;
 
   const backHome = () => {
     navigate('/');
@@ -57,19 +58,21 @@ export function SprintGuide() {
               <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
-              <p key={`article_${word.id}`} className="py-2">
-                {word.content}
+              <p key={word} className="py-2">
+                {word}
               </p>
             ))}
           </article>
 
-          <RoleTriangle />
+          {
+            image.type === 'img' ? <img src="/images/introduction-sprint-guide.png" alt="" /> : <RoleTriangle />
+          }
 
           <Button className="w-full" onClick={nextPage}>{button}</Button>
 
           <Button
             className="w-full"
-            btnType="primary"
+            btnType="primary-outline"
             onClick={backHome}
           >
             回上頁
