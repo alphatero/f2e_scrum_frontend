@@ -39,7 +39,7 @@ export function IntroProductBacklog() {
         <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
           <article className="flex flex-col px-5">
             <div className="mt-6 mb-4">
-              <Tag text={tagText} />
+              <Tag text={tagText} type="hint" />
             </div>
             <p className="py-2">{article}</p>
             {remarks.map((remark) => (
