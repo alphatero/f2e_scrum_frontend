@@ -7,7 +7,7 @@ export function Tag(props) {
     <div className={clsx(
       'inline-block',
       'py-2 px-3 -translate-x-8',
-      'text-white bg-primary rounded-r-full',
+      'text-white bg-teal-500 rounded-r-full',
       className,
     )}
     >

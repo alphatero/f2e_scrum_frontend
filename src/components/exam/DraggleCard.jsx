@@ -15,7 +15,7 @@ export function DraggleCard({ item, index, type }) {
           className={clsx(
             'flex justify-between',
             'p-3',
-            'rounded-lg bg-primary text-white text-sm',
+            'rounded-lg bg-teal-500 text-white text-sm',
           )}
         >
           <div className="col-span-3">
