@@ -1,6 +1,8 @@
 import clsx from 'clsx';
 
-export function ChoiceResponse({ caption, selectList, setChoiceMsg }) {
+export function ChoiceResponse({
+  caption, selectList, setChoiceMsg, disabled,
+}) {
   return (
     <>
       <p className="text-xs text-slate-600">{ caption }</p>
@@ -11,13 +13,14 @@ export function ChoiceResponse({ caption, selectList, setChoiceMsg }) {
               key={`selectList-${item.id}`}
             >
               <button
+                disabled={disabled}
                 className={clsx(
                   'shrink-0 py-2 px-4 rounded-3xl whitespace-nowrap',
                   'bg-teal-500 text-white text-sm cursor-pointer',
                   'hover:bg-teal-300 active:bg-teal-600',
                 )}
                 type="submit"
-                onClick={() => setChoiceMsg(item.text)}
+                onClick={() => !disabled && setChoiceMsg(item.text)}
               >
                 { item.text }
               </button>
