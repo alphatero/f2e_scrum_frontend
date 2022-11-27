@@ -20,6 +20,7 @@ export const scrumInfo = {
     '首先我們先來介紹scrum中的三大核心角色 產品負責人PO(productOwner)、Scrum主持人SM(Scrum Master)、開發團隊DEV(Developmnet Team)',
   ],
   button: '來看他們自我介紹',
+  next: '/introduction/role',
 };
 
 export default scrumInfo;

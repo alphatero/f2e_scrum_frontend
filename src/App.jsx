@@ -66,6 +66,7 @@ function App() {
             >
               <Route path="product-backlog" element={<ExamProductBacklog />} />
               <Route path="sprint-point" element={<ExamSprintPoint />} />
+              <Route path="product-backlog" element={<ExamProductBacklog />} />
             </Route>
             <Route path="/chat" element={<Chat />}>
               <Route path="sprint-daily-scrum" element={<SprintDailyScrum />} />
@@ -79,7 +80,6 @@ function App() {
               <Route path="sprint-guide" element={<SprintGuide />} />
               <Route path="sprint-point" element={<IntroSprintPoint />} />
             </Route>
-            <Route path="/exam/product-backlog" element={<ExamProductBacklog />} />
             <Route path="/thank-you" element={<ThankYou />} />
           </Route>
         </Routes>
