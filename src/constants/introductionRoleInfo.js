@@ -1,23 +1,44 @@
-export const IntroductionRoleInfo = {
-  title: 'Scrum 在做什麼？',
-  article: [
+export const RoleInfo = {
+  cards: [
     {
       id: 0,
-      contant:
-        'Hi 歡迎來到兔兔蘿蔔園，我是你的導覽員兔兔，我會帶著你一起認識Scrum中的成員以及流程。',
+      img: '/images/introduction-role-po.png',
+      title: 'PO (Product Owner)',
+      subtitle: '產品負責人',
+      introTitle: '座右銘',
+      introBriefly: '只要有我在，就沒有發散的需求，因為只有我有資格說不！',
+      intro: [
+        '我是 Product Owner 產品負責人，叫我PO就可以了，我的工作項目是搜集客戶的需求，釐清並轉化成具有商業價值的 User Story，我最擅長的就是列優先順序喔！再將這些從 Backlog 放至 Sprint當中。',
+        '我的願景，就是希望我的產品讓客戶會喜歡！',
+      ],
     },
     {
       id: 1,
-      contant:
-        'Scrum是一種敏捷開發的框架，以固定時間的長度週期持續開發產品，特色是以稱為固定時間長度的短衝（Sprint）週期去持續開發產品，並在每個短衝都為產品交付增量（Increment）—新增有價值的改變。',
+      img: '/images/introduction-role-sm.png',
+      title: 'SM (Scrum Master)',
+      subtitle: 'Scrum 主持人',
+      introTitle: '座右銘',
+      introBriefly: '只要有我在，就沒有發散的需求，因為只有我有資格說不！',
+      intro: [
+        '我是 Product Owner 產品負責人，叫我PO就可以了，我的工作項目是搜集客戶的需求，釐清並轉化成具有商業價值的 User Story，我最擅長的就是列優先順序喔！再將這些從 Backlog 放至 Sprint當中。',
+        '我的願景，就是希望我的產品讓客戶會喜歡！',
+      ],
     },
     {
       id: 2,
-      contant:
-        '首先我們先來介紹scrum中的三大核心角色 產品負責人PO(productOwner)、Scrum主持人SM(Scrum Master)、開發團隊DEV(Developmnet Team)',
+      img: '/images/introduction-role-dev.png',
+      title: 'DEV (Development Team)',
+      subtitle: '開發團隊',
+      introTitle: '座右銘',
+      introBriefly: '只要有我在，就沒有發散的需求，因為只有我有資格說不！',
+      intro: [
+        '我是 Product Owner 產品負責人，叫我PO就可以了，我的工作項目是搜集客戶的需求，釐清並轉化成具有商業價值的 User Story，我最擅長的就是列優先順序喔！再將這些從 Backlog 放至 Sprint當中。',
+        '我的願景，就是希望我的產品讓客戶會喜歡！',
+      ],
     },
   ],
-  button: '來看他們自我介紹',
+
+  button: '接下來看看 Sprint 在做什麼！',
 };
 
-export default IntroductionRoleInfo;
+export default RoleInfo;

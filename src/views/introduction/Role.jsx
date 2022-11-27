@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, BlurBlockBg } from '../../components';
-import { RoleInfo } from '../../constants/roleInfo';
+import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 function Frame({ children, onClick }) {
   return (
