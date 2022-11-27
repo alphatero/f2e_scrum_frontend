@@ -111,7 +111,7 @@ export function Role() {
       }
 
       <div className={clsx(
-        'mt-auto mx-auto w-full',
+        'mx-auto mt-auto md:mb-11 w-full',
         'flex justify-center items-center flex-col gap-5',
       )}
       >
