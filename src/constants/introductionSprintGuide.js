@@ -20,6 +20,7 @@ export const sprintGuideInfo = {
   image: {
     type: 'img',
     src: '/images/introduction-sprint-guide.png',
+    reference: 'https://www.atlassian.com/agile/scrum',
   },
   button: '讓 PO 帶你體驗他的工作吧！',
 };

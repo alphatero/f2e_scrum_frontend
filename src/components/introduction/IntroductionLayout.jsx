@@ -1,13 +1,10 @@
-// import { useEffect, useState, useRef } from 'react';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button } from './Button';
-import { BlurBlockBg } from './BlurBlockBg';
-import {
-  RoleTriangle,
-  ScrumMessageBox,
-  Tag,
-} from './introduction';
+import { Button } from '../Button';
+import { BlurBlockBg } from '../BlurBlockBg';
+import { RoleTriangle } from './RoleTriangle';
+import { ScrumMessageBox } from './ScrumMessageBox';
+import { Tag } from './Tag';
 
 export function IntroductionLayout({ info }) {
   const navigate = useNavigate();
@@ -66,8 +63,8 @@ export function IntroductionLayout({ info }) {
           {
             image.type === 'img' ? (
               <div>
-                <img src="/images/introduction-sprint-guide.png" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
-                <a href="/#" className="text-teal-500 underline text-xs">
+                <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
+                <a href={image.reference} className="text-teal-500 underline text-xs">
                   圖片來源. 新加坡鈦坦科技-Scrum
                 </a>
               </div>
