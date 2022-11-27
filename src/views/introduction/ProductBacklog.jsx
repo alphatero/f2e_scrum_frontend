@@ -1,74 +1,72 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button, BlurBlockBg } from '../../components';
-import { SpeechBubble, Tag } from '../../components/introduction';
-import { IntroProductBacklogInfo } from '../../constants/introProductBacklog';
+import { Tag, ScrumMessageBox } from '../../components/introduction';
+import { introductionProductBacklog } from '../../constants/introductionProductBacklog';
 
 export function IntroProductBacklog() {
-  const navigate = useNavigate();
   const {
-    speech, tag, content, remarks, img, button,
-  } = IntroProductBacklogInfo;
+    guide, tagText, article, remarks, image, button,
+  } = introductionProductBacklog;
+  const navigate = useNavigate();
 
   const backHome = () => {
     navigate('/');
   };
 
+  const nextPage = () => {
+    // to be continue
+  };
+
   return (
-    <div className="w-full h-screen flex-col">
-      <div className="grid grid-cols-4 gap-3 px-4 pt-4">
-        <div className="col-span-3 pb-7">
-          <SpeechBubble text={speech} />
+    <div className="flex flex-col pt-4">
+      <div className="px-4 flex max-w-5xl mx-auto">
+        <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4')}>
 
+          <ScrumMessageBox />
+
+          <p className="text-xs mx-4">{guide}</p>
         </div>
-        <div className="place-self-end">
-          <img src={img.rabbitUrl} alt="" />
+        <div className="relative object-contain flex">
+          <img
+            className=""
+            src="/images/introduction-product-backlog-rabbit.png"
+            alt="guide"
+          />
         </div>
       </div>
-      <div className="w-full">
-
-        <div className={clsx(
-          'w-full border rounded-t-3xl',
-        )}
-        >
-          <BlurBlockBg styleType="BlurBlockA">
-            <div className="flex flex-col space-y-4">
-
-              <Tag text={tag} className="mt-5 -translate-x-4 w-fit bg-amber-400" />
-
-              <div className="p-4">
-                {content}
-              </div>
-
-              <div className="p-4">
-                {
-                remarks.map((item) => (
-                  <p key={`remark_${item.id}`} className="font-bold">{item.content}</p>
-                ))
-              }
-              </div>
-
+      <BlurBlockBg styleType="BlurBlockA">
+        <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
+          <article className="flex flex-col px-5">
+            <div className="mt-6 mb-4">
+              <Tag text={tagText} />
             </div>
+            <p className="py-2">{article}</p>
+            {remarks.map((remark) => (
+              <p key={`title_${remark.id}`} className="font-bold text-lg">
+                {remark.content}
+              </p>
+            ))}
+          </article>
 
-          </BlurBlockBg>
-
-        </div>
-        <div className="flex flex-col">
-          <img src={img.url} alt="" />
-          <div className="px-4">
-            <p>{img.attribution}</p>
+          <div>
+            <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
+            <a href={image.reference} className="text-teal-500 underline text-xs">
+              圖片來源. 新加坡鈦坦科技-Scrum
+            </a>
           </div>
-        </div>
-      </div>
-      <div className="space-y-4 mt-4">
-        <div className="flex justify-center">
-          <Button btnType="primary" className="w-full">{button}</Button>
-        </div>
-        <div className="flex justify-center">
-          <Button btnType="secondary" className="w-full" onClick={backHome}>回上頁</Button>
-        </div>
-      </div>
 
+          <Button className="w-full" onClick={nextPage}>{button}</Button>
+
+          <Button
+            className="w-full"
+            btnType="primary-outline"
+            onClick={backHome}
+          >
+            回上頁
+          </Button>
+        </div>
+      </BlurBlockBg>
     </div>
   );
 }
