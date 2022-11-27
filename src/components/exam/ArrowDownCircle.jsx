@@ -4,15 +4,15 @@ import { Icons } from '../Icons';
 export function ArrowDownCircle() {
   return (
     <div className={clsx(
-      'inline-block shadow shadow-black/20',
-      'w-10 h-10 rounded-full',
+      'shadow shadow-black/20 flex justify-center',
+      'w-6 h-6 rounded-full',
       'bg-white text-slate-700',
-
+      'lg:-rotate-90',
     )}
     >
-      <div className="grid w-full h-full">
-        <Icons.ArrowDown className="place-self-center justify-self-center" />
-      </div>
+
+      <Icons.ArrowDown className="place-self-center justify-self-center" />
+
     </div>
 
   );

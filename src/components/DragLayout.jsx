@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
 import { Button } from './Button';
-import { BlurBlockBg } from './BlurBlockBg';
+// import { BlurBlockBg } from './BlurBlockBg';
 import { ArrowDownCircle, DroppableComponent, DraggleCard } from './exam';
 
 export function DragLayout({ info, speechTexts }) {
@@ -66,7 +66,6 @@ export function DragLayout({ info, speechTexts }) {
       setPoint(sum);
       const pointsLength = points.length;
       setLength(pointsLength);
-      console.log(sum);
 
       if (sum < 20 && pointsLength === 2) {
         return true;
@@ -90,7 +89,6 @@ export function DragLayout({ info, speechTexts }) {
   };
 
   useEffect(() => {
-    console.log(isOrderCorrect);
     if (itemObj.productBacklog.items.length === 4 && !isOrderCorrect) {
       setSpeech(speechTexts.error);
     }
@@ -102,28 +100,32 @@ export function DragLayout({ info, speechTexts }) {
 
   return (
     <div className="p-4">
+      <div className={clsx('flex flex-col lg:flex-row lg:items-stretch', 'h-full max-w-5xl mx-auto lg:px-20')}>
+        <DragDropContext onDragEnd={onDragEnd}>
+          <div className={clsx(
+            'w-full border p-3 lg:flex-1 mt-6',
+            'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
+            'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
+          )}
+          >
+            <DroppableComponent droppableId="candidate">
+              {(provided) => (
+                <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
+                  {itemObj.candidate.items.map((task, index) => (
+                    <DraggleCard item={task} key={task.id} index={index} type={type} />
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </DroppableComponent>
+          </div>
 
-      <DragDropContext onDragEnd={onDragEnd}>
-        <BlurBlockBg styleType="BlurBlockB" className="h-80">
-          <DroppableComponent droppableId="candidate">
-            {(provided) => (
-              <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
-                {itemObj.candidate.items.map((task, index) => (
-                  <DraggleCard item={task} key={task.id} index={index} type={type} />
-                ))}
-                {provided.placeholder}
-              </div>
-            )}
-          </DroppableComponent>
-        </BlurBlockBg>
+          <div className={clsx('flex items-center justify-center', 'w-full text-center m-3 lg:w-auto')}>
+            <ArrowDownCircle />
+          </div>
 
-        <div className="w-full h-full text-center m-3">
-          <ArrowDownCircle />
-        </div>
-
-        <div className="flex flex-col items-center max-w-5xl mx-auto">
-
-          {
+          <div className={clsx('flex flex-col lg:flex-1 items-center', 'w-full max-w-5xl mx-auto')}>
+            {
           type === 'point'
             ? (
               <p className="w-full text-right mb-2 text-xs text-slate-500">
@@ -133,34 +135,35 @@ export function DragLayout({ info, speechTexts }) {
             )
             : <p className="w-full text-right mb-2 text-xs text-slate-500">優先度高</p>
         }
-          <div className={clsx(
-            'w-full border p-3',
-            'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-            'backdrop-filter rounded-lg h-72',
-            (!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white',
-          )}
-          >
-            {/* drag to here */}
-            <DroppableComponent droppableId="productBacklog">
-              {(provided) => (
-                <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
-                  {itemObj.productBacklog.items.map((task, index) => (
-                    <DraggleCard item={task} key={task.id} index={index} type={type} />
-                  ))}
-                  {provided.placeholder}
-                </div>
-              )}
-            </DroppableComponent>
-          </div>
-          {
+            <div className={clsx(
+              'w-full border p-3',
+              'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
+              'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
+              (!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white',
+            )}
+            >
+              {/* drag to here */}
+              <DroppableComponent droppableId="productBacklog">
+                {(provided) => (
+                  <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
+                    {itemObj.productBacklog.items.map((task, index) => (
+                      <DraggleCard item={task} key={task.id} index={index} type={type} />
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </DroppableComponent>
+            </div>
+            {
           type === 'backlog'
           && <p className="w-full text-right mt-2 text-xs text-slate-500">優先度低</p>
        }
-        </div>
+          </div>
 
-      </DragDropContext>
+        </DragDropContext>
+      </div>
 
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 max-w-5xl mx-auto">
         <Button
           onClick={backHome}
           className="w-full"
@@ -174,7 +177,7 @@ export function DragLayout({ info, speechTexts }) {
         </Button>
       </div>
 
-      <div className="flex justify-center mt-3">
+      <div className="flex justify-center mt-3 max-w-5xl mx-auto">
         <Button
           onClick={backHome}
           className="w-full"
