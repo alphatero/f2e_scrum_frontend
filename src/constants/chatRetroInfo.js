@@ -5,7 +5,7 @@ function time() {
 export const chatRetroInfo = {
   page: 'chatReview',
   previousPageName: '/chat/sprint-review',
-  nextPage: '/',
+  nextPage: '/thank-you',
   button: '結束 Sprint ！！',
   beginMsg: {
     time: '',

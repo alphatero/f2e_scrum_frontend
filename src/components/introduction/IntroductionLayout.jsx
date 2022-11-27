@@ -15,6 +15,7 @@ export function IntroductionLayout({ info }) {
     sectionTitle,
     guide,
     image,
+    next,
   } = info;
 
   const backHome = () => {
@@ -23,6 +24,7 @@ export function IntroductionLayout({ info }) {
 
   const nextPage = () => {
     // to be continue
+    navigate(next);
   };
 
   return (

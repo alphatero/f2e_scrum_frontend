@@ -85,7 +85,7 @@ export function Role() {
   const { cards, button } = RoleInfo;
 
   const nextPage = () => {
-    navigate('/introduction/guide');
+    navigate('/introduction/sprint-guide');
   };
   const backHome = () => {
     navigate('/');
