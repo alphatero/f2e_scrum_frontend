@@ -18,8 +18,8 @@ export function ChatLog({ data }) {
         <div
           key={text}
           className={clsx(
-            'py-2 px-4 rounded-3xl',
-            'max-w-[242px] lg:max-w-[60%]',
+            'py-2 px-4 rounded-3xl ',
+            'max-w-[242px]',
             'bg-white text-sm text-slate-500 drop-shadow-md',
           )}
         >
