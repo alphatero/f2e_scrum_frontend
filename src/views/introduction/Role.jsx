@@ -20,8 +20,8 @@ function Frame({ children, onClick }) {
 }
 
 function Child({ card, openState }) {
-  const defaultClass = 'transition-all duration-300 origin-top overflow-hidden';
-  const closeClass = 'h-0 opacity-0 duration-700';
+  const defaultClass = 'transition-all duration-700 origin-top overflow-hidden';
+  const closeClass = 'h-0 opacity-0';
   const openClass = 'h-100 opacity-1';
   return (
     <>
