@@ -4,6 +4,7 @@ export * from './Scrum';
 export * from './Role';
 export * from './ProductBacklog';
 export * from './SprintGuide';
+export * from './SprintPoint';
 
 export function Introduction() {
   return (
