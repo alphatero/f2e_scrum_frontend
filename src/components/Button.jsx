@@ -15,6 +15,12 @@ export function Button(
     active:bg-teal-600 
     disabled:bg-slate-300
     `,
+    'primary-outline': `
+    text-teal-500 border border-teal-500 
+    hover:bg-teal-400 hover:text-white
+    active:bg-teal-600 active:text-white
+    disabled:border-slate-300
+    `,
     secondary: `
     border border-teal-500 text-teal-500 
     hover:border-teal-400 hover:bg-teal-50 hover:text-teal-400 
