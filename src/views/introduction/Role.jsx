@@ -27,15 +27,15 @@ function Child({ card, openState }) {
     <>
       <div className={clsx('w-full flex', openState && 'mb-5')}>
         <div className="flex-1">
-          <h3 className="text-xl">{card.title}</h3>
-          <h6 className={clsx(openState && 'mb-8')}>{card.subtitle}</h6>
+          <h3 className="text-sm text-slate-900">{card.title}</h3>
+          <h6 className={clsx('text-xs text-slate-500', openState && 'mb-8')}>{card.subtitle}</h6>
           <div className={clsx(
             defaultClass,
             openState ? openClass : closeClass,
           )}
           >
-            <h6>{card.introTitle}</h6>
-            <p>{card.introBriefly}</p>
+            <h6 className="text-xs text-slate-500">{card.introTitle}</h6>
+            <p className="text-sm text-slate-900">{card.introBriefly}</p>
           </div>
         </div>
         <div className="flex-none">
@@ -44,7 +44,7 @@ function Child({ card, openState }) {
               openState && (
                 <div className={clsx(
                   'absolute m-auto inset-0',
-                  'border border-zinc-800',
+                  'border border-zinc-800 bg-white',
                   'w-32 h-40',
                 )}
                 />
@@ -54,7 +54,7 @@ function Child({ card, openState }) {
               className={clsx(
                 'absolute m-auto inset-x-0 bottom-0',
                 'transition duration-1000 ease-linear',
-                openState ? 'w-40' : 'top-5 h-20',
+                openState ? 'w-40' : 'top-2 h-20',
               )}
               alt={card.title}
               src={card.img}
@@ -71,7 +71,7 @@ function Child({ card, openState }) {
       )}
       >
         {card.intro.map((part) => (
-          <p key={part} className="mb-5">
+          <p key={part} className="mb-5 text-sm text-slate-900">
             {part}
           </p>
         ))}
@@ -84,6 +84,9 @@ export function Role() {
   const navigate = useNavigate();
   const { cards, button } = RoleInfo;
 
+  const nextPage = () => {
+    navigate('/introduction/guide');
+  };
   const backHome = () => {
     navigate('/');
   };
@@ -91,7 +94,7 @@ export function Role() {
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
 
   return (
-    <div className="p-4 mt-5">
+    <div className="flex flex-col h-full p-4 pt-5">
       {
         cards.map((card, idx) => (
           <Frame
@@ -107,10 +110,12 @@ export function Role() {
         ))
       }
 
-      <div className="relative w-full flex justify-center">
-        <Button onClick={backHome} className="w-full max-w-5xl">{button}</Button>
-      </div>
-      <div className="relative w-full flex justify-center mt-3">
+      <div className={clsx(
+        'mt-auto mx-auto w-full md:max-w-[360px]',
+        'flex justify-center items-center flex-col gap-5',
+      )}
+      >
+        <Button onClick={nextPage} className="w-full max-w-5xl">{button}</Button>
         <Button onClick={backHome} className="w-full max-w-5xl" btnType="secondary">回上頁</Button>
       </div>
     </div>
