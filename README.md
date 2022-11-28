@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# 「蛤-_-」Week3 Scrum 新手村
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Demo [點擊查看](https://f2e-scrum-frontend-gamma.vercel.app/).
 
-## Available Scripts
+## 系統使用
 
-In the project directory, you can run:
+### Node.js版本
 
-### `npm start`
+`16.15.0`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 安裝專案
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npm install
+```
+### 啟動專案
 
-### `npm test`
+```
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 資料夾說明
+```
+|-- public
+	|-- images // 放置 favicon 跟非 svg 的媒體檔案。
+|-- src
+	|-- assets // 一般放置比較容易有變化的媒體檔案，譬如做成各種 icon 的 svg
+		|-- icon 
+  |-- components // 非頁面的元件，在頁面內可拆分的元件都放置這裡，若只在特別頁面使用則可開頁面名稱資料夾做分類。
+	|-- constants // 放置不變的資料或者 enum 目前暫時不做特別檔案規範。
+  |-- views // 頁面
+		|-- index.jsx // 預設為Home
+		|-- introduction
+			|-- index.js
+			|-- Scrum.jsx
+			|--Role.jsx
+			|--SprintGuide.jsx
+			|--ProductBacklog.jsx
+			|--SprintPoint.jsx
+		|--exam
+			|--index.js
+			|--ProductBacklog.jsx
+			|--SprintPoint.jsx
+		|--chat
+			|--index.js
+			|--SprintDailyScrum.jsx
+			|--SprintReview.jsx
+			|--SprintRetro.jsx
+		|--ThankYou.jsx
+```
 
-### `npm run build`
+### 使用技術
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React
+  使用 [Create React App](https://create-react-app.dev/) 建置專案
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 使用 [TailwindCSS](https://tailwindcss.com/) 做樣式
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 使用 [ESLint airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb) 做程式碼檢查
 
-### `npm run eject`
+- 使用 [clsx](https://github.com/lukeed/clsx) 做樣式拆分及條件化樣式
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 使用 [framer-motion](https://www.framer.com/motion/) 做動畫特效
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 使用 [nanoid](https://github.com/ai/nanoid) 做 id 生成
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 使用 [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) 做拖移元件
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
