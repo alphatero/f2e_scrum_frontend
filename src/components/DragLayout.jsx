@@ -108,9 +108,9 @@ export function DragLayout({ info, speechTexts }) {
       <div className={clsx('flex flex-col lg:flex-row lg:items-stretch', 'h-full max-w-5xl mx-auto lg:px-20')}>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className={clsx(
-            'w-full border p-3 lg:flex-1 mt-6',
+            'w-full border p-4 md:p-10 lg:flex-1 mt-6',
             'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-            'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
+            'backdrop-filter rounded-xl h-[310px] lg:h-[378px]',
           )}
           >
             <DroppableComponent droppableId="candidate">
