@@ -27,15 +27,15 @@ function Child({ card, openState }) {
     <>
       <div className={clsx('w-full flex', openState && 'mb-5')}>
         <div className="flex-1">
-          <h3 className="text-sm text-slate-900">{card.title}</h3>
-          <h6 className={clsx('text-xs text-slate-500', openState && 'mb-8')}>{card.subtitle}</h6>
+          <h3 className="text-sm md:text-base text-slate-900">{card.title}</h3>
+          <h6 className={clsx('text-xs md:text-sm text-slate-500', openState && 'mb-8')}>{card.subtitle}</h6>
           <div className={clsx(
             defaultClass,
             openState ? openClass : closeClass,
           )}
           >
-            <h6 className="text-xs text-slate-500">{card.introTitle}</h6>
-            <p className="text-sm text-slate-900">{card.introBriefly}</p>
+            <h6 className="text-xs md:text-sm text-slate-500">{card.introTitle}</h6>
+            <p className="text-sm md:text-base text-slate-900">{card.introBriefly}</p>
           </div>
         </div>
         <div className="flex-none">
@@ -71,7 +71,7 @@ function Child({ card, openState }) {
       )}
       >
         {card.intro.map((part) => (
-          <p key={part} className="mb-5 text-sm text-slate-900">
+          <p key={part} className="mb-5 text-sm md:text-base text-slate-900">
             {part}
           </p>
         ))}
