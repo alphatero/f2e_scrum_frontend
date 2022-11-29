@@ -35,7 +35,7 @@ function Child({ card, openState }) {
           )}
           >
             <h6 className="text-xs text-slate-500">{card.introTitle}</h6>
-            <p className="text-sm text-slate-900">{card.introBriefly}</p>
+            <p className="text-sm text-slate-900 whitespace-pre-wrap">{card.introBriefly}</p>
           </div>
         </div>
         <div className="flex-none">
@@ -94,7 +94,7 @@ export function Role() {
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
 
   return (
-    <div className="flex flex-col h-full p-4 pt-5">
+    <div className="flex flex-col h-full p-4 pt-8">
       {
         cards.map((card, idx) => (
           <Frame
