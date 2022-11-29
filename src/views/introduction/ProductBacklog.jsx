@@ -6,12 +6,12 @@ import { introductionProductBacklog } from '../../constants/introductionProductB
 
 export function IntroProductBacklog() {
   const {
-    guide, tagText, article, remarks, image, button, next,
+    guide, tagText, article, remarks, image, button, prev, next,
   } = introductionProductBacklog;
   const navigate = useNavigate();
 
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate(prev);
   };
 
   const nextPage = () => {
@@ -57,7 +57,7 @@ export function IntroProductBacklog() {
           </div>
 
           <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={backHome}>回上頁</Button>
+          <Button btnType="primary-outline" onClick={prevPage}>回上頁</Button>
         </div>
       </BlurBlockBg>
     </div>

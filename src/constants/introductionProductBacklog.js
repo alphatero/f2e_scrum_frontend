@@ -23,6 +23,7 @@ export const introductionProductBacklog = {
     reference: 'https://titansoft.com/tw/agile_skills/to-do-list',
   },
   button: '跟著 PO 一起試試！',
+  prev: '/introduction/sprint-guide',
   next: '/exam/product-backlog',
 };
 

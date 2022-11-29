@@ -9,7 +9,7 @@ import { ArrowDownCircle, DroppableComponent, DraggleCard } from './exam';
 export function DragLayout({ info, speechTexts }) {
   const navigate = useNavigate();
   const {
-    tasks, button, type, next,
+    tasks, button, type, prev, next,
   } = info;
   const [itemObj, setItemObj] = useState({
     candidate: {
@@ -85,8 +85,8 @@ export function DragLayout({ info, speechTexts }) {
     setIsOrderCorrect(checkProductBacklogOrder);
   };
 
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate(prev);
   };
 
   const nextPage = () => {
@@ -183,7 +183,7 @@ export function DragLayout({ info, speechTexts }) {
       </div>
 
       <div className="flex justify-center mt-3 max-w-5xl mx-auto">
-        <Button onClick={backHome} btnType="secondary">回上頁</Button>
+        <Button onClick={prevPage} btnType="secondary">回上頁</Button>
       </div>
 
     </div>

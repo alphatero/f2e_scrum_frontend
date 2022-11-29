@@ -5,7 +5,7 @@ function time() {
 export const chatScrumInfo = {
   page: 'chat-sprint-daily-scrum',
   nextPage: '/chat/sprint-review',
-  previousPageName: '/',
+  previousPageName: '/exam/sprint-point',
   button: '進入 Review >>',
   beginMsg: {
     time: '上午 9:30',

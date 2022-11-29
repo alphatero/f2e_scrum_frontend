@@ -15,11 +15,12 @@ export function IntroductionLayout({ info }) {
     sectionTitle,
     guide,
     image,
+    prev,
     next,
   } = info;
 
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate(prev);
   };
 
   const nextPage = () => {
@@ -74,7 +75,7 @@ export function IntroductionLayout({ info }) {
           }
 
           <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={backHome}>回上頁</Button>
+          <Button btnType="primary-outline" onClick={prevPage}>回上頁</Button>
         </div>
       </BlurBlockBg>
     </div>
