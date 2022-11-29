@@ -39,7 +39,7 @@ function Child({ card, openState }) {
           </div>
         </div>
         <div className="flex-none">
-          <div className={clsx('relative', openState ? 'w-40 h-40' : 'w-24')}>
+          <div className={clsx('relative', openState ? 'w-40 h-40' : 'w-24 md:w-28')}>
             {
               openState && (
                 <div className={clsx(
@@ -54,7 +54,8 @@ function Child({ card, openState }) {
               className={clsx(
                 'absolute m-auto inset-x-0 bottom-0',
                 'transition duration-1000 ease-linear',
-                openState ? 'w-40' : 'top-2 h-20',
+                'md:w-full md:h-auto',
+                openState ? 'w-40' : 'top-4 h-20',
               )}
               alt={card.title}
               src={card.img}

@@ -12,7 +12,7 @@ export function BlurBlockBg(props) {
 
   return (
     <div className={clsx(
-      'w-full max-w-5xl border border-white p-3 mx-auto',
+      'w-full max-w-5xl border border-white p-5 md:p-10 mx-auto',
       'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
       'backdrop-filter',
       className,
