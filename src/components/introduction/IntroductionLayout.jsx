@@ -34,7 +34,7 @@ export function IntroductionLayout({ info }) {
 
           <ScrumMessageBox />
 
-          <p className="text-xs mx-4">{guide}</p>
+          <p className="text-xs md:text-base mx-4">{guide}</p>
         </div>
         <div className="relative object-contain flex">
           <img
@@ -48,7 +48,7 @@ export function IntroductionLayout({ info }) {
         <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
           <article className="flex flex-col px-5">
             {titles.map((title) => (
-              <p key={`title_${title.id}`} className="font-bold text-lg">
+              <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}
               </p>
             ))}
@@ -56,7 +56,7 @@ export function IntroductionLayout({ info }) {
               <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
-              <p key={word} className="py-2">
+              <p key={word} className="py-2 text-sm md:text-base">
                 {word}
               </p>
             ))}
