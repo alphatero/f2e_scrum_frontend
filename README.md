@@ -2,6 +2,10 @@
 
 Demo [點擊查看](https://f2e-scrum-frontend-gamma.vercel.app/).
 
+## 介面預覽
+
+![介面預覽](/public/images/readme.png)
+
 ## 系統使用
 
 ### Node.js版本
