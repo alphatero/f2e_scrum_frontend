@@ -2,6 +2,10 @@
 
 Demo [點擊查看](https://f2e-scrum-frontend-gamma.vercel.app/).
 
+## 參賽活動
+
+[4th F2E時光屋](https://2022.thef2e.com/)
+
 ## 介面預覽
 
 ![介面預覽](/public/images/readme.png)
@@ -69,5 +73,15 @@ npm start
 - 使用 [nanoid](https://github.com/ai/nanoid) 做 id 生成
 
 - 使用 [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) 做拖移元件
+
+### 團隊成員
+
+- 組長：[鉛筆](https://github.com/zoeGuava) / 前端工程師
+
+- 組員：小涵 / UI設計師
+
+- 組員：[圈圈](https://github.com/elzuoc) / 前端工程師
+
+- 組員：[阿法](https://github.com/alphatero) / 前端工程師
 
 
