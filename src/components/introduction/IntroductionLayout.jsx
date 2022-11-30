@@ -47,7 +47,7 @@ export function IntroductionLayout({ info }) {
       </div>
       <BlurBlockBg styleType="BlurBlockA">
         <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
-          <article className="flex flex-col">
+          <article className="flex flex-col w-full">
             {titles.map((title) => (
               <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}

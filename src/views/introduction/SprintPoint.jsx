@@ -42,7 +42,7 @@ export function IntroSprintPoint() {
           'h-full space-y-4 py-4',
         )}
         >
-          <article className="relative flex flex-col">
+          <article className="relative flex flex-col w-full">
             <div className="absolute right-3">
               <img
                 className=""
