@@ -87,8 +87,8 @@ export function Role() {
   const nextPage = () => {
     navigate('/introduction/sprint-guide');
   };
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate('/introduction/scrum');
   };
 
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
@@ -116,7 +116,7 @@ export function Role() {
       )}
       >
         <Button onClick={nextPage}>{button}</Button>
-        <Button onClick={backHome} btnType="secondary">回上頁</Button>
+        <Button onClick={prevPage} btnType="secondary">回上頁</Button>
       </div>
     </div>
 
