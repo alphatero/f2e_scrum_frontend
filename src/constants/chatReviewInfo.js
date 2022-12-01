@@ -109,7 +109,7 @@ export const chatReviewInfo = {
           character: 'Scrum Master',
           avatar: '/images/chat-scrum-master.png',
           content: [
-            '好的！看起來大家大致上沒問題，那請大家今天也繼續加油！',
+            '好的！工程師遇到的問題我瞭解了，我再來看看有沒有更快速的方式可以解決，不用氣餒！我們就是要透過每一次的Sprint來解決問題，並讓專案更順利進行下去！我們一起加油！',
           ],
           time: time(),
           submitBySelf: false,
