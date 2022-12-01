@@ -11,7 +11,7 @@ export function DragLayout({ info, speechTexts }) {
   const {
     tasks, button, type, next,
   } = info;
-  // const initialValue = [...tasks];
+
   const [itemObj, setItemObj] = useState({
     candidate: {
       items: [...tasks],
