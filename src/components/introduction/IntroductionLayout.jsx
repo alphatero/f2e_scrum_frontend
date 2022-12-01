@@ -75,7 +75,7 @@ export function IntroductionLayout({ info }) {
           }
 
           <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={prevPage}>回上頁</Button>
+          <Button onClick={prevPage} btnType="secondary">回上頁</Button>
         </div>
       </BlurBlockBg>
     </div>

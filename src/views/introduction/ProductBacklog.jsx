@@ -56,8 +56,14 @@ export function IntroProductBacklog() {
             </a>
           </div>
 
-          <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={prevPage}>回上頁</Button>
+          <div className={clsx(
+            'mx-auto mt-auto md:mb-11 w-full',
+            'flex justify-center items-center flex-col gap-5',
+          )}
+          >
+            <Button onClick={nextPage}>{button}</Button>
+            <Button onClick={prevPage} btnType="secondary">回上頁</Button>
+          </div>
         </div>
       </BlurBlockBg>
     </div>
