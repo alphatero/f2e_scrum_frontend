@@ -23,7 +23,6 @@ export const sprintGuideInfo = {
     reference: 'https://www.atlassian.com/agile/scrum',
   },
   button: '讓 PO 帶你體驗他的工作吧！',
-  prev: '/introduction/role',
   next: '/introduction/product-backlog',
 };
 

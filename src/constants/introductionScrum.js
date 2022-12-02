@@ -20,7 +20,6 @@ export const scrumInfo = {
     'Scrum 中有三個非常重要的核心角色，分別是產品負責人PO(Product Owner)、Scrum主持人SM(Scrum Master)、開發團隊DEV(Developmnet Team)，這三位是我們在敏捷開發中非常不可或缺的喔！',
   ],
   button: '來看他們自我介紹！',
-  prev: '/',
   next: '/introduction/role',
 };
 

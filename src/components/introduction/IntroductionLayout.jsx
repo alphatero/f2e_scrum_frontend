@@ -15,16 +15,14 @@ export function IntroductionLayout({ info }) {
     sectionTitle,
     guide,
     image,
-    prev,
     next,
   } = info;
 
   const prevPage = () => {
-    navigate(prev);
+    navigate(-1);
   };
 
   const nextPage = () => {
-    // to be continue
     navigate(next);
   };
 

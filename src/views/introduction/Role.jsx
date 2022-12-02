@@ -89,7 +89,7 @@ export function Role() {
     navigate('/introduction/sprint-guide');
   };
   const prevPage = () => {
-    navigate('/introduction/scrum');
+    navigate(-1);
   };
 
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });

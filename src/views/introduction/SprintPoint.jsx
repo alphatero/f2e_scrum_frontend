@@ -11,11 +11,10 @@ export function IntroSprintPoint() {
   const navigate = useNavigate();
 
   const prevPage = () => {
-    navigate('/exam/product-backlog');
+    navigate(-1);
   };
 
   const nextPage = () => {
-    // to be continue
     navigate('/exam/sprint-point');
   };
 

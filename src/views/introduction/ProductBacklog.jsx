@@ -6,12 +6,12 @@ import { introductionProductBacklog } from '../../constants/introductionProductB
 
 export function IntroProductBacklog() {
   const {
-    guide, tagText, article, remarks, image, button, prev, next,
+    guide, tagText, article, remarks, image, button, next,
   } = introductionProductBacklog;
   const navigate = useNavigate();
 
   const prevPage = () => {
-    navigate(prev);
+    navigate(-1);
   };
 
   const nextPage = () => {
