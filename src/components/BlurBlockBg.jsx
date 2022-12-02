@@ -6,7 +6,7 @@ export function BlurBlockBg(props) {
   } = props;
 
   const type = {
-    BlurBlockA: 'rounded-t-3xl backdrop-blur-2xl',
+    BlurBlockA: 'h-full rounded-t-3xl backdrop-blur-2xl',
     BlurBlockB: 'rounded-lg backdrop-blur-md',
   };
 
