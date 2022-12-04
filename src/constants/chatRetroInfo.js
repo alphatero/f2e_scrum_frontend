@@ -18,7 +18,7 @@ export const chatRetroInfo = {
       avatar: '/images/chat-scrum-master.png',
       content: [
         '我們開始這個sprint的retro囉！ retro要講的三件事情',
-        '1. 在 Sprint 進展良好的是什麼？ 2. 在 Sprint 可以改善的地方？ 3.在下一個 Sprint 團隊可以嘗試改善的是什麼？ 大家試著講講看吧！切記要針對事情，不要帶入過多個人的情緒唷！',
+        '1. 在 Sprint 進展良好的是什麼？\n2. 在 Sprint 可以改善的地方？\n3.在下一個 Sprint 團隊可以嘗試改善的是什麼？\n\n大家試著講講看吧！切記要針對事情，不要帶入過多個人的情緒唷！',
       ],
       submitBySelf: false,
       time: time(),

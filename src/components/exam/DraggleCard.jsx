@@ -13,13 +13,13 @@ export function DraggleCard({ item, index, type }) {
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           className={clsx(
-            'flex justify-between',
+            'flex justify-between gap-2',
             'p-3',
             'rounded-lg bg-teal-500 text-white text-sm',
           )}
         >
           <div className="col-span-3">
-            <p>{item.content}</p>
+            <p className="text-sm md:text-base">{item.content}</p>
           </div>
           <div className={clsx(type === 'point' && 'min-w-[30px]')}>
             <span className={clsx('rounded-lg p-2 text-center whitespace-nowrap block', 'bg-white text-slate-700 text-xs')}>{item.priority}</span>

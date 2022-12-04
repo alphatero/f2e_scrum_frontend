@@ -9,9 +9,9 @@ export function Tag(props) {
   return (
 
     <div className={clsx(
-      'inline-block',
-      'py-2 px-3 -translate-x-8',
-      'text-white rounded-r-full',
+      'inline-block w-20 md:w-[88px]',
+      'py-2 -translate-x-5 md:-translate-x-10',
+      'text-sm md:text-base text-center rounded-r-full',
       tagStyle[type],
       className,
     )}

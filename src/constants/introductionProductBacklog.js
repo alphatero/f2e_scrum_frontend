@@ -1,6 +1,6 @@
 export const introductionProductBacklog = {
   guide:
-    '我在scrum初期，會先與客戶及利益關係人討論需求，將需求以功能拆分放在prduct backlog，再依照需求的明確度、重要度高低以及規模大小區分',
+    '我在scrum初期，會先與客戶及利益關係人討論需求，將需求以功能拆分放在product backlog，再依照需求的明確度、重要度高低以及規模大小區分',
   tagText: 'Hint!!',
   article: '編排產品待辦清單的秘訣是：確保團隊在有限的時間與注意力內，集中在最重要的工作上，事項描述程度也依輕重緩急有所不同。',
   remarks: [

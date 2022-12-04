@@ -34,6 +34,7 @@ export const ExamSprintPointInfo = {
     },
   ],
   button: '開始 Sprint ！',
+  prev: '/introduction/sprint-point',
   next: '/chat/sprint-daily-scrum',
 };
 

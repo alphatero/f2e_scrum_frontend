@@ -18,7 +18,7 @@ export const chatReviewInfo = {
       avatar: '/images/chat-scrum-master.png',
       content: [
         '我們開始這個sprint的review囉！ review要講的事情',
-        '我們來檢視在這兩週內，有沒有遇到什麼問題，導致上個sprint的東西要延到下個sprint才能做完，或是這週有哪些項目提早做完，也許下個sprint我們可以再多安排項目進來做 大家試著講講看吧！\n大家試著講講看吧！',
+        '我們來檢視在這兩週內，有沒有遇到什麼問題，導致上個sprint的東西要延到下個sprint才能做完，或是這週有哪些項目提早做完，也許下個sprint我們可以再多安排項目進來做\n\n大家試著講講看吧！',
       ],
       submitBySelf: false,
       time: time(),
@@ -109,7 +109,7 @@ export const chatReviewInfo = {
           character: 'Scrum Master',
           avatar: '/images/chat-scrum-master.png',
           content: [
-            '好的！看起來大家大致上沒問題，那請大家今天也繼續加油！',
+            '好的！工程師遇到的問題我瞭解了，我再來看看有沒有更快速的方式可以解決，不用氣餒！我們就是要透過每一次的Sprint來解決問題，並讓專案更順利進行下去！我們一起加油！',
           ],
           time: time(),
           submitBySelf: false,

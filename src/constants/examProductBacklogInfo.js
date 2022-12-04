@@ -34,6 +34,7 @@ export const ExamProductBacklogInfo = {
     },
   ],
   button: '接下來要進入 Sprint 囉！',
+  prev: '/introduction/product-backlog',
   next: '/introduction/sprint-point',
 };
 

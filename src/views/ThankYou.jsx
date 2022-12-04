@@ -71,7 +71,7 @@ function ThankYou() {
           <img src="/images/thank-slogan--i-know.png" alt="what is" />
         </div>
         <div className="flex items-end justify-center relative space-x-1">
-          <Icons.HomeTitle.S className="mr-11 z-10" />
+          <Icons.HomeTitle.S className="mr-11 -z-10" />
 
           <motion.div
             key="TitleC"
@@ -132,7 +132,7 @@ function ThankYou() {
       />
 
       <div className="w-full mt-auto mb-5 px-4">
-        <p className="pb-5">{bottomText}</p>
+        <p className="text-xs pb-5">{bottomText}</p>
         <Button onClick={backHome}>{button}</Button>
       </div>
 

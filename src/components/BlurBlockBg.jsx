@@ -6,13 +6,13 @@ export function BlurBlockBg(props) {
   } = props;
 
   const type = {
-    BlurBlockA: 'rounded-t-3xl backdrop-blur-2xl',
+    BlurBlockA: 'h-full rounded-t-3xl backdrop-blur-2xl',
     BlurBlockB: 'rounded-lg backdrop-blur-md',
   };
 
   return (
     <div className={clsx(
-      'w-full max-w-5xl border border-white p-3 mx-auto',
+      'w-full max-w-5xl border border-white p-5 md:p-10 mx-auto',
       'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
       'backdrop-filter',
       className,

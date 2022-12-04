@@ -18,9 +18,9 @@ export function ChatLog({ data }) {
         <div
           key={text}
           className={clsx(
-            'py-2 px-4 rounded-3xl ',
+            'py-2 px-4 rounded-3xl',
             'max-w-[242px]',
-            'bg-white text-sm text-slate-500 drop-shadow-md',
+            'bg-white text-sm md:text-base text-slate-700 drop-shadow-md',
           )}
         >
           <p>{text}</p>
@@ -68,7 +68,7 @@ export function ChatLog({ data }) {
               )}
               >
 
-                <p>{textItem}</p>
+                <p className="text-sm md:text-base whitespace-pre-wrap">{textItem}</p>
               </div>
               {
                 index === text.length - 1
@@ -117,7 +117,7 @@ export function ChatLog({ data }) {
           <p
             className={clsx(
               'inline-block self-start',
-              'text-xs text-slate-700',
+              'text-xs md:text-base text-slate-700',
               submitBySelf && 'self-end',
             )}
           >

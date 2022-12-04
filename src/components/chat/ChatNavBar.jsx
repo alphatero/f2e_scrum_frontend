@@ -18,7 +18,7 @@ export function ChatNavBar({ previousPage }) {
           <Icons.ArrowLeft className="text-white" />
         </button>
       </Link>
-      <p className="inline-block text-white text-xs">Scrum 新手村專案</p>
+      <p className="inline-block text-white text-xs md:text-sm">Scrum 新手村專案</p>
     </div>
   );
 }

@@ -76,7 +76,7 @@ function Home() {
           <img src="/images/home-slogan--what-is.png" alt="what is" />
         </div>
         <div className="flex items-end justify-center relative space-x-1">
-          <Icons.HomeTitle.S className="mr-11 z-10" />
+          <Icons.HomeTitle.S className="relative mr-11 z-10" />
 
           <motion.div
             key="TitleC"
@@ -84,30 +84,30 @@ function Home() {
             animate="in"
             variants={homeVariants}
             transition={homeTransition}
-            className="absolute z-0"
+            className="absolute"
           >
-            <Icons.HomeTitle.C />
+            <Icons.HomeTitle.C className="relative z-0" />
           </motion.div>
 
           <motion.div
             animate={setHomeRotate().animate}
             transition={setHomeRotate(3.3).transition}
           >
-            <Icons.HomeTitle.R className="-z-10" />
+            <Icons.HomeTitle.R className="relative -z-10" />
           </motion.div>
 
           <motion.div
             animate={setHomeRotate().animate}
             transition={setHomeRotate(3.4).transition}
           >
-            <Icons.HomeTitle.U className="-z-10" />
+            <Icons.HomeTitle.U className="relative z-10" />
           </motion.div>
 
           <motion.div
             animate={setHomeRotate().animate}
             transition={setHomeRotate(3.5).transition}
           >
-            <Icons.HomeTitle.M className="-z-10" />
+            <Icons.HomeTitle.M className="relative -z-10" />
           </motion.div>
 
           <motion.div
@@ -119,7 +119,7 @@ function Home() {
               duration: 1.0,
             }}
           >
-            <Icons.HomeTitle.QuestionMark className="z-10" />
+            <Icons.HomeTitle.QuestionMark className="relative z-10" />
           </motion.div>
         </div>
       </div>
