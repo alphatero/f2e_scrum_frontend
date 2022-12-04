@@ -18,7 +18,7 @@ export const chatScrumInfo = {
       avatar: '/images/chat-scrum-master.png',
       content: [
         '我們開始這個 sprint 的每日站會囉！每日站會主要要講三件事情',
-        '1. 昨天做了什麼事情 2. 執行上有沒有遇到困難 3. 預計今日要做什麼  大家試著講講看吧！',
+        '1. 昨天做了什麼事情\n2. 執行上有沒有遇到困難\n3. 預計今日要做什麼\n\n大家試著講講看吧！',
       ],
       time: time(),
       submitBySelf: false,

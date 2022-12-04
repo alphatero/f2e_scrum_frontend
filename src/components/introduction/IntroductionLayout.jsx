@@ -59,7 +59,7 @@ export function IntroductionLayout({ info }) {
               <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
-              <p key={word} className="py-2 text-sm md:text-base">
+              <p key={word} className="py-2 text-sm md:text-base whitespace-pre-wrap">
                 {word}
               </p>
             ))}

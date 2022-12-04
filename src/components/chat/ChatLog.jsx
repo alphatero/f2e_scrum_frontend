@@ -68,7 +68,7 @@ export function ChatLog({ data }) {
               )}
               >
 
-                <p className="text-sm md:text-base">{textItem}</p>
+                <p className="text-sm md:text-base whitespace-pre-wrap">{textItem}</p>
               </div>
               {
                 index === text.length - 1
