@@ -69,7 +69,7 @@ export function DragLayout({ info, speechTexts }) {
       const pointsLength = points.length;
       setLength(pointsLength);
 
-      if (sum < 20 && pointsLength === 2) {
+      if ((sum < 20 && pointsLength === 2) || (sum < 20 && pointsLength === 3)) {
         return true;
       }
       return false;
