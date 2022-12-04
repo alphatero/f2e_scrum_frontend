@@ -83,5 +83,3 @@ npm start
 - 組員：[圈圈](https://github.com/elzuoc) / 前端工程師
 
 - 組員：[阿法](https://github.com/alphatero) / 前端工程師
-
-
