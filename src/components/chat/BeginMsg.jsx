@@ -4,7 +4,7 @@ export function BeginMsg({ time, text }) {
   return (
     <div className={clsx(
       'flex flex-col items-center',
-      'text-center text-xs text-slate-700',
+      'text-center text-xs md:text-sm text-slate-700',
     )}
     >
       <p>{ time }</p>

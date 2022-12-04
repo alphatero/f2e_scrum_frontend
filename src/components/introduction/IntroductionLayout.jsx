@@ -18,23 +18,22 @@ export function IntroductionLayout({ info }) {
     next,
   } = info;
 
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate(-1);
   };
 
   const nextPage = () => {
-    // to be continue
     navigate(next);
   };
 
   return (
-    <div className="flex flex-col pt-4">
+    <div className="flex flex-col pt-4 h-full">
       <div className="px-4 flex max-w-5xl mx-auto">
         <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4')}>
 
           <ScrumMessageBox />
 
-          <p className="text-xs mx-4">{guide}</p>
+          <p className="text-xs md:text-base mx-4">{guide}</p>
         </div>
         <div className="relative object-contain flex">
           <img
@@ -45,10 +44,14 @@ export function IntroductionLayout({ info }) {
         </div>
       </div>
       <BlurBlockBg styleType="BlurBlockA">
-        <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
-          <article className="flex flex-col px-5">
+        <div className={clsx(
+          'flex flex-col justify-between items-center',
+          'h-full space-y-4 py-4',
+        )}
+        >
+          <article className="flex flex-col w-full">
             {titles.map((title) => (
-              <p key={`title_${title.id}`} className="font-bold text-lg">
+              <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}
               </p>
             ))}
@@ -56,7 +59,7 @@ export function IntroductionLayout({ info }) {
               <Tag text={sectionTitle} />
             </div>
             {article.map((word) => (
-              <p key={word} className="py-2">
+              <p key={word} className="py-2 text-sm md:text-base whitespace-pre-wrap">
                 {word}
               </p>
             ))}
@@ -73,8 +76,14 @@ export function IntroductionLayout({ info }) {
             ) : <RoleTriangle />
           }
 
-          <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={backHome}>回上頁</Button>
+          <div className={clsx(
+            'w-full flex-1',
+            'flex flex-col justify-end items-center gap-5',
+          )}
+          >
+            <Button onClick={nextPage}>{button}</Button>
+            <Button onClick={prevPage} btnType="secondary">回上頁</Button>
+          </div>
         </div>
       </BlurBlockBg>
     </div>
