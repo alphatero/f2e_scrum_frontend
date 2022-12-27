@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { SpeechBubble } from './introduction';
+import { Button } from './Button';
 
 export function ButtonRabbit(
   {
@@ -11,7 +12,7 @@ export function ButtonRabbit(
 ) {
   return (
     <div className={clsx(
-      'relative grid w-full',
+      'relative flex-col w-full',
       maxWidthSetting,
     )}
     >
@@ -23,21 +24,7 @@ export function ButtonRabbit(
         )
       }
 
-      <button
-        type="button"
-        className={clsx(
-          'place-self-end justify-center',
-          'w-full py-4 rounded-2xl',
-          'text-white bg-teal-500',
-          'hover:bg-teal-400',
-          'active:bg-teal-600',
-          'disabled:bg-slate-300',
-        )}
-        onClick={onClick}
-        disabled={disabled}
-      >
-        <p>{children}</p>
-      </button>
+      <Button onClick={onClick} disabled={disabled}>{children}</Button>
 
       <img
         src="/images/rabbit-look-right.png"

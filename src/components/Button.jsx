@@ -25,7 +25,7 @@ export function Button(
 
   return (
     <div className={clsx(
-      'relative grid w-full',
+      'relative flex-col w-full',
       maxWidthSetting,
       className,
     )}
