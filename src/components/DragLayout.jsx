@@ -69,7 +69,7 @@ export function DragLayout({ info, speechTexts }) {
       const pointsLength = points.length;
       setLength(pointsLength);
 
-      if (sum < 20 && pointsLength === 2) {
+      if ((sum < 20 && pointsLength === 2) || (sum < 20 && pointsLength === 3)) {
         return true;
       }
       return false;
@@ -105,13 +105,17 @@ export function DragLayout({ info, speechTexts }) {
   }, [itemObj]);
 
   return (
-    <div className="p-4">
-      <div className={clsx('flex flex-col lg:flex-row lg:items-stretch', 'h-full max-w-5xl mx-auto lg:px-20')}>
+    <div className="flex flex-col p-4 h-full">
+      <div className={clsx(
+        'flex flex-col lg:flex-row lg:items-stretch',
+        'w-full max-w-5xl mx-auto lg:px-20',
+      )}
+      >
         <DragDropContext onDragEnd={onDragEnd}>
           <div className={clsx(
-            'w-full border p-3 lg:flex-1 mt-6',
+            'w-full border p-4 md:p-10 lg:flex-1 mt-6',
             'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-            'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
+            'backdrop-filter rounded-xl h-[310px] lg:h-[378px]',
           )}
           >
             <DroppableComponent droppableId="candidate">
@@ -142,7 +146,7 @@ export function DragLayout({ info, speechTexts }) {
             : <p className="w-full text-right mb-2 text-xs text-slate-500">優先度高</p>
         }
             <div className={clsx(
-              'w-full border p-3',
+              'w-full border p-4 md:p-10',
               'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
               'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
               (!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white',
@@ -169,7 +173,11 @@ export function DragLayout({ info, speechTexts }) {
         </DragDropContext>
       </div>
 
-      <div className="flex justify-center mt-8 max-w-5xl mx-auto">
+      <div className={clsx(
+        'w-full flex-1',
+        'flex flex-col justify-end items-center gap-5',
+      )}
+      >
         <Button
           onClick={nextPage}
           className="w-full"
@@ -181,9 +189,6 @@ export function DragLayout({ info, speechTexts }) {
           {button}
 
         </Button>
-      </div>
-
-      <div className="flex justify-center mt-3 max-w-5xl mx-auto">
         <Button onClick={backPage} btnType="secondary">回上頁</Button>
       </div>
 

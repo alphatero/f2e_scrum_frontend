@@ -1,6 +1,6 @@
 export const introductionSprintPoint = {
   guide:
-    '當 PO prduct backlog 列出來之後，SM 會幫我們評估每個sprint最多可以負擔的點數，再來會需要請我們估點數，點數是用來衡量速度，用大概花費的時間估相對應的點數，我們平常會使用 Jira 這個軟體來管理專案，大家也可以透過 Jira 知道當前 Sprint 要做的事情唷！',
+    '當 PO product backlog 列出來之後，SM 會幫我們評估每個sprint最多可以負擔的點數，再來會需要請我們估點數，點數是用來衡量速度，用大概花費的時間估相對應的點數，我們平常會使用 Jira 這個軟體來管理專案，大家也可以透過 Jira 知道當前 Sprint 要做的事情唷！',
   titles: [
     {
       id: 0,

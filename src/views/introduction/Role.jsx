@@ -13,7 +13,7 @@ export function Role() {
     navigate('/introduction/sprint-guide');
   };
   const prevPage = () => {
-    navigate('/introduction/scrum');
+    navigate(-1);
   };
 
   return (

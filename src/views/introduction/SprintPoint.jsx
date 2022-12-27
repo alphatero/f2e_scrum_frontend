@@ -11,11 +11,10 @@ export function IntroSprintPoint() {
   const navigate = useNavigate();
 
   const prevPage = () => {
-    navigate('/exam/product-backlog');
+    navigate(-1);
   };
 
   const nextPage = () => {
-    // to be continue
     navigate('/exam/sprint-point');
   };
 
@@ -42,7 +41,7 @@ export function IntroSprintPoint() {
           'h-full space-y-4 py-4',
         )}
         >
-          <article className="relative flex flex-col px-5">
+          <article className="relative flex flex-col w-full">
             <div className="absolute right-3">
               <img
                 className=""

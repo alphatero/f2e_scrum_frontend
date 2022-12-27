@@ -10,8 +10,8 @@ export function IntroProductBacklog() {
   } = introductionProductBacklog;
   const navigate = useNavigate();
 
-  const backHome = () => {
-    navigate('/');
+  const prevPage = () => {
+    navigate(-1);
   };
 
   const nextPage = () => {
@@ -19,7 +19,7 @@ export function IntroProductBacklog() {
   };
 
   return (
-    <div className="flex flex-col pt-4">
+    <div className="flex flex-col pt-4 h-full">
       <div className="px-4 flex max-w-5xl mx-auto">
         <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4')}>
 
@@ -36,8 +36,12 @@ export function IntroProductBacklog() {
         </div>
       </div>
       <BlurBlockBg styleType="BlurBlockA">
-        <div className={clsx('flex flex-col', 'justify-between items-center space-y-4 py-4')}>
-          <article className="flex flex-col px-5">
+        <div className={clsx(
+          'flex flex-col justify-between items-center',
+          'h-full space-y-4 py-4',
+        )}
+        >
+          <article className="flex flex-col w-full">
             <div className="">
               <Tag text={tagText} type="hint" />
             </div>
@@ -56,8 +60,14 @@ export function IntroProductBacklog() {
             </a>
           </div>
 
-          <Button onClick={nextPage}>{button}</Button>
-          <Button btnType="primary-outline" onClick={backHome}>回上頁</Button>
+          <div className={clsx(
+            'w-full flex-1',
+            'flex flex-col justify-end items-center gap-5',
+          )}
+          >
+            <Button onClick={nextPage}>{button}</Button>
+            <Button onClick={prevPage} btnType="secondary">回上頁</Button>
+          </div>
         </div>
       </BlurBlockBg>
     </div>
