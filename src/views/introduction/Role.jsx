@@ -1,23 +1,9 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, BlurBlockBg } from '../../components';
+import { Button } from '../../components';
+import { RoleItemContainer } from '../../components/introduction';
 import { RoleInfo } from '../../constants/introductionRoleInfo';
-
-function Frame({ children, onClick }) {
-  return (
-    <div
-      className={clsx(
-        'grid grid-flow-row auto-rows-max',
-        'rounded-lg mb-5',
-      )}
-      onClick={onClick}
-      aria-hidden="true"
-    >
-      <BlurBlockBg styleType="BlurBlockB">{children}</BlurBlockBg>
-    </div>
-  );
-}
 
 function Child({ card, openState }) {
   const defaultClass = 'transition-all duration-700 origin-top overflow-hidden';
@@ -97,7 +83,7 @@ export function Role() {
     <div className="flex flex-col h-full p-4 pt-8">
       {
         cards.map((card, idx) => (
-          <Frame
+          <RoleItemContainer
             key={`card_${card.id}`}
             onClick={() => {
               setIsOpenObj({
@@ -106,7 +92,7 @@ export function Role() {
             }}
           >
             <Child key={`child_${card.id}`} card={card} openState={isOpenObj[`card_${idx}`]} />
-          </Frame>
+          </RoleItemContainer>
         ))
       }
 
