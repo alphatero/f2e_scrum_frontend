@@ -6,6 +6,22 @@ import { useEffect, useState } from 'react';
 import { Button } from './Button';
 import { ArrowDownCircle, DroppableComponent, DraggleCard } from './exam';
 
+function Background({ children, className }) {
+  return (
+    <div className={clsx(
+      'grid grid-col-4 w-full relative',
+      'border p-4 md:p-10 lg:mt-6',
+      'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
+      'backdrop-filter rounded-xl min-h-[320px]',
+      className,
+    )}
+    >
+      { children}
+
+    </div>
+  );
+}
+
 export function DragLayout({ info, speechTexts }) {
   const navigate = useNavigate();
   const {
@@ -112,12 +128,7 @@ export function DragLayout({ info, speechTexts }) {
       )}
       >
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className={clsx(
-            'w-full border p-4 md:p-10 lg:flex-1 mt-6',
-            'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-            'backdrop-filter rounded-xl h-[310px] lg:h-[378px]',
-          )}
-          >
+          <Background>
             <DroppableComponent droppableId="candidate">
               {(provided) => (
                 <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
@@ -128,54 +139,53 @@ export function DragLayout({ info, speechTexts }) {
                 </div>
               )}
             </DroppableComponent>
-          </div>
+          </Background>
+
+          {/* </div> */}
 
           <div className={clsx('flex items-center justify-center', 'w-full text-center m-3 lg:w-auto')}>
             <ArrowDownCircle />
           </div>
+          <Background className={(!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white'}>
 
-          <div className={clsx('flex flex-col lg:flex-1 items-center', 'w-full max-w-5xl mx-auto')}>
             {
           type === 'point'
             ? (
-              <p className="w-full text-right mb-2 text-xs text-slate-500">
-                <span className={clsx('text-base px-1', point > 20 ? 'text-red-500' : 'text-black')}>{point}</span>
+              <p className={clsx('w-full absolute top-0 -translate-y-8', 'text-right mb-2 text-xs text-slate-500')}>
+                <span
+                  className={clsx('text-base px-1', point > 20 ? 'text-red-500' : 'text-black')}
+                >
+                  {point}
+
+                </span>
                 /20point
               </p>
             )
-            : <p className="w-full text-right mb-2 text-xs text-slate-500">優先度高</p>
+            : <p className={clsx('w-full absolute top-0 right-0 -translate-y-6', 'text-right mb-2 text-xs text-slate-500')}>優先度高</p>
         }
-            <div className={clsx(
-              'w-full border p-4 md:p-10',
-              'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-              'backdrop-filter rounded-lg h-[300px] lg:h-[378px]',
-              (!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white',
-            )}
-            >
-              {/* drag to here */}
-              <DroppableComponent droppableId="productBacklog">
-                {(provided) => (
-                  <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
-                    {itemObj.productBacklog.items.map((task, index) => (
-                      <DraggleCard item={task} key={task.id} index={index} type={type} />
-                    ))}
-                    {provided.placeholder}
-                  </div>
-                )}
-              </DroppableComponent>
-            </div>
+            {/* drag to here */}
+            <DroppableComponent droppableId="productBacklog">
+              {(provided) => (
+                <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
+                  {itemObj.productBacklog.items.map((task, index) => (
+                    <DraggleCard item={task} key={task.id} index={index} type={type} />
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </DroppableComponent>
             {
           type === 'backlog'
-          && <p className="w-full text-right mt-2 text-xs text-slate-500">優先度低</p>
+          && <p className={clsx('w-full absolute bottom-0 translate-y-6', 'text-right mt-2 text-xs text-slate-500')}>優先度低</p>
        }
-          </div>
+          </Background>
 
         </DragDropContext>
       </div>
 
       <div className={clsx(
-        'w-full flex-1',
-        'flex flex-col justify-end items-center gap-5',
+        'w-full flex-1 gap-5 mt-8',
+        'flex flex-col justify-end items-center',
       )}
       >
         <Button
