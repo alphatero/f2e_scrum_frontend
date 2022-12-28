@@ -3,7 +3,6 @@ import clsx from 'clsx';
 export function Button(
   {
     children, onClick, className,
-    maxWidthSetting = 'max-w-[358px]',
     btnType = 'primary', disabled = false,
   },
 ) {
@@ -25,8 +24,7 @@ export function Button(
 
   return (
     <div className={clsx(
-      'relative flex-col w-full',
-      maxWidthSetting,
+      'relative flex-col w-full max-w-[358px]',
       className,
     )}
     >
