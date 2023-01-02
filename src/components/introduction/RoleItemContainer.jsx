@@ -11,7 +11,9 @@ export function RoleItemContainer({ children, onClick }) {
       onClick={onClick}
       aria-hidden="true"
     >
-      <BlurBlockBg styleType="BlurBlockB">{children}</BlurBlockBg>
+      <BlurBlockBg styleType="BlurBlockB">
+        {children}
+      </BlurBlockBg>
     </div>
   );
 }

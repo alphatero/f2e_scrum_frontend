@@ -24,11 +24,18 @@ export function Role() {
             key={`card_${card.id}`}
             onClick={() => {
               setIsOpenObj({
-                card_0: false, card_1: false, card_2: false, [`card_${card.id}`]: true,
+                card_0: false,
+                card_1: false,
+                card_2: false,
+                [`card_${card.id}`]: true,
               });
             }}
           >
-            <RoleItemChild key={`child_${card.id}`} card={card} openState={isOpenObj[`card_${idx}`]} />
+            <RoleItemChild
+              key={`child_${card.id}`}
+              card={card}
+              openState={isOpenObj[`card_${idx}`]}
+            />
           </RoleItemContainer>
         ))
       }
