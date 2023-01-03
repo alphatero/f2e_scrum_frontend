@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Droppable } from 'react-beautiful-dnd';
 
-export function DroppableComponent({ children, droppableId }) {
+export function DroppableBox({ children, droppableId }) {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -20,4 +20,4 @@ export function DroppableComponent({ children, droppableId }) {
   return <Droppable droppableId={droppableId}>{children}</Droppable>;
 }
 
-export default DroppableComponent;
+export default DroppableBox;

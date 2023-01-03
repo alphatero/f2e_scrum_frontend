@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
 import { Button } from './Button';
-import { ArrowDownCircle, DroppableComponent, DraggleCard } from './exam';
+import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
 
 function Background({ children, className }) {
   return (
@@ -129,7 +129,7 @@ export function DragLayout({ info, speechTexts }) {
       >
         <DragDropContext onDragEnd={onDragEnd}>
           <Background>
-            <DroppableComponent droppableId="candidate">
+            <DroppableBox droppableId="candidate">
               {(provided) => (
                 <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
                   {itemObj.candidate.items.map((task, index) => (
@@ -138,7 +138,7 @@ export function DragLayout({ info, speechTexts }) {
                   {provided.placeholder}
                 </div>
               )}
-            </DroppableComponent>
+            </DroppableBox>
           </Background>
 
           {/* </div> */}
@@ -164,7 +164,7 @@ export function DragLayout({ info, speechTexts }) {
             : <p className={clsx('w-full absolute top-0 right-0 -translate-y-6', 'text-right mb-2 text-xs text-slate-500')}>優先度高</p>
         }
             {/* drag to here */}
-            <DroppableComponent droppableId="productBacklog">
+            <DroppableBox droppableId="productBacklog">
               {(provided) => (
                 <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
                   {itemObj.productBacklog.items.map((task, index) => (
@@ -173,7 +173,7 @@ export function DragLayout({ info, speechTexts }) {
                   {provided.placeholder}
                 </div>
               )}
-            </DroppableComponent>
+            </DroppableBox>
             {
           type === 'backlog'
           && <p className={clsx('w-full absolute bottom-0 translate-y-6', 'text-right mt-2 text-xs text-slate-500')}>優先度低</p>
