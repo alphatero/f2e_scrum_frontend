@@ -130,7 +130,7 @@ export function ChatRoom({ props }) {
 
         {!lastMsg && (
           <Link to={nextPage}>
-            <Button btnType="primary" maxWidth="max-w-none">
+            <Button btnType="primary" maxWidth="none">
               {button}
             </Button>
           </Link>
