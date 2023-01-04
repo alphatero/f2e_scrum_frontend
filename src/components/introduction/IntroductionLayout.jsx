@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../Button';
 import { BlurBlockBg } from '../BlurBlockBg';
-import { RoleTriangle } from './RoleTriangle';
+import { Triangle as RoleTriangle } from './Role/Triangle';
 import { ScrumMessageBox } from './ScrumMessageBox';
 import { Tag } from './Tag';
 

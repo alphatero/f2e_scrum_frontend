@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import { BlurBlockBg } from '../BlurBlockBg';
+import { BlurBlockBg } from '../../BlurBlockBg';
 
-export function RoleItemContainer({ children, onClick }) {
+export function ItemContainer({ children, onClick }) {
   return (
     <div
       className={clsx(
@@ -18,4 +18,4 @@ export function RoleItemContainer({ children, onClick }) {
   );
 }
 
-export default RoleItemContainer;
+export default ItemContainer;

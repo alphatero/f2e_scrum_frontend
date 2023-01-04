@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export function RoleItemHeaderImg({ card, openState }) {
+export function ItemHeaderImg({ card, openState }) {
   return (
     <div className="flex-none">
       <div className={clsx(
@@ -30,4 +30,4 @@ export function RoleItemHeaderImg({ card, openState }) {
   );
 }
 
-export default RoleItemHeaderImg;
+export default ItemHeaderImg;

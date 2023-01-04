@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
-import { RoleItemContainer, RoleItemChild } from '../../components/introduction';
+import { ItemContainer, ItemChild } from '../../components/introduction/Role';
 import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {
@@ -20,7 +20,7 @@ export function Role() {
     <div className="flex flex-col h-full p-4 pt-8">
       {
         cards.map((card, idx) => (
-          <RoleItemContainer
+          <ItemContainer
             key={`card_${card.id}`}
             onClick={() => {
               setIsOpenObj({
@@ -31,12 +31,12 @@ export function Role() {
               });
             }}
           >
-            <RoleItemChild
+            <ItemChild
               key={`child_${card.id}`}
               card={card}
               openState={isOpenObj[`card_${idx}`]}
             />
-          </RoleItemContainer>
+          </ItemContainer>
         ))
       }
 

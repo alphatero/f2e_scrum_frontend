@@ -1,8 +1,8 @@
 import clsx from 'clsx';
-import { RoleItemHeaderTitle } from './RoleItemHeaderTitle';
-import { RoleItemHeaderImg } from './RoleItemHeaderImg';
+import { ItemHeaderTitle } from './ItemHeaderTitle';
+import { ItemHeaderImg } from './ItemHeaderImg';
 
-export function RoleItemChild({ card, openState }) {
+export function ItemChild({ card, openState }) {
   const classOpt = {
     default: 'transition-all duration-700 origin-top overflow-hidden',
     close: 'h-0 opacity-0',
@@ -12,12 +12,12 @@ export function RoleItemChild({ card, openState }) {
   return (
     <>
       <div className={clsx('w-full flex', openState && 'mb-5')}>
-        <RoleItemHeaderTitle
+        <ItemHeaderTitle
           card={card}
           classOpt={classOpt}
           openState={openState}
         />
-        <RoleItemHeaderImg
+        <ItemHeaderImg
           card={card}
           openState={openState}
         />
@@ -42,4 +42,4 @@ export function RoleItemChild({ card, openState }) {
   );
 }
 
-export default RoleItemChild;
+export default ItemChild;

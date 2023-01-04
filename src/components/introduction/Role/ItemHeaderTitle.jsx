@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export function RoleItemHeaderTitle({ card, classOpt, openState }) {
+export function ItemHeaderTitle({ card, classOpt, openState }) {
   return (
     <div className="flex-1">
       <h3 className="text-sm md:text-base text-slate-900">{card.title}</h3>
@@ -25,4 +25,4 @@ export function RoleItemHeaderTitle({ card, classOpt, openState }) {
   );
 }
 
-export default RoleItemHeaderTitle;
+export default ItemHeaderTitle;
