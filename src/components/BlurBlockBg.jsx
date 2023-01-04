@@ -8,6 +8,7 @@ export function BlurBlockBg(props) {
   const type = {
     BlurBlockA: 'h-full rounded-t-3xl backdrop-blur-2xl',
     BlurBlockB: 'rounded-lg backdrop-blur-md',
+    BlurBlockC: 'rounded-xl min-h-[320px] grid grid-col-4 relative',
   };
 
   return (
