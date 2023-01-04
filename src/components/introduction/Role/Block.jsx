@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-export function RoleBlock({ item }) {
+export function Block({ item }) {
   const { rect, circle } = item;
 
   return (
@@ -35,4 +35,4 @@ export function RoleBlock({ item }) {
   );
 }
 
-export default RoleBlock;
+export default Block;
