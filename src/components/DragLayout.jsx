@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
+import { ButtonRabbit } from './ButtonRabbit';
 import { Button } from './Button';
 import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
 
@@ -188,17 +189,9 @@ export function DragLayout({ info, speechTexts }) {
         'flex flex-col justify-end items-center',
       )}
       >
-        <Button
-          onClick={nextPage}
-          className="w-full"
-          btnType="primary"
-          isRabbit
-          speechText={speech}
-          disabled={!isOrderCorrect}
-        >
+        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={!isOrderCorrect}>
           {button}
-
-        </Button>
+        </ButtonRabbit>
         <Button onClick={backPage} btnType="secondary">回上頁</Button>
       </div>
 
