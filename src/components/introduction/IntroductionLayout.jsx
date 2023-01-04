@@ -8,6 +8,7 @@ import { Tag } from './Tag';
 
 export function IntroductionLayout({ info }) {
   const navigate = useNavigate();
+
   const {
     titles,
     article,
@@ -28,16 +29,14 @@ export function IntroductionLayout({ info }) {
 
   return (
     <div className="flex flex-col pt-4 h-full">
-      <div className="px-4 flex max-w-5xl mx-auto">
-        <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4')}>
+      <div className="relative px-4 flex max-w-5xl mx-auto">
+        <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4 mr-24 p-3')}>
 
           <ScrumMessageBox />
-
-          <p className="text-xs md:text-base mx-4">{guide}</p>
+          <p className="mx-4 text-xs md:text-base">{guide}</p>
         </div>
-        <div className="relative object-contain flex">
+        <div className="absolute right-0 bottom-0 object-contain flex">
           <img
-            className=""
             src="/images/introduction-scrum-rabbit.png"
             alt="guide"
           />
@@ -50,30 +49,50 @@ export function IntroductionLayout({ info }) {
         )}
         >
           <article className="flex flex-col w-full">
-            {titles.map((title) => (
+            {
+              next === '/exam/sprint-point'
+            && (
+            <div className="absolute right-3">
+              <img
+                src="/images/logo-jira.png"
+                alt="jira"
+              />
+            </div>
+            )
+            }
+            {titles.length > 0 && titles.map((title) => (
               <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}
               </p>
             ))}
             <div className="mt-6 mb-4">
-              <Tag text={sectionTitle} />
+              <Tag text={sectionTitle} type={sectionTitle === 'Hint!!' ? 'hint' : 'default'} />
             </div>
             {article.map((word) => (
-              <p key={word} className="py-2 text-sm md:text-base whitespace-pre-wrap">
-                {word}
-              </p>
+              word.type === 'bold'
+                ? word.content.map((content) => (
+                  <p key={content} className="font-bold text-sm md:text-base">
+                    { content}
+                  </p>
+                ))
+                : (
+                  <p key={word} className="py-2 text-sm md:text-base whitespace-pre-wrap">
+                    {word.content}
+                  </p>
+                )
             ))}
           </article>
 
           {
-            image.type === 'img' ? (
+            image
+            && (image.type === 'img' ? (
               <div>
                 <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
                 <a href={image.reference} className="text-teal-500 underline text-xs">
                   圖片來源. 新加坡鈦坦科技-Scrum
                 </a>
               </div>
-            ) : <RoleTriangle />
+            ) : <RoleTriangle />)
           }
 
           <div className={clsx(

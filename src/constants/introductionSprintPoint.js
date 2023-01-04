@@ -11,24 +11,26 @@ export const introductionSprintPoint = {
       content: '衡量速度',
     },
   ],
-  tagText: 'Hint!!',
-  articleTop: '所有的專案管理都會面臨到評估進度的困難：',
-  articleBottom: 'Scrum 中，引用「費氏數列」來評估「時間規模」，也就是每個數字只會是1、2、3、5、8、13、21這幾個數字，Point越小，代表這個Story花費時間越少；越大，就代表花費時間越多。',
-  remarks: [
+  sectionTitle: 'Hint!!',
+  article: [
     {
       id: 0,
-      content: '現在事情完成度多少？',
+      type: 'default',
+      content: '所有的專案管理都會面臨到評估進度的困難：',
     },
     {
       id: 1,
-      content: '進度落後多少？',
+      type: 'quote',
+      content: ['現在事情完成度多少？', '進度落後多少？', '還有幾天會完成呢？'],
     },
     {
       id: 2,
-      content: '還有幾天會完成呢？',
+      type: 'default',
+      content: 'Scrum 中，引用「費氏數列」來評估「時間規模」，也就是每個數字只會是1、2、3、5、8、13、21這幾個數字，Point越小，代表這個Story花費時間越少；越大，就代表花費時間越多。',
     },
   ],
   button: '跟著DEV一起試試！',
+  next: '/exam/sprint-point',
 };
 
 export default introductionSprintPoint;
