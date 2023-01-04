@@ -6,7 +6,7 @@ export function ItemContainer({ children, onClick }) {
     <div
       className={clsx(
         'grid grid-flow-row auto-rows-max',
-        'rounded-lg mb-5',
+        'rounded-lg mb-5 cursor-pointer',
       )}
       onClick={onClick}
       aria-hidden="true"
