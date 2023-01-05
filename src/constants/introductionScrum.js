@@ -16,8 +16,21 @@ export const scrumInfo = {
     type: 'animation',
   },
   article: [
-    'Scrum是一種敏捷開發的框架，以固定時間的長度週期持續開發產品，特色是以稱為固定時間長度的短衝（Sprint）週期去持續開發產品，並在每個短衝都為產品交付增量（Increment）—新增有價值的改變。',
-    'Scrum 中有三個非常重要的核心角色，分別是產品負責人PO(Product Owner)、Scrum主持人SM(Scrum Master)、開發團隊DEV(Developmnet Team)，這三位是我們在敏捷開發中非常不可或缺的喔！',
+    {
+      id: 0,
+      type: 'default',
+      content: [
+
+        'Scrum是一種敏捷開發的框架，以固定時間的長度週期持續開發產品，特色是以稱為固定時間長度的短衝（Sprint）週期去持續開發產品，並在每個短衝都為產品交付增量（Increment）—新增有價值的改變。',
+      ],
+    },
+    {
+      id: 1,
+      type: 'default',
+      content: [
+        'Scrum 中有三個非常重要的核心角色，分別是產品負責人PO(Product Owner)、Scrum主持人SM(Scrum Master)、開發團隊DEV(Developmnet Team)，這三位是我們在敏捷開發中非常不可或缺的喔！',
+      ],
+    },
   ],
   button: '來看他們自我介紹！',
   next: '/introduction/role',

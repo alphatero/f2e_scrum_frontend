@@ -76,7 +76,7 @@ export function IntroductionLayout({ info }) {
                   </p>
                 ))
                 : (
-                  <p key={word} className="py-2 text-sm md:text-base whitespace-pre-wrap">
+                  <p key={word.content} className="py-2 text-sm md:text-base whitespace-pre-wrap">
                     {word.content}
                   </p>
                 )
