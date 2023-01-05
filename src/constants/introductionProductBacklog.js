@@ -1,7 +1,7 @@
 export const introductionProductBacklog = {
   guide:
     '我在scrum初期，會先與客戶及利益關係人討論需求，將需求以功能拆分放在product backlog，再依照需求的明確度、重要度高低以及規模大小區分',
-  sectionTitle: 'Hint!!',
+  tag: 'hint',
   article: [
     {
       id: 0,

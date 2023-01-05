@@ -13,7 +13,7 @@ export function IntroductionLayout({ info }) {
     titles,
     article,
     button,
-    sectionTitle,
+    tag,
     guide,
     image,
     next,
@@ -66,7 +66,7 @@ export function IntroductionLayout({ info }) {
               </p>
             ))}
             <div className="mt-6 mb-4">
-              <Tag text={sectionTitle} type={sectionTitle === 'Hint!!' ? 'hint' : 'default'} />
+              <Tag type={tag} />
             </div>
             {article.map((word) => (
               word.type === 'bold'

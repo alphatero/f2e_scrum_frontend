@@ -11,7 +11,7 @@ export const introductionSprintPoint = {
       content: '衡量速度',
     },
   ],
-  sectionTitle: 'Hint!!',
+  tag: 'hint',
   article: [
     {
       id: 0,

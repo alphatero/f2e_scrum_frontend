@@ -11,7 +11,7 @@ export const sprintGuideInfo = {
       content: 'Sprint 是什麼？',
     },
   ],
-  sectionTitle: '基本概述',
+  tag: 'basic',
   article: [
     'Sprint 又叫短衝，是一種一直迭代、且具有固定時間限制的流程。PO, Scrum Master, DEV這三個角色皆會參與這個流程。 ',
     '在跑 Sprint 之前，我們的 PO 會與客戶或是利益關係人確認此次合作專案有哪些需要開發的功能項目，並將需求依照優先序排列開發順序，再將功能項目一一評估點數，再將它排定到每次的 Sprint 中。\n而我們進入 Sprint 之後，我們的 Scrum Master 就會與開發團隊(DEV)一起參與每日的站會了解各自的進度狀況，等到Sprint 進入尾聲，就會開啟我們的檢視會議(Review)以及自省會議(Retro)囉！',

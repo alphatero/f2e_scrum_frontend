@@ -11,7 +11,7 @@ export const scrumInfo = {
       content: 'Scrum 是什麼？',
     },
   ],
-  sectionTitle: '基本概述',
+  tag: 'basic',
   image: {
     type: 'animation',
   },
