@@ -1,15 +1,15 @@
 import clsx from 'clsx';
 
+const category = {
+  A: 'h-full rounded-t-3xl backdrop-blur-2xl',
+  B: 'rounded-lg backdrop-blur-md',
+  C: 'rounded-xl min-h-[320px] grid grid-col-4 relative',
+};
+
 export function BlurBlockBg(props) {
   const {
-    children, styleType = 'BlurBlockA', className,
+    children, type = 'A', className,
   } = props;
-
-  const type = {
-    BlurBlockA: 'h-full rounded-t-3xl backdrop-blur-2xl',
-    BlurBlockB: 'rounded-lg backdrop-blur-md',
-    BlurBlockC: 'rounded-xl min-h-[320px] grid grid-col-4 relative',
-  };
 
   return (
     <div className={clsx(
@@ -17,7 +17,7 @@ export function BlurBlockBg(props) {
       'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
       'backdrop-filter',
       className,
-      type[styleType],
+      category[type],
     )}
     >
       {children}

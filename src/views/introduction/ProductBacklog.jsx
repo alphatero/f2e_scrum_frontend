@@ -35,7 +35,7 @@ export function IntroProductBacklog() {
           />
         </div>
       </div>
-      <BlurBlockBg styleType="BlurBlockA">
+      <BlurBlockBg type="A">
         <div className={clsx(
           'flex flex-col justify-between items-center',
           'h-full space-y-4 py-4',

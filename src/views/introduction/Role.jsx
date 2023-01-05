@@ -14,7 +14,7 @@ function Frame({ children, onClick }) {
       onClick={onClick}
       aria-hidden="true"
     >
-      <BlurBlockBg styleType="BlurBlockB">{children}</BlurBlockBg>
+      <BlurBlockBg type="B">{children}</BlurBlockBg>
     </div>
   );
 }
