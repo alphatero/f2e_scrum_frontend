@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export const tagType = {
+const tagType = {
   hint: {
     text: 'Hint!!',
     style: 'text-slate-700 bg-yellow-300',
