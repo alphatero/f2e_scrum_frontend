@@ -43,13 +43,13 @@ export function IntroductionLayout({ info }) {
           />
         </div>
       </div>
-      <BlurBlockBg type="A">
+      <BlurBlockBg type="A" className="p-0 md:p-0">
         <div className={clsx(
           'flex flex-col justify-between items-center',
-          'h-full space-y-4 py-4',
+          'h-full w-full space-y-4 py-4',
         )}
         >
-          <article className="flex flex-col w-full">
+          <article className="flex flex-col w-full px-5 md:p-10">
             {titles.map((title) => (
               <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}
@@ -67,11 +67,13 @@ export function IntroductionLayout({ info }) {
 
           {
             image.type === 'img' ? (
-              <div>
-                <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
-                <a href={image.reference} className="text-teal-500 underline text-xs">
-                  圖片來源. 新加坡鈦坦科技-Scrum
-                </a>
+              <div className="w-full">
+                <img src={image.src} className="w-full" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
+                <p className="px-5 md:px-10">
+                  <a href={image.reference} className="text-teal-500 underline text-xs">
+                    圖片來源. 新加坡鈦坦科技-Scrum
+                  </a>
+                </p>
               </div>
             ) : <RoleTriangle />
           }
