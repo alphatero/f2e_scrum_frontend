@@ -6,22 +6,7 @@ import { useEffect, useState } from 'react';
 import { ButtonRabbit } from './ButtonRabbit';
 import { Button } from './Button';
 import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
-
-function Background({ children, className }) {
-  return (
-    <div className={clsx(
-      'grid grid-col-4 w-full relative',
-      'border p-4 md:p-10 lg:mt-6',
-      'bg-gradient-to-b from-white/70 to-white/30 bg-clip-padding bg-opacity-70',
-      'backdrop-filter rounded-xl min-h-[320px]',
-      className,
-    )}
-    >
-      { children}
-
-    </div>
-  );
-}
+import { BlurBlockBg } from './BlurBlockBg';
 
 export function DragLayout({ info, speechTexts }) {
   const navigate = useNavigate();
@@ -129,7 +114,7 @@ export function DragLayout({ info, speechTexts }) {
       )}
       >
         <DragDropContext onDragEnd={onDragEnd}>
-          <Background>
+          <BlurBlockBg type="C">
             <DroppableBox droppableId="candidate">
               {(provided) => (
                 <div className="flex flex-col space-y-3" ref={provided.innerRef} {...provided.droppableProps}>
@@ -140,14 +125,14 @@ export function DragLayout({ info, speechTexts }) {
                 </div>
               )}
             </DroppableBox>
-          </Background>
+          </BlurBlockBg>
 
           {/* </div> */}
 
           <div className={clsx('flex items-center justify-center', 'w-full text-center m-3 lg:w-auto')}>
             <ArrowDownCircle />
           </div>
-          <Background className={(!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white'}>
+          <BlurBlockBg type="C" className={(!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white'}>
 
             {
           type === 'point'
@@ -179,7 +164,7 @@ export function DragLayout({ info, speechTexts }) {
           type === 'backlog'
           && <p className={clsx('w-full absolute bottom-0 translate-y-6', 'text-right mt-2 text-xs text-slate-500')}>優先度低</p>
        }
-          </Background>
+          </BlurBlockBg>
 
         </DragDropContext>
       </div>
