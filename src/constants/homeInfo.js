@@ -18,7 +18,7 @@ export const HomeInfo = {
     {
       id: 3,
       content:
-        '馬上要參與Scrum專案了，<br />哪裡可以讓我快速了解？',
+        '馬上要參與Scrum專案了，\n哪裡可以讓我快速了解？',
     },
   ],
   button: '點我進入',
