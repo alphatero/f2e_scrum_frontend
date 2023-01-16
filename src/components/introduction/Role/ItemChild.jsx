@@ -2,13 +2,13 @@ import clsx from 'clsx';
 import { ItemHeaderTitle } from './ItemHeaderTitle';
 import { ItemHeaderImg } from './ItemHeaderImg';
 
-export function ItemChild({ card, openState }) {
-  const classOpt = {
-    default: 'transition-all duration-700 origin-top overflow-hidden',
-    close: 'h-0 opacity-0',
-    open: 'h-100 opacity-1',
-  };
+const classOpt = {
+  default: 'transition-all duration-700 origin-top overflow-hidden',
+  close: 'h-0 opacity-0',
+  open: 'h-100 opacity-1',
+};
 
+export function ItemChild({ card, openState }) {
   return (
     <>
       <div className={clsx('w-full flex', openState && 'mb-5')}>
