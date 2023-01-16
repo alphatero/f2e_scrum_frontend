@@ -22,6 +22,7 @@ export function Role() {
         cards.map((card, idx) => (
           <ItemContainer
             key={`card_${card.id}`}
+            openState={isOpenObj[`card_${idx}`]}
             onClick={() => {
               setIsOpenObj({
                 card_0: false,
