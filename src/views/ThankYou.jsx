@@ -1,4 +1,4 @@
-// import clsx from 'clsx';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../components';
@@ -6,53 +6,98 @@ import { TextBubble } from '../components/home';
 import { ThankInfo } from '../constants/thankInfo';
 import { Icons } from '../components/Icons';
 
+const homeVariants = {
+  initial: {
+    transition: { delayChildren: 2 },
+    transform: 'translate(-66px, 10px) rotate(-44deg)',
+  },
+  in: {
+    transform: [
+      'translate(-66px, 10px) rotate(-44deg)',
+      'translate(-62px, 10px) rotate(25deg)',
+      'translate(-70px, 10px) rotate(-14deg)',
+      'translate(-62px, 10px) rotate(15deg)',
+      'translate(-70px, 10px) rotate(-4deg)',
+      'translate(-62px, 10px) rotate(10deg)',
+      'translate(-66px, 10px) rotate(0deg)',
+    ],
+  },
+};
+
+const lastTransition = {
+  type: 'tween',
+  ease: 'linear',
+  duration: 2,
+};
+
+const setThankJump = (delaySec) => {
+  const setting = {
+    animate: {
+      y: [0, -15, 0],
+    },
+    transition: {
+      delay: delaySec,
+      duration: 0.5,
+    },
+  };
+  return setting;
+};
+
+const letterArr = [
+  {
+    id: 0,
+    key: 'TitleC',
+    initial: 'initial',
+    animate: 'in',
+    variants: homeVariants,
+    transition: lastTransition,
+    className: 'absolute z-0',
+    IconHtml: <Icons.HomeTitle.C />,
+  },
+  {
+    id: 1,
+    animate: setThankJump().animate,
+    transition: setThankJump(2.0).transition,
+    IconHtml: <Icons.HomeTitle.R className="-z-10" />,
+  },
+  {
+    id: 2,
+    animate: setThankJump().animate,
+    transition: setThankJump(2.2).transition,
+    IconHtml: <Icons.HomeTitle.U className="-z-10" />,
+  },
+  {
+    id: 3,
+    animate: setThankJump().animate,
+    transition: setThankJump(2.4).transition,
+    IconHtml: <Icons.HomeTitle.M className="-z-10" />,
+  },
+  {
+    id: 4,
+    animate: {
+      y: [0, -40, 0, -30, 0, -10, 0],
+    },
+    transition: {
+      delay: 2.4,
+      duration: 1.0,
+    },
+    IconHtml: <Icons.HomeTitle.ExclamationMark className="z-10" />,
+  },
+];
+
 function ThankYou() {
   const navigate = useNavigate();
   const { speechBubble, bottomText, button } = ThankInfo;
-
-  const homeVariants = {
-    initial: {
-      transition: { delayChildren: 2 },
-      transform: 'translate(-66px, 10px) rotate(-44deg)',
-    },
-    in: {
-      transform: [
-        'translate(-66px, 10px) rotate(-44deg)',
-        'translate(-62px, 10px) rotate(25deg)',
-        'translate(-70px, 10px) rotate(-14deg)',
-        'translate(-62px, 10px) rotate(15deg)',
-        'translate(-70px, 10px) rotate(-4deg)',
-        'translate(-62px, 10px) rotate(10deg)',
-        'translate(-66px, 10px) rotate(0deg)',
-      ],
-    },
-  };
-
-  const lastTransition = {
-    type: 'tween',
-    ease: 'linear',
-    duration: 2,
-  };
-
-  const setThankJump = (delaySec) => {
-    const setting = {
-      animate: {
-        y: [0, -15, 0],
-      },
-      transition: {
-        delay: delaySec,
-        duration: 0.5,
-      },
-    };
-    return setting;
-  };
-
   const backHome = () => {
     navigate('/');
   };
 
   return (
-    <div className="relative flex items-center flex-col mx-auto h-full max-w-[375px]">
+    <div className={clsx(
+      'relative flex flex-col items-center',
+      'mx-auto h-full max-w-[375px]',
+    )}
+    >
 
       <TextBubble
         classList="absolute top-12"
@@ -73,49 +118,20 @@ function ThankYou() {
         <div className="flex items-end justify-center relative space-x-1">
           <Icons.HomeTitle.S className="mr-11 -z-10" />
 
-          <motion.div
-            key="TitleC"
-            initial="initial"
-            animate="in"
-            variants={homeVariants}
-            transition={lastTransition}
-            className="absolute z-0"
-          >
-            <Icons.HomeTitle.C />
-          </motion.div>
-
-          <motion.div
-            animate={setThankJump().animate}
-            transition={setThankJump(2.0).transition}
-          >
-            <Icons.HomeTitle.R className="-z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={setThankJump().animate}
-            transition={setThankJump(2.2).transition}
-          >
-            <Icons.HomeTitle.U className="-z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={setThankJump().animate}
-            transition={setThankJump(2.4).transition}
-          >
-            <Icons.HomeTitle.M className="-z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={{
-              y: [0, -40, 0, -30, 0, -10, 0],
-            }}
-            transition={{
-              delay: 2.4,
-              duration: 1.0,
-            }}
-          >
-            <Icons.HomeTitle.ExclamationMark className="z-10" />
-          </motion.div>
+          {
+            letterArr.map((div) => (
+              <motion.div
+                key={div.key}
+                initial={div.initial}
+                animate={div.animate}
+                variants={div.variants}
+                transition={div.transition}
+                className={div.className}
+              >
+                {div.IconHtml}
+              </motion.div>
+            ))
+          }
         </div>
       </div>
 
