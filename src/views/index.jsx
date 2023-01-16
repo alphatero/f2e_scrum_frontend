@@ -1,4 +1,4 @@
-// import clsx from 'clsx';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '../components';
@@ -6,58 +6,103 @@ import { TextBubble } from '../components/home';
 import { HomeInfo } from '../constants/homeInfo';
 import { Icons } from '../components/Icons';
 
+const rotateDeg = (rotateTime) => {
+  const finalDeg = -44;
+  return finalDeg + 360 * rotateTime;
+};
+
+const homeVariants = {
+  initial: {
+    transition: { delayChildren: 2 },
+    transform: 'translate(400px, 10px) rotate(1440deg)',
+  },
+  in: {
+    transform: [
+      `translate(300px, 10px) rotate(${rotateDeg(4)}deg)`,
+      `translate(200px, 10px) rotate(${rotateDeg(3)}deg)`,
+      `translate(100px, 10px) rotate(${rotateDeg(2)}deg)`,
+      `translate(0px, 10px) rotate(${rotateDeg(1)}deg)`,
+      'translate(-82px, 10px) rotate(-54deg)',
+      'translate(-76px, 10px) rotate(-38deg)',
+      'translate(-78px, 10px) rotate(-44deg)',
+    ],
+  },
+};
+
+const homeTransition = {
+  type: 'tween',
+  ease: 'linear',
+  duration: 4,
+};
+
+const setHomeRotate = (delaySec = 3) => {
+  const setting = {
+    animate: {
+      rotateZ: [0, 20, 0],
+    },
+    transition: {
+      delay: delaySec,
+      duration: 1.2,
+    },
+  };
+  return setting;
+};
+
+const letterArr = [
+  {
+    id: 0,
+    key: 'TitleC',
+    initial: 'initial',
+    animate: 'in',
+    variants: homeVariants,
+    transition: homeTransition,
+    className: 'absolute',
+    IconHtml: <Icons.HomeTitle.C className="relative z-0" />,
+  },
+  {
+    id: 1,
+    animate: setHomeRotate().animate,
+    transition: setHomeRotate(3.3).transition,
+    IconHtml: <Icons.HomeTitle.R className="relative -z-10" />,
+  },
+  {
+    id: 2,
+    animate: setHomeRotate().animate,
+    transition: setHomeRotate(3.4).transition,
+    IconHtml: <Icons.HomeTitle.U className="relative z-10" />,
+  },
+  {
+    id: 3,
+    animate: setHomeRotate().animate,
+    transition: setHomeRotate(3.5).transition,
+    IconHtml: <Icons.HomeTitle.M className="relative -z-10" />,
+  },
+  {
+    id: 4,
+    animate: {
+      rotateZ: 20,
+    },
+    transition: {
+      delay: 3.6,
+      duration: 1.0,
+    },
+    IconHtml: <Icons.HomeTitle.QuestionMark className="relative z-10" />,
+  },
+];
+
 function Home() {
   const navigate = useNavigate();
   const { speechBubble, button } = HomeInfo;
-
-  const rotateDeg = (rotateTime) => {
-    const finalDeg = -44;
-    return finalDeg + 360 * rotateTime;
-  };
-
-  const homeVariants = {
-    initial: {
-      transition: { delayChildren: 2 },
-      transform: 'translate(400px, 10px) rotate(1440deg)',
-    },
-    in: {
-      transform: [
-        `translate(300px, 10px) rotate(${rotateDeg(4)}deg)`,
-        `translate(200px, 10px) rotate(${rotateDeg(3)}deg)`,
-        `translate(100px, 10px) rotate(${rotateDeg(2)}deg)`,
-        `translate(0px, 10px) rotate(${rotateDeg(1)}deg)`,
-        'translate(-82px, 10px) rotate(-54deg)',
-        'translate(-76px, 10px) rotate(-38deg)',
-        'translate(-78px, 10px) rotate(-44deg)',
-      ],
-    },
-  };
-
-  const homeTransition = {
-    type: 'tween',
-    ease: 'linear',
-    duration: 4,
-  };
-
-  const setHomeRotate = (delaySec = 3) => {
-    const setting = {
-      animate: {
-        rotateZ: [0, 20, 0],
-      },
-      transition: {
-        delay: delaySec,
-        duration: 1.2,
-      },
-    };
-    return setting;
-  };
-
   const nextPage = () => {
     navigate('/introduction/scrum');
   };
 
   return (
-    <div className="relative flex items-center flex-col mx-auto h-full max-w-[375px]">
+    <div className={clsx(
+      'relative flex flex-col items-center',
+      'mx-auto h-full max-w-[375px]',
+    )}
+    >
 
       <TextBubble
         classList="absolute top-12"
@@ -78,49 +123,20 @@ function Home() {
         <div className="flex items-end justify-center relative space-x-1">
           <Icons.HomeTitle.S className="relative mr-11 z-10" />
 
-          <motion.div
-            key="TitleC"
-            initial="initial"
-            animate="in"
-            variants={homeVariants}
-            transition={homeTransition}
-            className="absolute"
-          >
-            <Icons.HomeTitle.C className="relative z-0" />
-          </motion.div>
-
-          <motion.div
-            animate={setHomeRotate().animate}
-            transition={setHomeRotate(3.3).transition}
-          >
-            <Icons.HomeTitle.R className="relative -z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={setHomeRotate().animate}
-            transition={setHomeRotate(3.4).transition}
-          >
-            <Icons.HomeTitle.U className="relative z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={setHomeRotate().animate}
-            transition={setHomeRotate(3.5).transition}
-          >
-            <Icons.HomeTitle.M className="relative -z-10" />
-          </motion.div>
-
-          <motion.div
-            animate={{
-              rotateZ: 20,
-            }}
-            transition={{
-              delay: 3.6,
-              duration: 1.0,
-            }}
-          >
-            <Icons.HomeTitle.QuestionMark className="relative z-10" />
-          </motion.div>
+          {
+            letterArr.map((div) => (
+              <motion.div
+                key={div.id}
+                initial={div.initial}
+                animate={div.animate}
+                variants={div.variants}
+                transition={div.transition}
+                className={div.className}
+              >
+                {div.IconHtml}
+              </motion.div>
+            ))
+          }
         </div>
       </div>
 
