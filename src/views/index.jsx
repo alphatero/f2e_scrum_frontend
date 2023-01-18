@@ -6,6 +6,33 @@ import { TextBubble } from '../components/home';
 import { HomeInfo } from '../constants/homeInfo';
 import { Icons } from '../components/Icons';
 
+const { speechBubble, button } = HomeInfo;
+
+const bubbleTopArr = [
+  {
+    class: 'absolute top-12',
+    data: speechBubble[0],
+    delay: 4.5,
+  },
+  {
+    class: 'absolute top-20',
+    data: speechBubble[1],
+    delay: '4.7',
+  },
+];
+const bubbleBottomArr = [
+  {
+    class: 'absolute top-[40%]',
+    data: speechBubble[2],
+    delay: 5,
+  },
+  {
+    class: 'absolute top-[50%]',
+    data: speechBubble[3],
+    delay: 5.3,
+  },
+];
+
 const rotateDeg = (rotateTime) => {
   const finalDeg = -44;
   return finalDeg + 360 * rotateTime;
@@ -90,9 +117,26 @@ const letterArr = [
   },
 ];
 
+const letterBgArr = [
+  {
+    class: 'fixed top-[-125px] left-[calc(50%-225px)] -z-10 animate-floating-a',
+    path: '/images/home-bg-img-S.png',
+    alt: 'home-bg-img-S',
+  },
+  {
+    class: 'fixed top-[215px] right-[calc(50%-130px)] -z-10 animate-floating-b',
+    path: '/images/home-bg-img-C.png',
+    alt: 'home-bg-img-C',
+  },
+  {
+    class: 'fixed bottom-[-50px] left-[calc(50%-25px)] -z-10 animate-floating-a',
+    path: '/images/home-bg-img-question-mark.png',
+    alt: 'home-bg-img-question-mark',
+  },
+];
+
 function Home() {
   const navigate = useNavigate();
-  const { speechBubble, button } = HomeInfo;
   const nextPage = () => {
     navigate('/introduction/scrum');
   };
@@ -104,17 +148,15 @@ function Home() {
     )}
     >
 
-      <TextBubble
-        classList="absolute top-12"
-        data={speechBubble[0]}
-        delaySec={4.5}
-      />
-
-      <TextBubble
-        classList="absolute top-20"
-        data={speechBubble[1]}
-        delaySec={4.7}
-      />
+      {
+        bubbleTopArr.map((bubble) => (
+          <TextBubble
+            classList={bubble.class}
+            data={bubble.data}
+            delaySec={bubble.delay}
+          />
+        ))
+      }
 
       <div className="absolute top-[28%] left-[50%] translate-x-[-50%] w-full">
         <div className="w-24 ml-4">
@@ -139,38 +181,29 @@ function Home() {
           }
         </div>
       </div>
-
-      <TextBubble
-        classList="absolute top-[40%]"
-        data={speechBubble[2]}
-        delaySec={5}
-      />
-
-      <TextBubble
-        classList="absolute top-[50%]"
-        data={speechBubble[3]}
-        delaySec={5.3}
-      />
+      {
+        bubbleBottomArr.map((bubble) => (
+          <TextBubble
+            classList={bubble.class}
+            data={bubble.data}
+            delaySec={bubble.delay}
+          />
+        ))
+      }
 
       <div className="w-full mt-auto mx-auto mb-5 px-4">
         <Button onClick={nextPage}>{button}</Button>
       </div>
 
-      <img
-        className="fixed top-[-125px] left-[calc(50%-225px)] -z-10 animate-floating-a"
-        src="/images/home-bg-img-S.png"
-        alt="home-bg-img-S"
-      />
-      <img
-        className="fixed top-[215px] right-[calc(50%-130px)] -z-10 animate-floating-b"
-        src="/images/home-bg-img-C.png"
-        alt="home-bg-img-C"
-      />
-      <img
-        className="fixed bottom-[-50px] left-[calc(50%-25px)] -z-10 animate-floating-a"
-        src="/images/home-bg-img-question-mark.png"
-        alt="home-bg-img-question-mark"
-      />
+      {
+        letterBgArr.map((item) => (
+          <img
+            className={item.class}
+            src={item.path}
+            alt={item.alt}
+          />
+        ))
+      }
     </div>
   );
 }
