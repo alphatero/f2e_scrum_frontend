@@ -7,8 +7,16 @@ import { ButtonRabbit } from './ButtonRabbit';
 import { Button } from './Button';
 import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
 import { BlurBlockBg } from './BlurBlockBg';
+import { calculateSum } from '../utils';
+
+const status = {
+  ready: 'ready',
+  success: 'success',
+  error: 'error',
+};
 
 export function DragLayout({ info, speechTexts }) {
+  const answerArray = ['1', '2', '3', '4'];
   const navigate = useNavigate();
   const {
     tasks, button, type, next,
@@ -22,12 +30,14 @@ export function DragLayout({ info, speechTexts }) {
       items: [],
     },
   });
-  const answerArray = ['1', '2', '3', '4'];
-  const [isOrderCorrect, setIsOrderCorrect] = useState(null);
+  const [result, setResult] = useState(status.ready);
   const [speech, setSpeech] = useState(speechTexts.ready);
-  const [length, setLength] = useState(itemObj.productBacklog.items.length);
   const [point, setPoint] = useState(0);
 
+  /**
+   * 處理 Drag 行為
+   * @param event;
+   */
   const onDragEnd = (event) => {
     const { source, destination } = event;
 
@@ -38,7 +48,6 @@ export function DragLayout({ info, speechTexts }) {
     // 拷貝新的items (來自state)
     const newItemObj = { ...itemObj };
 
-    // splice(start, deleteCount, item )
     // 從source剪下被拖曳的元素
     const [remove] = newItemObj[source.droppableId].items.splice(
       source.index,
@@ -54,38 +63,70 @@ export function DragLayout({ info, speechTexts }) {
 
     // set state新的 itemObj
     setItemObj(newItemObj);
+  };
 
-    const handleBackLog = () => {
-      const currentProductBacklogOrder = newItemObj.productBacklog.items.map(
-        (ele) => ele.seq,
-      );
-      setLength(currentProductBacklogOrder.length);
-      return currentProductBacklogOrder.join('') === answerArray.join('');
-    };
+  const handleBackLog = (array) => {
+    const currentOrder = array.map(
+      (ele) => ele.seq,
+    );
 
-    const handlePoint = () => {
-      const points = newItemObj.productBacklog.items.map((item) => item.priority);
-      const sum = points
-        .reduce((acc, value) => acc + value, 0);
-      setPoint(sum);
-      const pointsLength = points.length;
-      setLength(pointsLength);
+    if (array.length === 4) {
+      return currentOrder.join('') === answerArray.join('') ? status.success : status.error;
+    }
 
-      if ((sum < 20 && pointsLength === 2) || (sum < 20 && pointsLength === 3)) {
-        return true;
+    return status.ready;
+  };
+
+  const handlePoint = (array) => {
+    const points = array.map((item) => item.priority);
+
+    const pointSum = calculateSum(points);
+
+    setPoint(pointSum);
+
+    if (points.length > 1) {
+      return pointSum < 20 ? status.success : status.error;
+    }
+    return status.ready;
+  };
+
+  /**
+   * 處理不同頁分類對應功能
+   * @param array
+   * @returns {string}
+   */
+  const checkCorrect = (array) => {
+    if (type === 'backlog') {
+      return handleBackLog(array);
+    }
+    return handlePoint(array);
+  };
+
+  /**
+   * 結果對應處理
+   * @param {string} ans
+   */
+  const handleResult = (ans) => {
+    switch (ans) {
+      case 'success': {
+        setResult(status.success);
+        setSpeech('恭喜你擺放正確囉！');
+        break;
       }
-      return false;
-    };
-
-    // 確認productBacklog順序
-    const checkProductBacklogOrder = () => {
-      if (type === 'backlog') {
-        return handleBackLog();
+      case 'error': {
+        setResult(status.error);
+        setSpeech(speechTexts.error);
+        break;
       }
-      return handlePoint();
-    };
-
-    setIsOrderCorrect(checkProductBacklogOrder);
+      case 'ready': {
+        setSpeech(speechTexts.ready);
+        setResult(status.ready);
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   };
 
   const backPage = () => {
@@ -97,13 +138,9 @@ export function DragLayout({ info, speechTexts }) {
   };
 
   useEffect(() => {
-    if (itemObj.productBacklog.items.length === 4 && !isOrderCorrect) {
-      setSpeech(speechTexts.error);
-    }
+    const currentArray = itemObj.productBacklog.items;
 
-    if (isOrderCorrect) {
-      setSpeech('恭喜你擺放正確囉！');
-    }
+    handleResult(checkCorrect(currentArray));
   }, [itemObj]);
 
   return (
@@ -127,19 +164,17 @@ export function DragLayout({ info, speechTexts }) {
             </DroppableBox>
           </BlurBlockBg>
 
-          {/* </div> */}
-
           <div className={clsx('flex items-center justify-center', 'w-full text-center m-3 lg:w-auto')}>
             <ArrowDownCircle />
           </div>
-          <BlurBlockBg type="C" className={(!isOrderCorrect && length === 4) || point > 20 ? 'border-red-500' : 'border-white'}>
+          <BlurBlockBg type="C" className={result === status.error ? 'border-red-500' : 'border-white'}>
 
             {
           type === 'point'
             ? (
               <p className={clsx('w-full absolute top-0 -translate-y-8', 'text-right mb-2 text-xs text-slate-500')}>
                 <span
-                  className={clsx('text-base px-1', point > 20 ? 'text-red-500' : 'text-black')}
+                  className={clsx('text-base px-1', result === status.error ? 'text-red-500' : 'text-black')}
                 >
                   {point}
 
@@ -174,7 +209,7 @@ export function DragLayout({ info, speechTexts }) {
         'flex flex-col justify-end items-center',
       )}
       >
-        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={!isOrderCorrect}>
+        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={result === status.error}>
           {button}
         </ButtonRabbit>
         <Button onClick={backPage} btnType="secondary">回上頁</Button>
