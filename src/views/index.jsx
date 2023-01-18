@@ -8,7 +8,7 @@ import { Icons } from '../components/Icons';
 
 const { speechBubble, button } = HomeInfo;
 
-const bubbleTopArr = [
+const bubbleArr = [
   {
     class: 'absolute top-12',
     data: speechBubble[0],
@@ -19,8 +19,6 @@ const bubbleTopArr = [
     data: speechBubble[1],
     delay: '4.7',
   },
-];
-const bubbleBottomArr = [
   {
     class: 'absolute top-[40%]',
     data: speechBubble[2],
@@ -149,7 +147,7 @@ function Home() {
     >
 
       {
-        bubbleTopArr.map((bubble) => (
+        bubbleArr.map((bubble) => (
           <TextBubble
             classList={bubble.class}
             data={bubble.data}
@@ -181,15 +179,6 @@ function Home() {
           }
         </div>
       </div>
-      {
-        bubbleBottomArr.map((bubble) => (
-          <TextBubble
-            classList={bubble.class}
-            data={bubble.data}
-            delaySec={bubble.delay}
-          />
-        ))
-      }
 
       <div className="w-full mt-auto mx-auto mb-5 px-4">
         <Button onClick={nextPage}>{button}</Button>
