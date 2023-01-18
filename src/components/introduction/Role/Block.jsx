@@ -15,8 +15,6 @@ export function Block({ item }) {
       <motion.rect
         x={rect.x}
         y={rect.y}
-        width="116"
-        height="50"
         rx="25"
         fill="#FDE047"
         style={{ x: 55, y: 20 }}
