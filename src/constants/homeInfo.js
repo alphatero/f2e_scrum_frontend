@@ -1,4 +1,5 @@
 export const HomeInfo = {
+  page: 'home',
   speechBubble: [
     {
       id: 0,
@@ -22,6 +23,7 @@ export const HomeInfo = {
     },
   ],
   button: '點我進入',
+  next: '/introduction/scrum',
 };
 
 export default HomeInfo;
