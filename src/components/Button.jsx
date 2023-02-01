@@ -41,7 +41,7 @@ export function Button(
         onClick={onClick}
         disabled={disabled}
       >
-        <p>{children}</p>
+        {children}
       </button>
     </div>
 
