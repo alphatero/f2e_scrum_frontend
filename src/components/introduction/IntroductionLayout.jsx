@@ -28,7 +28,11 @@ export function IntroductionLayout({ info }) {
   };
 
   return (
-    <div className="flex flex-col pt-4 h-full">
+    <div className={clsx(
+      'flex flex-col pt-4 h-full',
+      (image && image.type === 'img' ? 'h-fit' : ''),
+    )}
+    >
       <div className="relative px-4 flex max-w-5xl mx-auto">
         <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4 mr-24 p-3')}>
 
@@ -86,8 +90,8 @@ export function IntroductionLayout({ info }) {
           {
             image
             && (image.type === 'img' ? (
-              <div className="w-full">
-                <img src={image.src} className="w-full" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
+              <div className="">
+                <img src={image.src} className="w-full max-w-screen-sm" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
                 <a href={image.reference} className="text-teal-500 underline text-xs">
                   圖片來源. 新加坡鈦坦科技-Scrum
                 </a>
