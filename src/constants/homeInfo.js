@@ -1,5 +1,4 @@
 export const HomeInfo = {
-  page: 'home',
   speechBubble: [
     {
       id: 0,

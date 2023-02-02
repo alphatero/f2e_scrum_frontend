@@ -1,5 +1,4 @@
 export const ThankInfo = {
-  page: 'thankyou',
   speechBubble: [
     {
       id: 0,
