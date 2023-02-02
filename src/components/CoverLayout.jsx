@@ -5,52 +5,100 @@ import { Button } from './index';
 import { Icons } from './Icons';
 import { TextBubble } from './home';
 
-const jumpAnimate = {
-  letter: {
-    y: [0, -15, 0],
-  },
-  marker: {
-    y: [0, -40, 0, -30, 0, -10, 0],
-  },
-};
-const rotateAnimate = {
-  letter: {
-    rotateZ: [0, 20, 0],
-  },
-  marker: {
-    rotateZ: 20,
-  },
-};
-
 const setTransition = (delaySec) => ({
   delay: delaySec,
   duration: 1.0,
 });
-const setAnimate = (page) => (page === 'home' ? rotateAnimate : jumpAnimate);
 
-const homeVariants = {
-  initial: {
-    transition: { delayChildren: 2 },
-    transform: 'translate(-66px, 10px) rotate(-44deg)',
+const rotateDeg = (rotateTime) => {
+  const finalDeg = -44;
+  return finalDeg + 360 * rotateTime;
+};
+
+const pageSetting = {
+  home: {
+    sZIndex: 'z-10',
+    animate: {
+      letter: {
+        y: [0, -15, 0],
+      },
+      letterC: {
+        initial: {
+          transition: { delayChildren: 2 },
+          transform: 'translate(400px, 10px) rotate(1440deg)',
+        },
+        in: {
+          transform: [
+            `translate(300px, 10px) rotate(${rotateDeg(4)}deg)`,
+            `translate(200px, 10px) rotate(${rotateDeg(3)}deg)`,
+            `translate(100px, 10px) rotate(${rotateDeg(2)}deg)`,
+            `translate(0px, 10px) rotate(${rotateDeg(1)}deg)`,
+            'translate(-82px, 10px) rotate(-54deg)',
+            'translate(-76px, 10px) rotate(-38deg)',
+            'translate(-78px, 10px) rotate(-44deg)',
+          ],
+        },
+      },
+      marker: {
+        rotateZ: 20,
+      },
+    },
+    transition: {
+      letterC: {
+        type: 'tween',
+        ease: 'linear',
+        duration: 4,
+      },
+      marker: {
+        delay: 3.6,
+        duration: 1.0,
+      },
+    },
+    markerIcon: <Icons.HomeTitle.QuestionMark className="z-10" />,
   },
-  in: {
-    transform: [
-      'translate(-66px, 10px) rotate(-44deg)',
-      'translate(-62px, 10px) rotate(25deg)',
-      'translate(-70px, 10px) rotate(-14deg)',
-      'translate(-62px, 10px) rotate(15deg)',
-      'translate(-70px, 10px) rotate(-4deg)',
-      'translate(-62px, 10px) rotate(10deg)',
-      'translate(-66px, 10px) rotate(0deg)',
-    ],
+  thankyou: {
+    sZIndex: '-z-10',
+    animate: {
+      letter: {
+        rotateZ: [0, 20, 0],
+      },
+      letterC: {
+        initial: {
+          transition: { delayChildren: 2 },
+          transform: 'translate(-66px, 10px) rotate(-44deg)',
+        },
+        in: {
+          transform: [
+            'translate(-82px, 10px) rotate(-44deg)',
+            'translate(-78px, 10px) rotate(25deg)',
+            'translate(-86px, 10px) rotate(-14deg)',
+            'translate(-78px, 10px) rotate(15deg)',
+            'translate(-86px, 10px) rotate(-4deg)',
+            'translate(-78px, 10px) rotate(10deg)',
+            'translate(-82px, 10px) rotate(0deg)',
+          ],
+        },
+      },
+      marker: {
+        y: [0, -40, 0, -30, 0, -10, 0],
+      },
+    },
+    transition: {
+      letterC: {
+        type: 'tween',
+        ease: 'linear',
+        duration: 2,
+      },
+      marker: {
+        delay: 2.6,
+        duration: 1.0,
+      },
+    },
+    markerIcon: <Icons.HomeTitle.ExclamationMark className="z-10" />,
   },
 };
 
-const lastTransition = {
-  type: 'tween',
-  ease: 'linear',
-  duration: 2,
-};
+const setAnimate = (page) => pageSetting[page].animate;
 
 const letterBgArr = [
   {
@@ -88,15 +136,15 @@ export function CoverLayout({ info }) {
     {
       id: 0,
       key: 'S',
-      IconHtml: <Icons.HomeTitle.S className="relative mr-11 z-10" />,
+      IconHtml: <Icons.HomeTitle.S className={clsx('relative mr-11', pageSetting[page].sZIndex)} />,
     },
     {
       id: 1,
       key: 'C',
       initial: 'initial',
       animate: 'in',
-      variants: homeVariants,
-      transition: lastTransition,
+      variants: pageSetting[page].animate.letterC,
+      transition: pageSetting[page].transition.letterC,
       className: 'absolute z-0',
       IconHtml: <Icons.HomeTitle.C />,
     },
@@ -105,7 +153,7 @@ export function CoverLayout({ info }) {
       key: 'R',
       animate: setAnimate(page).letter,
       transition: setTransition(2.0),
-      IconHtml: <Icons.HomeTitle.R className="-z-10" />,
+      IconHtml: <Icons.HomeTitle.R className="relative -z-10" />,
     },
     {
       id: 3,
@@ -124,8 +172,8 @@ export function CoverLayout({ info }) {
     {
       id: 5,
       animate: setAnimate(page).marker,
-      transition: setTransition(2.4),
-      IconHtml: <Icons.HomeTitle.ExclamationMark className="z-10" />,
+      transition: pageSetting[page].transition.marker,
+      IconHtml: pageSetting[page].markerIcon,
     },
   ];
 
@@ -169,7 +217,7 @@ export function CoverLayout({ info }) {
       }
 
       <div className="absolute top-[28%] left-[50%] translate-x-[-50%] w-full">
-        <div className="w-24 ml-4">
+        <div className="w-36 ml-4">
           <img src="/images/home-slogan--what-is.png" alt="what is" />
         </div>
         <div className="flex items-end justify-center relative space-x-1">
