@@ -46,7 +46,7 @@ export function IntroductionLayout({ info }) {
           />
         </div>
       </div>
-      <BlurBlockBg type="A" className="p-0 md:p-0">
+      <BlurBlockBg type="A">
         <div className={clsx(
           'flex flex-col justify-between items-center',
           'h-full w-full space-y-4 py-4',
