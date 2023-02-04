@@ -90,7 +90,7 @@ export function IntroductionLayout({ info }) {
           {
             image
             && (image.type === 'img' ? (
-              <div className="">
+              <div>
                 <img src={image.src} className="w-full max-w-screen-sm" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
                 <a href={image.reference} className="text-teal-500 underline text-xs">
                   圖片來源. 新加坡鈦坦科技-Scrum
