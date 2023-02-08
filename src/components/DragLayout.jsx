@@ -144,7 +144,7 @@ export function DragLayout({ info, speechTexts }) {
   }, [itemObj]);
 
   return (
-    <div className="flex flex-col p-4 h-full">
+    <div className="flex flex-col p-4 lg:pt-8 h-full">
       <div className={clsx(
         'flex flex-col lg:flex-row lg:items-stretch',
         'w-full max-w-5xl mx-auto lg:px-20',
@@ -205,7 +205,7 @@ export function DragLayout({ info, speechTexts }) {
       </div>
 
       <div className={clsx(
-        'w-full flex-1 gap-5 mt-8',
+        'w-full flex-1 gap-5 mt-8 pb-2 lg:pb-0',
         'flex flex-col justify-end items-center',
       )}
       >
