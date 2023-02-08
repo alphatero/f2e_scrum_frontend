@@ -209,7 +209,7 @@ export function DragLayout({ info, speechTexts }) {
         'flex flex-col justify-end items-center',
       )}
       >
-        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={result === status.error}>
+        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={result !== status.success}>
           {button}
         </ButtonRabbit>
         <Button onClick={backPage} btnType="secondary">回上頁</Button>
