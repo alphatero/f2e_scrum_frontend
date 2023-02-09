@@ -46,7 +46,7 @@ export function Role() {
                 card_0: false,
                 card_1: false,
                 card_2: false,
-                [`card_${card.id}`]: true,
+                [`card_${idx}`]: true,
               });
             }}
           >
