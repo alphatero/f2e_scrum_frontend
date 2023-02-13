@@ -30,7 +30,7 @@ export function IntroductionLayout({ info }) {
   return (
     <div className={clsx(
       'flex flex-col pt-4 h-full',
-      (image && image.type === 'img' ? 'h-fit' : ''),
+      (image.type === 'img' && 'h-fit'),
     )}
     >
       <div className="relative px-4 flex max-w-5xl mx-auto">
