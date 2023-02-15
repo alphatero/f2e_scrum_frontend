@@ -1,9 +1,9 @@
 import clsx from 'clsx';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ItemContainer, ItemChild } from '../../components/introduction/Role';
+import { getRequest } from '../../api';
 // import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {
@@ -20,8 +20,8 @@ export function Role() {
 
   async function fetchContent(url) {
     try {
-      const { data } = await axios.get(url);
-      console.log('data: ', data);
+      const { data } = await getRequest(url);
+      console.log('responseData.data: ', data);
       setPageContent(() => data);
       console.log('pageContentData: ', pageContent);
     } catch (error) {
@@ -30,8 +30,7 @@ export function Role() {
   }
 
   useEffect(() => {
-    const URL = 'https://f2e-scrum-backend.onrender.com/api/introduction/role';
-    fetchContent(URL);
+    fetchContent('/introduction/role');
   }, []);
 
   return (
