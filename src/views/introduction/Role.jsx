@@ -20,17 +20,16 @@ export function Role() {
   async function fetchContent(url) {
     try {
       const { data } = await getRequest(url);
-      setPageContent(data);
+      return data;
     } catch (error) {
-      if (Object.keys(pageContent).length === 0) {
-        setPageContent(RoleInfo);
-      }
       throw new Error(`Fail to fetch ${url}: ${error.message}`);
     }
   }
 
   useEffect(() => {
-    fetchContent('/introduction/role');
+    const resultData = fetchContent('/introduction/role');
+    if (!resultData) setPageContent(RoleInfo);
+    setPageContent(resultData);
   }, []);
 
   return (
