@@ -4,12 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ItemContainer, ItemChild } from '../../components/introduction/Role';
 import { getRequest } from '../../api';
-// import { RoleInfo } from '../../constants/introductionRoleInfo';
+import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {
   const navigate = useNavigate();
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
-  // const { cards, button } = RoleInfo;
   const [pageContent, setPageContent] = useState({});
   const nextPage = () => {
     navigate('/introduction/sprint-guide');
@@ -21,11 +20,12 @@ export function Role() {
   async function fetchContent(url) {
     try {
       const { data } = await getRequest(url);
-      console.log('responseData.data: ', data);
-      setPageContent(() => data);
-      console.log('pageContentData: ', pageContent);
+      setPageContent(data);
     } catch (error) {
-      console.log('error: ', error);
+      if (Object.keys(pageContent).length === 0) {
+        setPageContent(RoleInfo);
+      }
+      throw new Error(`Fail to fetch ${url}: ${error.message}`);
     }
   }
 
