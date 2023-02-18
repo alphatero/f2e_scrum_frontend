@@ -28,7 +28,11 @@ export function IntroductionLayout({ info }) {
   };
 
   return (
-    <div className="flex flex-col pt-4 h-full">
+    <div className={clsx(
+      'flex flex-col pt-4 h-full',
+      (image.type === 'img' && 'h-fit'),
+    )}
+    >
       <div className="relative px-4 flex max-w-5xl mx-auto">
         <div className={clsx('relative', 'flex-1 flex items-center', 'mb-4 mr-24 p-3')}>
 
@@ -45,10 +49,10 @@ export function IntroductionLayout({ info }) {
       <BlurBlockBg type="A">
         <div className={clsx(
           'flex flex-col justify-between items-center',
-          'h-full space-y-4 py-4',
+          'h-full w-full space-y-4 py-4',
         )}
         >
-          <article className="flex flex-col w-full">
+          <article className="flex flex-col w-full px-5 md:p-10">
             {
               next === '/exam/sprint-point'
             && (
@@ -87,7 +91,7 @@ export function IntroductionLayout({ info }) {
             image
             && (image.type === 'img' ? (
               <div>
-                <img src={image.src} alt="圖片來源. 新加坡鈦坦科技-Scrum" />
+                <img src={image.src} className="w-full max-w-screen-sm" alt="圖片來源. 新加坡鈦坦科技-Scrum" />
                 <a href={image.reference} className="text-teal-500 underline text-xs">
                   圖片來源. 新加坡鈦坦科技-Scrum
                 </a>
