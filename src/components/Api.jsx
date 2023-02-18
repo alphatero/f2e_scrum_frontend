@@ -6,31 +6,29 @@ const verifyData = (apiInfo, arr) => arr.every(
   (item) => Object.prototype.hasOwnProperty.call(apiInfo, item),
 );
 
+const getInfo = async (apiUrl) => {
+  try {
+    const { data } = await apiGetInfo(apiUrl);
+    return data;
+  } catch (error) {
+    throw new Error(`Fail to fetch ${apiUrl}: ${error.message}`);
+  }
+};
+
 export function Api(props) {
   const {
     requirProp, apiUrl,
   } = props;
 
   const [info, setInfo] = useState({});
-  // console.log(apiUrl); //  eslint-disable-line no-console
-  const getInfo = async () => {
-    try {
-      const { data } = await apiGetInfo(apiUrl);
-      // console.log(data); //  eslint-disable-line no-console
-      setInfo(data);
-    } catch (error) {
-      console.log(error.message); //  eslint-disable-line no-console
-    }
-  };
 
   useEffect(() => {
-    getInfo();
+    const data = getInfo(apiUrl);
+    setInfo(data);
   }, []);
 
-  if (Object.keys(info).length && verifyData(info, requirProp)) {
-    return info;
-  }
-  return false;
+  if (!verifyData(info, requirProp)) return false;
+  return info;
 }
 
 export default Api;
