@@ -21,10 +21,8 @@ const loadingPage = () => (
 
 export function IntroSprintPoint() {
   const result = Api(apiSet);
-  console.log(result); //  eslint-disable-line no-console
-  if (!result) {
-    return loadingPage();
-  }
+
+  if (!result) return loadingPage();
 
   return (
     <IntroductionLayout info={result} />

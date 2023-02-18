@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { IntroductionLayout } from '../../components';
+import { Api } from '../../components/Api';
 import { BlurBlockBg } from '../../components/BlurBlockBg';
-import {
-  IntroductionLayout,
-} from '../../components/introduction/IntroductionLayout';
 
-const neccessaryProperty = ['guide', 'titles', 'tag', 'image', 'article', 'button', 'next'];
-const apiGetScrumInfo = async () => axios.get('https://f2e-scrum-backend.onrender.com/api/introduction/scrum');
-const verifyData = (apiInfo) => neccessaryProperty.every(
-  (item) => Object.prototype.hasOwnProperty.call(apiInfo, item),
-);
+const apiSet = {
+  requirProp: ['guide', 'titles', 'tag', 'image', 'article', 'button', 'next'],
+  apiUrl: 'https://f2e-scrum-backend.onrender.com/api/introduction/scrum',
+};
+
 const loadingPage = () => (
   <div className="h-screen flex place-content-center">
     <div className="self-center w-fit h-fit p-10 max-w-5xl mx-auto">
@@ -24,31 +20,13 @@ const loadingPage = () => (
 );
 
 export function Scrum() {
-  const navigate = useNavigate();
-  const [scrumInfo, setScrumInfo] = useState({});
+  const result = Api(apiSet);
 
-  const backHome = () => {
-    navigate('/');
-  };
+  if (!result) return loadingPage();
 
-  const getScrumInfo = async () => {
-    try {
-      const { data } = await apiGetScrumInfo();
-      setScrumInfo(data);
-    } catch (error) {
-      console.log(error.message); //  eslint-disable-line no-console
-      backHome();
-    }
-  };
-
-  useEffect(() => {
-    getScrumInfo();
-  }, []);
-
-  if (Object.keys(scrumInfo).length && verifyData(scrumInfo)) {
-    return (<IntroductionLayout info={scrumInfo} />);
-  }
-  return loadingPage();
+  return (
+    <IntroductionLayout info={result} />
+  );
 }
 
 export default Scrum;

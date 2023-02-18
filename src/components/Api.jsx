@@ -19,12 +19,10 @@ export function Api(props) {
   const {
     requirProp, apiUrl,
   } = props;
-
   const [info, setInfo] = useState({});
 
   useEffect(() => {
-    const data = getInfo(apiUrl);
-    setInfo(data);
+    getInfo(apiUrl).then((data) => setInfo(data));
   }, []);
 
   if (!verifyData(info, requirProp)) return false;
