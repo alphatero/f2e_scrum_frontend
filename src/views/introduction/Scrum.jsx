@@ -1,18 +1,25 @@
+import { useEffect, useState } from 'react';
 import { IntroductionLayout } from '../../components';
-import { Api } from '../../components/Api';
+import { GetData } from '../../components/GetData';
 
 const apiSet = {
   requirProp: ['guide', 'titles', 'tag', 'image', 'article', 'button', 'next'],
-  apiUrl: process.env.REACT_APP_API_INTRODUCTION_SCRUM,
+  apiUrl: `${process.env.REACT_APP_API_URL}/introduction/scrum`,
 };
 
 export function Scrum() {
-  const result = Api(apiSet);
+  const [info, setInfo] = useState({});
 
-  if (!result) return (<p>loading</p>);
+  useEffect(() => {
+    GetData(apiSet).then((data) => {
+      setInfo(data);
+    });
+  }, []);
+
+  if (!Object.keys(info).length) return (<p>loading</p>);
 
   return (
-    <IntroductionLayout info={result} />
+    <IntroductionLayout info={info} />
   );
 }
 

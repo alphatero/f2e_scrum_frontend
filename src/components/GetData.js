@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import axios from 'axios';
 
 const apiGetInfo = async (url) => axios.get(url);
@@ -15,16 +14,15 @@ const getInfo = async (url) => {
   }
 };
 
-export function Api(props) {
+export async function GetData(props) {
   const {
     requirProp, apiUrl,
   } = props;
-  const [info, setInfo] = useState({});
 
-  getInfo(apiUrl).then((data) => setInfo(data));
-
-  if (!verifyData(info, requirProp)) return false;
-  return info;
+  return getInfo(apiUrl).then((data) => {
+    if (!verifyData(data, requirProp)) return {};
+    return data;
+  });
 }
 
-export default Api;
+export default GetData;
