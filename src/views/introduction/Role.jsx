@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ItemContainer, ItemChild } from '../../components/introduction/Role';
 import { fetchContent, verifyKeyIsMatch } from '../../api';
-// import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {
   const [fetchState, setFetchState] = useState(false);
