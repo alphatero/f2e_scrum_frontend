@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ItemContainer, ItemChild } from '../../components/introduction/Role';
-import { getRequest } from '../../api';
-import { RoleInfo } from '../../constants/introductionRoleInfo';
+import { fetchContent, verifyKeyIsMatch } from '../../api';
+// import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {
   const navigate = useNavigate();
@@ -17,19 +17,16 @@ export function Role() {
     navigate(-1);
   };
 
-  async function fetchContent(url) {
-    try {
-      const { data } = await getRequest(url);
-      return data;
-    } catch (error) {
-      throw new Error(`Fail to fetch ${url}: ${error.message}`);
-    }
-  }
-
   useEffect(() => {
-    const resultData = fetchContent('/introduction/role');
-    if (!resultData) setPageContent(RoleInfo);
-    setPageContent(resultData);
+    fetchContent('/introduction/role')
+      .then((resultData) => {
+        const responseCardKeys = ['id', 'img', 'intro', 'introBriefly', 'introTitle', 'priority', 'subtitle', 'title'];
+        const verifyData = resultData.cards[0];
+
+        if (verifyKeyIsMatch(responseCardKeys, verifyData)) {
+          setPageContent(resultData);
+        }
+      });
   }, []);
 
   return (
