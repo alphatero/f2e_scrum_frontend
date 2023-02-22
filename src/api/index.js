@@ -15,12 +15,14 @@ export function getRequest(path, params) {
   const config = {
     ...params,
   };
+
   return axios.get(requestUrl, config);
 }
 
 export async function fetchContent(url) {
   try {
     const { data } = await getRequest(url);
+
     return data;
   } catch (error) {
     throw new Error(`無法從 ${url} 取得指定的資料，錯誤訊息為：${error.message}`);
