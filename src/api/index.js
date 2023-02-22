@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export function verifyKeyIsMatch(standardKeys, verifyObj) {
-  if (Object.keys(verifyObj).length === 0) return false;
+export function verifyKeyIsMatch(standardKeys, verifyKeys) {
+  if (!verifyKeys) return false;
 
-  const verifyStatus = standardKeys.every((currentKey) => !!verifyObj[currentKey]);
+  const verifyStatus = standardKeys.every((currentKey) => verifyKeys.includes(currentKey));
 
   return verifyStatus;
 }

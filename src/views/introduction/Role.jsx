@@ -21,9 +21,9 @@ export function Role() {
   useEffect(() => {
     fetchContent('/introduction/role')
       .then((resultData) => {
-        const verifyData = resultData.cards[0];
+        const verifyKeys = Object.keys(resultData.cards[0]);
 
-        if (verifyKeyIsMatch(apiResponseVerifyKeys.introduction.role, verifyData)) {
+        if (verifyKeyIsMatch(apiResponseVerifyKeys.introduction.role, verifyKeys)) {
           setFetchState(true);
           setPageContent(resultData);
         } else {
