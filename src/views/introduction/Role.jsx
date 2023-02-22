@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../../components';
 import { ItemContainer, ItemChild } from '../../components/introduction/Role';
 import { fetchContent, verifyKeyIsMatch } from '../../api';
-import { cardKeys } from '../../api/constants';
+import { apiResponseVerifyKeys } from '../../api/constants';
 
 export function Role() {
   const [fetchState, setFetchState] = useState(false);
@@ -23,7 +23,7 @@ export function Role() {
       .then((resultData) => {
         const verifyData = resultData.cards[0];
 
-        if (verifyKeyIsMatch(cardKeys.introduction.role, verifyData)) {
+        if (verifyKeyIsMatch(apiResponseVerifyKeys.introduction.role, verifyData)) {
           setFetchState(true);
           setPageContent(resultData);
         } else {

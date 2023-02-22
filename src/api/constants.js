@@ -1,7 +1,7 @@
-export const cardKeys = {
+export const apiResponseVerifyKeys = {
   introduction: {
     role: ['id', 'img', 'intro', 'introBriefly', 'introTitle', 'priority', 'subtitle', 'title'],
   },
 };
 
-export default cardKeys;
+export default apiResponseVerifyKeys;
