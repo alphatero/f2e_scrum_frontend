@@ -1,6 +1,5 @@
-import { CoverLayout } from '../components/CoverLayout';
+import { CoverLayout, Icons } from '../components';
 import { HomeInfo } from '../constants/homeInfo';
-import { Icons } from '../components/Icons';
 
 const rotateDeg = (rotateTime) => {
   const finalDeg = -44;

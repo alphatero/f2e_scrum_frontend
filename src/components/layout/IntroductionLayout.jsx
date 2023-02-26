@@ -1,10 +1,7 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../Button';
-import { BlurBlockBg } from '../BlurBlockBg';
-import { Triangle as RoleTriangle } from './Role/Triangle';
-import { ScrumMessageBox } from './ScrumMessageBox';
-import { Tag } from './Tag';
+import { Button, BlurBlockBg } from '../common';
+import { Triangle as RoleTriangle, ScrumMessageBox, Tag } from '../introduction';
 
 export function IntroductionLayout({ info }) {
   const navigate = useNavigate();
@@ -30,7 +27,7 @@ export function IntroductionLayout({ info }) {
   return (
     <div className={clsx(
       'flex flex-col pt-4 h-full',
-      (image.type === 'img' && 'h-fit'),
+      (image && image.type === 'img' && 'h-fit'),
     )}
     >
       <div className="relative px-4 flex max-w-5xl mx-auto">

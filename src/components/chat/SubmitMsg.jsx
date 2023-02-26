@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Icons } from '../Icons';
+import { Icons } from '../common';
 
 export function SubmitMsg({ choiceMsg, setChoiceMsg, setSendMsg }) {
   const handleClick = (msg) => {

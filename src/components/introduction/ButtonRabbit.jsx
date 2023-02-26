@@ -1,5 +1,5 @@
-import { SpeechBubble } from './introduction';
-import { Button } from './Button';
+import { SpeechBubble } from '.';
+import { Button } from '../common';
 
 export function ButtonRabbit(
   {
