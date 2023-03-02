@@ -1,12 +1,11 @@
 import clsx from 'clsx';
-import { motion } from 'framer-motion';
 import useResizeObserver from 'use-resize-observer';
 import { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChatNavBar,
   BeginMsg,
-  ChatLog,
+  ChatLogMotion,
   ChoiceResponse,
   SubmitMsg,
 } from '../chat';
@@ -56,27 +55,6 @@ export function ChatRoom({ props }) {
     setCurrentChatLogData((existingItems) => [...existingItems, newLog, ...resMsg.requestList]);
   };
 
-  const mainMotion = {
-    enter: {
-      opacity: 1,
-      transition: { staggerChildren: 0.5, delayChildren: 0.2 },
-    },
-    exit: {
-      opacity: 0,
-      transition: { staggerChildren: 0.05, staggerDirection: 1 },
-    },
-  };
-
-  const itemMotion = {
-    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 2.5 } },
-    exit: { opacity: 0, x: -20 },
-  };
-
-  const selfMotion = {
-    enter: { opacity: 1, x: 0, transition: { type: 'spring', duration: 1 } },
-    exit: { opacity: 0, x: 20 },
-  };
-
   useEffect(() => {
     if (sendMsg) updateChatLogData(sendMsg);
   }, [sendMsg]);
@@ -100,33 +78,13 @@ export function ChatRoom({ props }) {
         )}
       >
         <BeginMsg time={beginMsg.time} text={beginMsg.text} />
-        <motion.ul
-          variants={mainMotion}
-          initial="exit"
-          animate="enter"
-          exit="exit"
-          className="flex flex-col space-y-2"
-          ref={ref}
-        >
-          {
-            [...currentChatLogData, lastMsg].map(
-              (item) => {
-                if (!item) return null;
 
-                const motionValue = item.character === '我' ? selfMotion : itemMotion;
-
-                return (
-                  <motion.li key={page + item.id} variants={motionValue}>
-                    <ChatLog
-                      data={item}
-                    />
-                  </motion.li>
-                );
-              },
-            )
-
-        }
-        </motion.ul>
+        <ChatLogMotion
+          page={page}
+          propsRef={ref}
+          currentChatLogData={currentChatLogData}
+          lastMsg={lastMsg}
+        />
 
         {!lastMsg && (
           <Link to={nextPage}>
