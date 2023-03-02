@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { BlurBlockBg } from '../../BlurBlockBg';
+import { BlurBlockBg } from '../../common';
 
 export function ItemContainer({ children, onClick, openState }) {
   return (

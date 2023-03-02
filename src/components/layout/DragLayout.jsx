@@ -3,11 +3,10 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
-import { ButtonRabbit } from './ButtonRabbit';
-import { Button } from './Button';
-import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
-import { BlurBlockBg } from './BlurBlockBg';
-import { calculateSum } from '../utils';
+import { Button, BlurBlockBg } from '../common';
+import { ButtonRabbit } from '../introduction/ButtonRabbit';
+import { ArrowDownCircle, DroppableBox, DraggleCard } from '../exam';
+import { calculateSum } from '../../utils';
 
 const status = {
   ready: 'ready',

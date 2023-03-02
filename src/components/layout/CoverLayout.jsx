@@ -1,9 +1,8 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Button } from './index';
-import { Icons } from './Icons';
-import { TextBubble } from './home';
+import { Button, Icons } from '../common';
+import { TextBubble } from '../home';
 
 const setTransition = (delaySec) => ({
   delay: delaySec,
@@ -15,16 +14,19 @@ const letterBgArr = [
     class: 'fixed top-[-125px] left-[calc(50%-225px)] -z-10 animate-floating-a',
     path: '/images/home-bg-img-S.png',
     alt: 'home-bg-img-S',
+    id: 0,
   },
   {
     class: 'fixed top-[215px] right-[calc(50%-130px)] -z-10 animate-floating-b',
     path: '/images/home-bg-img-C.png',
     alt: 'home-bg-img-C',
+    id: 1,
   },
   {
     class: 'fixed bottom-[-50px] left-[calc(50%-25px)] -z-10 animate-floating-a',
     path: '/images/home-bg-img-question-mark.png',
     alt: 'home-bg-img-question-mark',
+    id: 2,
   },
 ];
 
@@ -91,21 +93,25 @@ export function CoverLayout({ info, pageSetting }) {
       class: 'absolute top-12',
       data: speechBubble[0],
       delay: 4.5,
+      id: 0,
     },
     {
       class: 'absolute top-20',
       data: speechBubble[1],
       delay: 4.7,
+      id: 1,
     },
     {
       class: 'absolute top-[40%]',
       data: speechBubble[2],
       delay: 5,
+      id: 2,
     },
     {
       class: 'absolute top-[50%]',
       data: speechBubble[3],
       delay: 5.3,
+      id: 3,
     },
   ];
 
@@ -118,6 +124,7 @@ export function CoverLayout({ info, pageSetting }) {
       {
         bubbleArr.map((bubble) => (
           <TextBubble
+            key={`bubble-${bubble.id}`}
             classList={bubble.class}
             data={bubble.data}
             delaySec={bubble.delay}
@@ -134,7 +141,7 @@ export function CoverLayout({ info, pageSetting }) {
           {
             letterArr.map((div) => (
               <motion.div
-                key={div.id}
+                key={`letter-${div.id}`}
                 initial={div.initial}
                 animate={div.animate}
                 variants={div.variants}
@@ -157,6 +164,7 @@ export function CoverLayout({ info, pageSetting }) {
       {
         letterBgArr.map((item) => (
           <img
+            key={`letterImg-${item.id}`}
             className={item.class}
             src={item.path}
             alt={item.alt}

@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../components';
-import { ItemContainer, ItemChild } from '../../components/introduction/Role';
+import { Button, ItemContainer, ItemChild } from '../../components';
 import { RoleInfo } from '../../constants/introductionRoleInfo';
 
 export function Role() {

@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { Icons } from '../Icons';
+import { Icons } from '../common';
 
 export function ChatNavBar({ previousPage }) {
   return (
