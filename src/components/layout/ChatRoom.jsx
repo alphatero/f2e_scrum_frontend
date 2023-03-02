@@ -8,8 +8,8 @@ import {
   ChatLogMotion,
   ChoiceResponse,
   SubmitMsg,
-} from './chat';
-import { Button } from './Button';
+} from '../chat';
+import { Button } from '../common';
 
 export function ChatRoom({ props }) {
   const {

@@ -1,6 +1,6 @@
 import {
   IntroductionLayout,
-} from '../../components/introduction/IntroductionLayout';
+} from '../../components';
 import { sprintGuideInfo } from '../../constants/introductionSprintGuide';
 
 export function SprintGuide() {

@@ -29,7 +29,7 @@ export function TextBubble({ data, classList, delaySec = 4 }) {
         duration: 1,
       }}
     >
-      <span className="text-sm whitespace-pre-wrap">{content}</span>
+      <span className="text-sm">{content}</span>
       <div className="absolute inset-0 blur-3xl" />
     </motion.div>
   );
