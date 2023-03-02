@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import { SpeakingLoading } from './SpeakingLoading';
-import { Icons } from '../Icons';
+import { Icons } from '../common';
 
 export function ChatLog({ data }) {
   const {

@@ -3,11 +3,10 @@ import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
-import { ButtonRabbit } from './ButtonRabbit';
-import { Button } from './Button';
-import { ArrowDownCircle, DroppableBox, DraggleCard } from './exam';
-import { BlurBlockBg } from './BlurBlockBg';
-import { calculateSum } from '../utils';
+import { Button, BlurBlockBg } from '../common';
+import { ButtonRabbit } from '../introduction/ButtonRabbit';
+import { ArrowDownCircle, DroppableBox, DraggleCard } from '../exam';
+import { calculateSum } from '../../utils';
 
 const status = {
   ready: 'ready',
@@ -144,7 +143,7 @@ export function DragLayout({ info, speechTexts }) {
   }, [itemObj]);
 
   return (
-    <div className="flex flex-col p-4 h-full">
+    <div className="flex flex-col p-4 lg:pt-8 h-full">
       <div className={clsx(
         'flex flex-col lg:flex-row lg:items-stretch',
         'w-full max-w-5xl mx-auto lg:px-20',
@@ -205,11 +204,11 @@ export function DragLayout({ info, speechTexts }) {
       </div>
 
       <div className={clsx(
-        'w-full flex-1 gap-5 mt-8',
+        'w-full flex-1 gap-5 mt-8 pb-2 lg:pb-0',
         'flex flex-col justify-end items-center',
       )}
       >
-        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={result === status.error}>
+        <ButtonRabbit onClick={nextPage} speechText={speech} disabled={result !== status.success}>
           {button}
         </ButtonRabbit>
         <Button onClick={backPage} btnType="secondary">回上頁</Button>

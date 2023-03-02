@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 export function TextBubble({ data, classList, delaySec = 4 }) {
   const { id, content } = data;
 
-  const renderHTML = (msg) => ({ __html: msg });
-
   const speechBubbleClassList = [
     'ml-6 mr-auto',
     'mr-6 ml-auto',
@@ -31,7 +29,7 @@ export function TextBubble({ data, classList, delaySec = 4 }) {
         duration: 1,
       }}
     >
-      <span className="text-sm" dangerouslySetInnerHTML={renderHTML(content)} />
+      <span className="text-sm">{content}</span>
       <div className="absolute inset-0 blur-3xl" />
     </motion.div>
   );
