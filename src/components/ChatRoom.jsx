@@ -81,7 +81,7 @@ export function ChatRoom({ props }) {
 
         <ChatLogMotion
           page={page}
-          ref={ref}
+          propsRef={ref}
           currentChatLogData={currentChatLogData}
           lastMsg={lastMsg}
         />

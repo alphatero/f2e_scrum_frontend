@@ -24,7 +24,7 @@ const selfMotion = {
 
 export function ChatLogMotion({
   page,
-  ref,
+  propsRef,
   currentChatLogData,
   lastMsg,
 }) {
@@ -35,7 +35,7 @@ export function ChatLogMotion({
       animate="enter"
       exit="exit"
       className="flex flex-col space-y-2"
-      ref={ref}
+      ref={propsRef}
     >
       {
         [...currentChatLogData, lastMsg].map(
