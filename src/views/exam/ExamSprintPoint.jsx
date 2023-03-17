@@ -1,5 +1,5 @@
-import { DragLayout } from '../../components';
-import { ExamSprintPointInfo } from '../../constants/examSprintPointInfo';
+import { DragLayout } from 'components';
+import { ExamSprintPointInfo } from 'constants/examSprintPointInfo';
 
 export function ExamSprintPoint() {
   const speechTexts = {

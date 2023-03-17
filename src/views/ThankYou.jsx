@@ -1,5 +1,5 @@
-import { CoverLayout, Icons } from '../components';
-import { ThankInfo } from '../constants/thankInfo';
+import { CoverLayout, Icons } from 'components';
+import { ThankInfo } from 'constants/thankInfo';
 
 const setting = {
   page: 'home',

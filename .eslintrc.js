@@ -9,7 +9,23 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src'],
+          ['components', './src/components'],
+          ['views', './src/views'],
+          ['utils', './src/utils'],
+          ['constants', './src/constants'],
+          ['api', './src/api'],
+          ['assets', './src/assets'],
+        ],
+        extensions: ['.ts', '.js', '.jsx', '.json'],
+      },
+    },
+  },
+  plugins: ['react', 'import'],
   rules: {
     'react/prop-types': 'off',
   },

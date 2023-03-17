@@ -1,5 +1,5 @@
-import { DragLayout } from '../../components';
-import { ExamProductBacklogInfo } from '../../constants/examProductBacklogInfo';
+import { DragLayout } from 'components';
+import { ExamProductBacklogInfo } from 'constants/examProductBacklogInfo';
 
 export function ExamProductBacklog() {
   const speechTexts = {
