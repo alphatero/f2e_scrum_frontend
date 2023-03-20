@@ -1,5 +1,5 @@
+import { Button } from 'components/common';
 import { SpeechBubble } from '.';
-import { Button } from '../common';
 
 export function ButtonRabbit(
   {

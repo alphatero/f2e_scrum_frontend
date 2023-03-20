@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { Button, BlurBlockBg } from '../common';
-import { Triangle as RoleTriangle, ScrumMessageBox, Tag } from '../introduction';
+import { Button, BlurBlockBg } from 'components/common';
+import { Triangle as RoleTriangle, ScrumMessageBox, Tag } from 'components/introduction';
 
 export function IntroductionLayout({ info }) {
   const navigate = useNavigate();

@@ -1,5 +1,5 @@
-import { chatScrumInfo } from '../../constants/chatScrumInfo';
-import { ChatRoom } from '../../components';
+import { chatScrumInfo } from 'constants/chatScrumInfo';
+import { ChatRoom } from 'components';
 
 export function SprintDailyScrum() {
   return (

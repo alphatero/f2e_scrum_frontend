@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Icons } from '../common';
+import { Icons } from 'components/common';
 
 export function ArrowDownCircle() {
   return (

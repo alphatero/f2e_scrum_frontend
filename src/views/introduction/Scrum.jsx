@@ -1,7 +1,7 @@
 import {
   IntroductionLayout,
-} from '../../components';
-import { scrumInfo } from '../../constants/introductionScrum';
+} from 'components';
+import { scrumInfo } from 'constants/introductionScrum';
 
 export function Scrum() {
   return (

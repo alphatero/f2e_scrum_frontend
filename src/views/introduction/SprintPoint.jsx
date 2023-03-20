@@ -1,5 +1,5 @@
-import { IntroductionLayout } from '../../components';
-import { introductionSprintPoint } from '../../constants/introductionSprintPoint';
+import { IntroductionLayout } from 'components';
+import { introductionSprintPoint } from 'constants/introductionSprintPoint';
 
 export function IntroSprintPoint() {
   return (

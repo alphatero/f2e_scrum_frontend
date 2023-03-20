@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Button, Icons } from '../common';
-import { TextBubble } from '../home';
+import { Button, Icons } from 'components/common';
+import { TextBubble } from 'components/home';
 
 const setTransition = (delaySec) => ({
   delay: delaySec,

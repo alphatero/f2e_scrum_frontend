@@ -6,17 +6,16 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BgBubble } from './components';
-import Home from './views';
 import {
   Chat, SprintDailyScrum, SprintReview, SprintRetro,
-} from './views/chat';
+} from 'views/chat';
+import Home from 'views';
 import {
   Introduction, Scrum, IntroProductBacklog, IntroSprintPoint, Role, SprintGuide,
-} from './views/introduction';
-import { Exam, ExamProductBacklog, ExamSprintPoint } from './views/exam';
-import './App.css';
-import ThankYou from './views/ThankYou';
+} from 'views/introduction';
+import { Exam, ExamProductBacklog, ExamSprintPoint } from 'views/exam';
+import ThankYou from 'views/ThankYou';
+import { BgBubble } from 'components';
 
 const pageVariants = {
   initial: {
