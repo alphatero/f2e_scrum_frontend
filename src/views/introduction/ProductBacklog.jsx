@@ -1,9 +1,21 @@
+import { useState, useEffect } from 'react';
 import { IntroductionLayout } from 'components';
-import { introductionProductBacklog } from 'constants/introductionProductBacklog';
+// import { introductionProductBacklog } from 'constants/introductionProductBacklog';
+import { Api } from '../../api/index';
+
+const apiUrl = '/introduction/product-backlog';
 
 export function IntroProductBacklog() {
+  const [info, setInfo] = useState({});
+
+  useEffect(() => {
+    Api.get(apiUrl).then((data) => setInfo(data));
+  }, []);
+
+  if (!Object.keys(info).length) return (<p>loading</p>);
+
   return (
-    <IntroductionLayout info={introductionProductBacklog} />
+    <IntroductionLayout info={info} />
   );
 }
 

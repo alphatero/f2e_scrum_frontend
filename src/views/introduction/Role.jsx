@@ -1,13 +1,17 @@
+import { useState, useEffect } from 'react';
 import clsx from 'clsx';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, ItemContainer, ItemChild } from 'components';
-import { RoleInfo } from 'constants/introductionRoleInfo';
+// import { RoleInfo } from 'constants/introductionRoleInfo';
+import { Api } from '../../api/index';
+
+const apiUrl = '/introduction/role';
 
 export function Role() {
   const navigate = useNavigate();
+  const [info, setInfo] = useState({});
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
-  const { cards, button } = RoleInfo;
+  // const { cards, button } = RoleInfo;
   const nextPage = () => {
     navigate('/introduction/sprint-guide');
   };
@@ -15,10 +19,16 @@ export function Role() {
     navigate(-1);
   };
 
+  useEffect(() => {
+    Api.get(apiUrl).then((data) => setInfo(data));
+  }, []);
+
+  if (!Object.keys(info).length) return (<p>loading</p>);
+
   return (
     <div className="flex flex-col h-full p-4 pt-8">
       {
-        cards.map((card, idx) => (
+        info.cards.map((card, idx) => (
           <ItemContainer
             key={`card_${card.id}`}
             openState={isOpenObj[`card_${idx}`]}
@@ -27,7 +37,7 @@ export function Role() {
                 card_0: false,
                 card_1: false,
                 card_2: false,
-                [`card_${card.id}`]: true,
+                [`card_${idx}`]: true,
               });
             }}
           >
@@ -45,7 +55,7 @@ export function Role() {
         'flex justify-center items-center flex-col gap-5',
       )}
       >
-        <Button onClick={nextPage}>{button}</Button>
+        <Button onClick={nextPage}>{info.button}</Button>
         <Button onClick={prevPage} btnType="secondary">回上頁</Button>
       </div>
     </div>
