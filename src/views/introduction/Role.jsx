@@ -11,7 +11,7 @@ export function Role() {
   const navigate = useNavigate();
   const [info, setInfo] = useState({});
   const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
-  // const { cards, button } = RoleInfo;
+
   const nextPage = () => {
     navigate('/introduction/sprint-guide');
   };

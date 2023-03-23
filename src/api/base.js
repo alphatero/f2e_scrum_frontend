@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseURL = process.env.REACT_APP_API_URL;
-console.log(baseURL); // eslint-disable-line
+
 async function api(url, method, params) {
   try {
     const { data } = await axios[method](baseURL + url, params);
