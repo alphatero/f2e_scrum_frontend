@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IntroductionLayout } from 'components';
-// import { introductionSprintPoint } from 'constants/introductionSprintPoint';
-import { Api } from '../../api/index';
+import { Api } from 'api/index';
 
 const apiUrl = '/introduction/sprint-point';
 

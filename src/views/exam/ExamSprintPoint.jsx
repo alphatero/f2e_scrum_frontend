@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { DragLayout } from 'components';
-// import { ExamSprintPointInfo } from 'constants/examSprintPointInfo';
-import { Api } from '../../api/index';
+import { Api } from 'api/index';
 
-const apiUrl = '/exam/product-backlog';
+const apiUrl = '/exam/sprint-point';
 
 export function ExamSprintPoint() {
   const [info, setInfo] = useState({});

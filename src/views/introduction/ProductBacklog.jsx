@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { IntroductionLayout } from 'components';
-// import { introductionProductBacklog } from 'constants/introductionProductBacklog';
-import { Api } from '../../api/index';
+import { Api } from 'api/index';
 
 const apiUrl = '/introduction/product-backlog';
 

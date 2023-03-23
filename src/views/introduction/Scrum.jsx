@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
-import {
-  IntroductionLayout,
-} from 'components';
-// import { scrumInfo } from 'constants/introductionScrum';
-import { Api } from '../../api/index';
+import { IntroductionLayout } from 'components';
+import { Api } from 'api/index';
 
 const apiUrl = '/introduction/scrum';
 
