@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button, Icons } from 'components/common';
@@ -88,32 +89,45 @@ export function CoverLayout({ info, pageSetting }) {
     },
   ];
 
-  const bubbleArr = [
+  const initialBubbleArr = [
     {
-      class: 'absolute top-12',
-      data: speechBubble[0],
+      class: 'absolute top-12 ml-6 mr-auto',
+      content: '01',
       delay: 4.5,
-      id: 0,
+      id: Infinity,
     },
     {
-      class: 'absolute top-20',
-      data: speechBubble[1],
+      class: 'absolute top-20 mr-6 ml-auto',
+      content: '02',
       delay: 4.7,
-      id: 1,
+      id: Infinity,
     },
     {
-      class: 'absolute top-[40%]',
-      data: speechBubble[2],
+      class: 'absolute top-[40%] ml-5 mr-auto',
+      content: '03',
       delay: 5,
-      id: 2,
+      id: Infinity,
     },
     {
-      class: 'absolute top-[50%]',
-      data: speechBubble[3],
+      class: 'absolute top-[50%] mr-5 ml-auto',
+      content: '04',
       delay: 5.3,
-      id: 3,
+      id: Infinity,
     },
   ];
+
+  const [bubbleArr, setBubbleArr] = useState([]);
+
+  useEffect(() => {
+    if (bubble.length > 0) {
+      const newBubbleArr = initialBubbleArr.map((item, index) => ({
+        ...item,
+        content: bubble[index].content,
+        id: bubble[index].id,
+      }));
+      setBubbleArr(newBubbleArr);
+    }
+  }, [bubble]);
 
   return (
     <div className={clsx(
