@@ -32,7 +32,7 @@ const letterBgArr = [
 
 export function CoverLayout({ info, pageSetting }) {
   const {
-    speechBubble,
+    bubble,
     bottomText,
     button,
     next,
@@ -122,12 +122,12 @@ export function CoverLayout({ info, pageSetting }) {
     )}
     >
       {
-        bubbleArr.map((bubble) => (
+        bubbleArr.map((item) => (
           <TextBubble
-            key={`bubble-${bubble.id}`}
-            classList={bubble.class}
-            data={bubble.data}
-            delaySec={bubble.delay}
+            key={item.id}
+            classList={item.class}
+            content={item.content}
+            delaySec={item.delay}
           />
         ))
       }
@@ -139,16 +139,16 @@ export function CoverLayout({ info, pageSetting }) {
         <div className="flex items-end justify-center relative space-x-1">
 
           {
-            letterArr.map((div) => (
+            letterArr.map((letterItem) => (
               <motion.div
-                key={`letter-${div.id}`}
-                initial={div.initial}
-                animate={div.animate}
-                variants={div.variants}
-                transition={div.transition}
-                className={div.className}
+                key={`letter-${letterItem.id}`}
+                initial={letterItem.initial}
+                animate={letterItem.animate}
+                variants={letterItem.variants}
+                transition={letterItem.transition}
+                className={letterItem.className}
               >
-                {div.IconHtml}
+                {letterItem.IconHtml}
               </motion.div>
             ))
           }
