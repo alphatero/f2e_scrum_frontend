@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { Button, ItemContainer, ItemChild } from 'components';
-import { Api } from 'api/index';
+import { Api } from 'api/';
 
 const apiUrl = '/introduction/role';
 

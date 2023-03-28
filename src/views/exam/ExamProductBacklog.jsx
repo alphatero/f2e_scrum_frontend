@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DragLayout } from 'components';
-import { Api } from 'api/index';
+import { Api } from 'api/';
 
 const apiUrl = '/exam/product-backlog';
 
