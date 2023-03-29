@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 export function TextBubble({
-  key, content, classList, delaySec = 4,
+  id, content, classList, delaySec = 4,
 }) {
   return (
     <motion.div
-      key={key}
+      key={id}
       className={clsx(
         classList,
         'relative py-2 px-5 rounded-3xl',
