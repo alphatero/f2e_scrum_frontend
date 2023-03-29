@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DragLayout } from 'components';
-import { Api } from 'api/';
+import { Api } from 'api';
 
 const apiUrl = '/exam/sprint-point';
 
