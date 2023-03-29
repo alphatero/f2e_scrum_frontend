@@ -1,6 +1,6 @@
 import { CoverLayout, Icons } from 'components';
 import { useState, useEffect } from 'react';
-import { Api } from '@/api/base';
+import { Api } from 'api/base';
 
 const rotateDeg = (rotateTime) => {
   const finalDeg = -44;
@@ -70,6 +70,7 @@ function Home() {
       />
     );
   }
+  return <p>Loading...</p>;
 }
 
 export default Home;

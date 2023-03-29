@@ -1,6 +1,6 @@
 import { CoverLayout, Icons } from 'components';
 import { useState, useEffect } from 'react';
-import { Api } from '@/api/base';
+import { Api } from 'api/base';
 
 const setting = {
   page: 'home',
@@ -62,6 +62,7 @@ function ThankYou() {
       <CoverLayout info={pageContent} pageSetting={setting} />
     );
   }
+  return <p>Loading...</p>;
 }
 
 export default ThankYou;
