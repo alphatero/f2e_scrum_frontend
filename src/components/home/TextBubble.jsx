@@ -22,7 +22,10 @@ export function TextBubble({
         duration: 1,
       }}
     >
-      <span className="text-sm">{content}</span>
+      <span
+        className="text-sm"
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
       <div className="absolute inset-0 blur-3xl" />
     </motion.div>
   );
