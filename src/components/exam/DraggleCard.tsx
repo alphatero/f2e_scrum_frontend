@@ -5,7 +5,7 @@ interface DraggleCardProps {
   item: {
     id: string | number;
     content: string;
-    priority: string;
+    priority: string | number;
   };
   index: number;
   type: string;

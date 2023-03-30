@@ -14,6 +14,9 @@ interface ItemChildProps {
     title: string;
     img: string;
     intro: string[];
+    subtitle: string;
+    introTitle: string;
+    introBriefly: string;
   };
   openState: boolean;
 }

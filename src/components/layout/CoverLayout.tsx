@@ -94,25 +94,25 @@ export function CoverLayout({ info, pageSetting }: CoverLayoutProps) {
       class: 'absolute top-12',
       data: speechBubble[0],
       delay: 4.5,
-      id: 0,
+      id: 10,
     },
     {
       class: 'absolute top-20',
       data: speechBubble[1],
       delay: 4.7,
-      id: 1,
+      id: 11,
     },
     {
       class: 'absolute top-[40%]',
       data: speechBubble[2],
       delay: 5,
-      id: 2,
+      id: 12,
     },
     {
       class: 'absolute top-[50%]',
       data: speechBubble[3],
       delay: 5.3,
-      id: 3,
+      id: 13,
     },
   ];
 

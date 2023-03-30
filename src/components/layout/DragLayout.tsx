@@ -1,13 +1,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import clsx from 'clsx';
 import { useNavigate } from 'react-router-dom';
-import { DragDropContext } from 'react-beautiful-dnd';
 import { useEffect, useState } from 'react';
 import { Button, BlurBlockBg } from 'components/common';
 import { ButtonRabbit } from '@/components/introduction/ButtonRabbit';
 import { ArrowDownCircle, DroppableBox, DraggleCard } from '@/components/exam';
 import { calculateSum } from '@/utils';
-import { DragLayoutProps } from 'types';
+import { DragLayoutProps, TaskTypes } from 'types';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
 
 const status = {
   ready: 'ready',
@@ -15,12 +15,18 @@ const status = {
   error: 'error',
 };
 
+type ItemObjTypes = {
+  [key: string]: {
+    items: TaskTypes[];
+  };
+};
+
 export function DragLayout({ info, speechTexts }: DragLayoutProps) {
   const answerArray = ['1', '2', '3', '4'];
   const navigate = useNavigate();
   const { tasks, button, type, next } = info;
 
-  const [itemObj, setItemObj] = useState({
+  const [itemObj, setItemObj] = useState<ItemObjTypes>({
     candidate: {
       items: [...tasks],
     },
@@ -36,7 +42,7 @@ export function DragLayout({ info, speechTexts }: DragLayoutProps) {
    * 處理 Drag 行為
    * @param event;
    */
-  const onDragEnd = (event) => {
+  const onDragEnd = (event: DropResult) => {
     const { source, destination } = event;
 
     if (!destination) {
@@ -63,7 +69,7 @@ export function DragLayout({ info, speechTexts }: DragLayoutProps) {
     setItemObj(newItemObj);
   };
 
-  const handleBackLog = (array) => {
+  const handleBackLog = (array: TaskTypes[]) => {
     const currentOrder = array.map((ele) => ele.seq);
 
     if (array.length === 4) {
@@ -75,8 +81,8 @@ export function DragLayout({ info, speechTexts }: DragLayoutProps) {
     return status.ready;
   };
 
-  const handlePoint = (array) => {
-    const points = array.map((item) => item.priority);
+  const handlePoint = (array: TaskTypes[]) => {
+    const points = array.map((item) => Number(item.priority));
 
     const pointSum = calculateSum(points);
 
@@ -93,7 +99,7 @@ export function DragLayout({ info, speechTexts }: DragLayoutProps) {
    * @param array
    * @returns {string}
    */
-  const checkCorrect = (array) => {
+  const checkCorrect = (array: TaskTypes[]) => {
     if (type === 'backlog') {
       return handleBackLog(array);
     }
@@ -104,7 +110,7 @@ export function DragLayout({ info, speechTexts }: DragLayoutProps) {
    * 結果對應處理
    * @param {string} ans
    */
-  const handleResult = (ans) => {
+  const handleResult = (ans: string) => {
     switch (ans) {
       case 'success': {
         setResult(status.success);
