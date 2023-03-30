@@ -11,7 +11,7 @@ export function ExamSprintPoint() {
     Api.get(apiUrl).then((data) => setInfo(data));
   }, []);
 
-  if (!Object.keys(info).length) return (<p>loading</p>);
+  if (!Object.keys(info).length) return <p>loading</p>;
 
   const speechTexts = {
     ready: '目前我們團隊一次 sprint 週期是兩週的時間，依照我的觀察，目前團隊可以負擔的點數(sprint point) 大約是20點左右。',

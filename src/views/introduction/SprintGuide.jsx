@@ -11,7 +11,7 @@ export function SprintGuide() {
     Api.get(apiUrl).then((data) => setInfo(data));
   }, []);
 
-  if (!Object.keys(info).length) return (<p>loading</p>);
+  if (!Object.keys(info).length) return <p>loading</p>;
 
   return (
     <IntroductionLayout info={info} />

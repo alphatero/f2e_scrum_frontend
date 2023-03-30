@@ -11,7 +11,7 @@ export function ExamProductBacklog() {
     Api.get(apiUrl).then((data) => setInfo(data));
   }, []);
 
-  if (!Object.keys(info).length) return (<p>loading</p>);
+  if (!Object.keys(info).length) return <p>loading</p>;
 
   const speechTexts = {
     ready: '拖曳任務試試看吧！',
