@@ -27,7 +27,7 @@ export function TextBubble({
         typeof content !== 'string' && content.length > 0 ? (
           content.map((item) => (
             <span
-              key={content.id}
+              key={`${content.id}-${item}`}
               className="text-sm"
             >
               {item}

@@ -138,7 +138,8 @@ export function CoverLayout({ info, pageSetting }) {
       {
         bubbleArr.map((item) => (
           <TextBubble
-            key={`bubble-${item.id}`}
+            id={item.id}
+            key={item.id}
             classList={item.class}
             content={item.content}
             delaySec={item.delay}
