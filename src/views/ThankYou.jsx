@@ -57,12 +57,12 @@ function ThankYou() {
       });
     });
   }, []);
-  if (Object.keys(pageContent).length > 0) {
-    return (
-      <CoverLayout info={pageContent} pageSetting={setting} />
-    );
-  }
-  return <p>Loading...</p>;
+
+  if (!Object.keys(pageContent).length) return <p>Loading...</p>;
+
+  return (
+    <CoverLayout info={pageContent} pageSetting={setting} />
+  );
 }
 
 export default ThankYou;
