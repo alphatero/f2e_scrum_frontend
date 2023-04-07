@@ -1,6 +1,6 @@
 import { CoverLayout, Icons } from 'components';
 import { useState, useEffect } from 'react';
-import { Api } from 'api/base';
+import { Api } from 'api';
 
 const rotateDeg = (rotateTime) => {
   const finalDeg = -44;
