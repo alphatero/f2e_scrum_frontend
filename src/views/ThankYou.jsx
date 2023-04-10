@@ -1,5 +1,6 @@
 import { CoverLayout, Icons } from 'components';
-import { ThankInfo } from 'constants/thankInfo';
+import { useState, useEffect } from 'react';
+import { Api } from 'api';
 
 const setting = {
   page: 'home',
@@ -44,8 +45,23 @@ const setting = {
 };
 
 function ThankYou() {
+  const [pageContent, setPageContent] = useState({});
+
+  useEffect(() => {
+    Api.get('/thankyou').then((res) => {
+      setPageContent({
+        bubble: res.bubble,
+        button: res.button,
+        bottomText: res.bottomText,
+        next: '/',
+      });
+    });
+  }, []);
+
+  if (!Object.keys(pageContent).length) return <p>Loading...</p>;
+
   return (
-    <CoverLayout info={ThankInfo} pageSetting={setting} />
+    <CoverLayout info={pageContent} pageSetting={setting} />
   );
 }
 

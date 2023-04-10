@@ -1,21 +1,15 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
-export function TextBubble({ data, classList, delaySec = 4 }) {
-  const { id, content } = data;
-
-  const speechBubbleClassList = [
-    'ml-6 mr-auto',
-    'mr-6 ml-auto',
-    'ml-5 mr-auto',
-    'mr-5 ml-auto',
-  ];
-
+export function TextBubble({
+  id, content, classList, delaySec = 4,
+}) {
   return (
     <motion.div
+      key={id}
       className={clsx(
-        speechBubbleClassList[id],
         classList,
+        content.length > 0 && 'flex flex-col',
         'relative py-2 px-5 rounded-3xl',
         'border border-solid border-white',
         'text-sm bg-white/50',
@@ -29,7 +23,20 @@ export function TextBubble({ data, classList, delaySec = 4 }) {
         duration: 1,
       }}
     >
-      <span className="text-sm">{content}</span>
+      {
+        typeof content !== 'string' && content.length > 0 ? (
+          content.map((item) => (
+            <span
+              key={`${content.id}-${item}`}
+              className="text-sm"
+            >
+              {item}
+            </span>
+          ))
+        ) : (
+          <span className="text-sm">{content}</span>
+        )
+      }
       <div className="absolute inset-0 blur-3xl" />
     </motion.div>
   );
