@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button, Icons } from 'components/common';
@@ -32,7 +33,7 @@ const letterBgArr = [
 
 export function CoverLayout({ info, pageSetting }) {
   const {
-    speechBubble,
+    bubble,
     bottomText,
     button,
     next,
@@ -88,32 +89,45 @@ export function CoverLayout({ info, pageSetting }) {
     },
   ];
 
-  const bubbleArr = [
+  const initialBubbleArr = [
     {
-      class: 'absolute top-12',
-      data: speechBubble[0],
+      class: 'absolute top-12 ml-6 mr-auto',
+      content: '01',
       delay: 4.5,
-      id: 0,
+      id: Infinity,
     },
     {
-      class: 'absolute top-20',
-      data: speechBubble[1],
+      class: 'absolute top-20 mr-6 ml-auto',
+      content: '02',
       delay: 4.7,
-      id: 1,
+      id: Infinity,
     },
     {
-      class: 'absolute top-[40%]',
-      data: speechBubble[2],
+      class: 'absolute top-[40%] ml-5 mr-auto',
+      content: '03',
       delay: 5,
-      id: 2,
+      id: Infinity,
     },
     {
-      class: 'absolute top-[50%]',
-      data: speechBubble[3],
+      class: 'absolute top-[50%] mr-5 ml-auto',
+      content: '04',
       delay: 5.3,
-      id: 3,
+      id: Infinity,
     },
   ];
+
+  const [bubbleArr, setBubbleArr] = useState([]);
+
+  useEffect(() => {
+    if (bubble.length > 0) {
+      const newBubbleArr = initialBubbleArr.map((item, index) => ({
+        ...item,
+        content: bubble[index].content,
+        id: bubble[index].id,
+      }));
+      setBubbleArr(newBubbleArr);
+    }
+  }, [bubble]);
 
   return (
     <div className={clsx(
@@ -122,12 +136,13 @@ export function CoverLayout({ info, pageSetting }) {
     )}
     >
       {
-        bubbleArr.map((bubble) => (
+        bubbleArr.map((item) => (
           <TextBubble
-            key={`bubble-${bubble.id}`}
-            classList={bubble.class}
-            data={bubble.data}
-            delaySec={bubble.delay}
+            id={item.id}
+            key={item.id}
+            classList={item.class}
+            content={item.content}
+            delaySec={item.delay}
           />
         ))
       }
@@ -139,16 +154,16 @@ export function CoverLayout({ info, pageSetting }) {
         <div className="flex items-end justify-center relative space-x-1">
 
           {
-            letterArr.map((div) => (
+            letterArr.map((letterItem) => (
               <motion.div
-                key={`letter-${div.id}`}
-                initial={div.initial}
-                animate={div.animate}
-                variants={div.variants}
-                transition={div.transition}
-                className={div.className}
+                key={`letter-${letterItem.id}`}
+                initial={letterItem.initial}
+                animate={letterItem.animate}
+                variants={letterItem.variants}
+                transition={letterItem.transition}
+                className={letterItem.className}
               >
-                {div.IconHtml}
+                {letterItem.IconHtml}
               </motion.div>
             ))
           }

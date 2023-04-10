@@ -52,16 +52,16 @@ export function IntroductionLayout({ info }) {
           <article className="flex flex-col w-full px-5 md:p-10">
             {
               next === '/exam/sprint-point'
-            && (
-            <div className="absolute right-3">
-              <img
-                src="/images/logo-jira.png"
-                alt="jira"
-              />
-            </div>
-            )
+              && (
+              <div className="absolute right-3">
+                <img
+                  src="/images/logo-jira.png"
+                  alt="jira"
+                />
+              </div>
+              )
             }
-            {titles.length > 0 && titles.map((title) => (
+            {titles && titles.length > 0 && titles.map((title) => (
               <p key={`title_${title.id}`} className="font-bold text-lg md:text-2xl">
                 {title.content}
               </p>
