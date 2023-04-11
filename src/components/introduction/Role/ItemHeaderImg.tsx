@@ -1,6 +1,20 @@
 import clsx from 'clsx';
 
-export function ItemHeaderImg({ card, openState }) {
+interface CardType {
+  img: string,
+  title: string,
+  subtitle: string,
+  introTitle: string,
+  introBriefly: string,
+  intro: string[]
+};
+
+interface ParamsType {
+  card: CardType, 
+  openState: boolean
+};
+
+export function ItemHeaderImg({ card, openState }: ParamsType) {
   return (
     <div className="flex-none">
       <div className={clsx(

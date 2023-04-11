@@ -1,6 +1,21 @@
 import clsx from 'clsx';
 
-const btn = {
+type BtnType = 'primary' | 'secondary';
+
+interface BtnObjType {
+  primary: String,
+  secondary: String
+};
+interface ParamsType {
+  children: React.ReactNode, 
+  onClick: React.MouseEventHandler<HTMLButtonElement>, 
+  className?: string,
+  maxWidth?: string,
+  btnType?: BtnType,
+  disabled?: boolean,
+};
+
+const btn: BtnObjType = {
   primary: `
   text-white bg-teal-500 
   hover:bg-teal-400 
@@ -22,7 +37,7 @@ export function Button(
     maxWidth = '358px',
     btnType = 'primary',
     disabled = false,
-  },
+  }: ParamsType
 ) {
   return (
     <div className={clsx(

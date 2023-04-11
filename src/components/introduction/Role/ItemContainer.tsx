@@ -1,7 +1,14 @@
 import clsx from 'clsx';
 import { BlurBlockBg } from 'components/common';
 
-export function ItemContainer({ children, onClick, openState }) {
+interface ParamsType {
+  children?: React.ReactNode, 
+  onClick: React.MouseEventHandler<HTMLDivElement>, 
+  openState: boolean
+};
+
+
+export function ItemContainer({ children, onClick, openState }: ParamsType) {
   return (
     <div
       className={clsx(
