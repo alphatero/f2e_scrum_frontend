@@ -23,9 +23,10 @@ export function TextBubble({ data, classList, delaySec = 4 }: TextBubbleProps) {
 
   return (
     <motion.div
+      key={id}
       className={clsx(
-        speechBubbleClassList[id],
         classList,
+        content.length > 0 && 'flex flex-col',
         'relative py-2 px-5 rounded-3xl',
         'border border-solid border-white',
         'text-sm bg-white/50',
@@ -39,7 +40,15 @@ export function TextBubble({ data, classList, delaySec = 4 }: TextBubbleProps) {
         duration: 1,
       }}
     >
-      <span className="text-sm">{content}</span>
+      {typeof content !== 'string' && content.length > 0 ? (
+        content.map((item) => (
+          <span key={`${content.id}-${item}`} className="text-sm">
+            {item}
+          </span>
+        ))
+      ) : (
+        <span className="text-sm">{content}</span>
+      )}
       <div className="absolute inset-0 blur-3xl" />
     </motion.div>
   );

@@ -14,22 +14,6 @@ module.exports = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  // settings: {
-  //   'import/resolver': {
-  //     alias: {
-  //       map: [
-  //         ['@', './src'],
-  //         ['components', './src/components'],
-  //         ['views', './src/views'],
-  //         ['utils', './src/utils'],
-  //         ['constants', './src/constants'],
-  //         ['api', './src/api'],
-  //         ['assets', './src/assets'],
-  //       ],
-  //       extensions: ['.ts', '.js', '.jsx', '.json'],
-  //     },
-  //   },
-  // },
   plugins: ['react', 'import', '@typescript-eslint'],
   rules: {
     'react/prop-types': 'off',

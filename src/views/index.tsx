@@ -1,5 +1,6 @@
 import { CoverLayout, Icons } from 'components';
-import { HomeInfo } from 'constants/homeInfo';
+import { useState, useEffect } from 'react';
+import { Api } from 'api';
 
 const rotateDeg = (rotateTime: number) => {
   const finalDeg = -44;
@@ -49,7 +50,21 @@ const setting = {
 };
 
 function Home() {
-  return <CoverLayout info={HomeInfo} pageSetting={setting} />;
+  const [pageContent, setPageContent] = useState({});
+
+  useEffect(() => {
+    Api.get('/home').then((res) => {
+      setPageContent({
+        bubble: res.bubble,
+        button: res.button,
+        next: '/introduction/scrum',
+      });
+    });
+  }, []);
+
+  if (!Object.keys(pageContent).length) return <p>Loading...</p>;
+
+  return <CoverLayout info={pageContent} pageSetting={setting} />;
 }
 
 export default Home;
