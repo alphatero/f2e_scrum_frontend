@@ -20,5 +20,5 @@
       "@/*": ["*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", "src/App.jsx", "src/App.jsx", "src/components/introduction/Role/index.js"],
+  "include": ["**/*.ts", "**/*.tsx", "src/App.jsx", "src/App.jsx"],
 }
