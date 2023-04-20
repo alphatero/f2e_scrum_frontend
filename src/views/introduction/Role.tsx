@@ -40,7 +40,7 @@ export function Role() {
   };
 
   useEffect(() => {
-    Api.get(apiUrl).then((data) => setInfo(data));
+    Api.get(apiUrl).then((data) => setInfo(data as InfoType));
   }, []);
 
   if (!Object.keys(info).length) return <p>loading</p>;
