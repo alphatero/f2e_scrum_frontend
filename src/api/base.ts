@@ -10,7 +10,7 @@ async function api<T>(url: string, method: MethodType, params?: object): Promise
 
     return data;
   } catch (error) {
-    if ( error instanceof Error)
+    if (error instanceof Error)
       throw new Error(`message:${error.message}`);
     else
       throw new Error(`message:${String(error)}`);

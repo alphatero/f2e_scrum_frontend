@@ -20,7 +20,7 @@ interface CardType {
 
 interface InfoType {
   button?: string,
-  cards?: CardType[] | undefined
+  cards?: CardType[]
 };
 
 interface IsOpenObjType {
@@ -40,7 +40,7 @@ export function Role() {
   };
 
   useEffect(() => {
-    Api.get(apiUrl).then((data) => setInfo(data as InfoType));
+    Api.get(apiUrl).then((data) => data && setInfo(data));
   }, []);
 
   if (!Object.keys(info).length) return <p>loading</p>;
