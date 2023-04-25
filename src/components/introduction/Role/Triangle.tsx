@@ -2,7 +2,22 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { Block } from './Block';
 
-const progress = [
+interface ShapeType {
+  style?: {
+    x: number,
+    y:number,
+  },
+  x: number,
+  y: number,
+};
+interface ItemType {
+  id: number,
+  rect: ShapeType,
+  circle: ShapeType
+};
+type ProgressType = ItemType[];
+
+const progress: ProgressType = [
   {
     id: 0,
     rect: {
@@ -42,18 +57,19 @@ const progress = [
 ];
 
 export function Triangle() {
-  const [index, setIndex] = useState(0);
-  const timeout = useRef(null);
+  const [index, setIndex] = useState<number>(0);
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const onChange = () => {
-    if (index < 2) {
-      setIndex(index + 1);
-    } else {
-      setIndex(0);
-    }
-  };
 
   useEffect(() => {
+    const onChange = () => {
+      if (index < 2) {
+        setIndex(index + 1);
+      } else {
+        setIndex(0);
+      }
+    };
+
     timeout.current = setTimeout(onChange, 2500);
 
     return () => {

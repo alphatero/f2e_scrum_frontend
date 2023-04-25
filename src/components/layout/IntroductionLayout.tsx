@@ -3,7 +3,35 @@ import { useNavigate } from 'react-router-dom';
 import { Button, BlurBlockBg } from 'components/common';
 import { Triangle as RoleTriangle, ScrumMessageBox, Tag } from 'components/introduction';
 
-export function IntroductionLayout({ info }) {
+
+interface ArticleType {
+  content: string[],
+  id: string,
+  type: string
+};
+interface ImageType {
+  type: string,
+  src: string,
+  reference: string
+};
+interface TitleType {
+  content: string,
+  id: string
+};
+interface InfoType {
+  article?: ArticleType[],
+  button?: string,
+  guide?: string,
+  image?: ImageType,
+  next?: string,
+  tag?: string,
+  titles?: TitleType[]
+};
+interface ParamsType {
+  info: InfoType
+};
+
+export function IntroductionLayout({ info }: ParamsType) {
   const navigate = useNavigate();
 
   const {
@@ -21,7 +49,7 @@ export function IntroductionLayout({ info }) {
   };
 
   const nextPage = () => {
-    navigate(next);
+    next && navigate(next);
   };
 
   return (
@@ -67,17 +95,17 @@ export function IntroductionLayout({ info }) {
               </p>
             ))}
             <div className="mt-6 mb-4">
-              <Tag type={tag} />
+              <Tag type={tag!} />
             </div>
-            {article.map((word) => (
+            {article?.map((word, widx) => (
               word.type === 'bold'
-                ? word.content.map((content) => (
-                  <p key={content} className="font-bold text-sm md:text-base">
+                ? word.content.map((content, idx) => (
+                  <p key={`${idx+1}_content`} className="font-bold text-sm md:text-base">
                     { content}
                   </p>
                 ))
                 : (
-                  <p key={word.content} className="py-2 text-sm md:text-base whitespace-pre-wrap">
+                  <p key={`${widx+1}_${word.content}`} className="py-2 text-sm md:text-base whitespace-pre-wrap">
                     {word.content}
                   </p>
                 )
