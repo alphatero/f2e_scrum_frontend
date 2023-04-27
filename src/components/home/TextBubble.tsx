@@ -2,18 +2,18 @@ import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
 interface TextBubbleProps {
-  data: {
-    id: number;
-    content: string | (string | JSX.Element)[];
-  };
+  content: string | (string | JSX.Element)[];
   classList?: string;
   delaySec?: number;
   id?: string | number;
 }
 
-export function TextBubble({ data, classList, delaySec = 4 }: TextBubbleProps) {
-  const { id, content } = data;
-
+export function TextBubble({
+  id,
+  content,
+  classList,
+  delaySec = 4,
+}: TextBubbleProps) {
   const speechBubbleClassList = [
     'ml-6 mr-auto',
     'mr-6 ml-auto',
@@ -42,7 +42,7 @@ export function TextBubble({ data, classList, delaySec = 4 }: TextBubbleProps) {
     >
       {typeof content !== 'string' && content.length > 0 ? (
         content.map((item) => (
-          <span key={`${content.id}-${item}`} className="text-sm">
+          <span key={`content-${item}`} className="text-sm">
             {item}
           </span>
         ))

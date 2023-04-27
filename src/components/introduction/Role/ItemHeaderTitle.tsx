@@ -1,13 +1,8 @@
+import { CardTypes } from 'types';
 import clsx from 'clsx';
 
 interface ItemHeaderTitleProps {
-  card: {
-    id: number;
-    title: string;
-    subtitle: string;
-    introTitle: string;
-    introBriefly: string;
-  };
+  card: CardTypes;
   classOpt: {
     default: string;
     open: string;

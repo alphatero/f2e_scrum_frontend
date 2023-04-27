@@ -11,23 +11,30 @@ import {
 } from '../chat';
 import { Button } from '../common';
 import { ChatProps, MsgTypes } from 'types';
+import { Api } from 'api';
 
-export function ChatRoom({ props }: { props: ChatProps }) {
+export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
   const {
     previousPageName,
     beginMsg,
     chattingLog,
     speakingLoadingData,
     responseMsg,
-    requestMsg,
     nextPage,
-    page,
     button,
   } = props;
 
+  const apiUrl = `/chat/${page}/ask`;
+
   const [currentChatLogData, setCurrentChatLogData] = useState(chattingLog);
   const [lastMsg, setLastMsg] = useState<MsgTypes | null>(speakingLoadingData);
-  const [choiceMsg, setChoiceMsg] = useState('');
+  const [choiceMsg, setChoiceMsg] = useState<{
+    text: string;
+    value: number | null;
+  }>({
+    text: '',
+    value: null,
+  });
   const [sendMsg, setSendMsg] = useState('');
   const { ref, height = 1 } = useResizeObserver();
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -43,22 +50,28 @@ export function ChatRoom({ props }: { props: ChatProps }) {
       submitBySelf: true,
     };
 
-    const resMsg = requestMsg.find((req) => req.text === msg);
+    // const resMsg = requestMsg.find((req) => req.text === msg);
 
-    if (!resMsg) return;
-    for (let i = 0; i < resMsg.requestList.length; i += 1) {
-      resMsg.requestList[i].time = time;
-    }
+    // if (!resMsg) return;
+    // for (let i = 0; i < resMsg.requestList.length; i += 1) {
+    //   resMsg.requestList[i].time = time;
+    // }
 
     if (msg === responseMsg.selectList[1].text) {
       setLastMsg(null);
     }
 
-    setCurrentChatLogData((existingItems) => [
-      ...existingItems,
-      newLog,
-      ...resMsg.requestList,
-    ]);
+    // setCurrentChatLogData((existingItems) => [
+    //   ...existingItems,
+    //   newLog,
+    //   ...resMsg.requestList,
+    // ]);
+  };
+
+  const onSubmit = () => {
+    Api.post<any, any>(apiUrl, { value: choiceMsg.value }).then((data) => {
+      console.log(data);
+    });
   };
 
   useEffect(() => {
@@ -86,7 +99,6 @@ export function ChatRoom({ props }: { props: ChatProps }) {
         <BeginMsg time={beginMsg.time} text={beginMsg.text} />
 
         <ChatLogMotion
-          page={page}
           propsRef={ref}
           currentChatLogData={currentChatLogData}
           lastMsg={lastMsg}
@@ -118,7 +130,8 @@ export function ChatRoom({ props }: { props: ChatProps }) {
       <SubmitMsg
         setSendMsg={setSendMsg}
         setChoiceMsg={setChoiceMsg}
-        choiceMsg={choiceMsg}
+        choiceMsg={choiceMsg.text}
+        onSubmit={onSubmit}
       />
     </div>
   );

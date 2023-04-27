@@ -1,13 +1,8 @@
 export interface CoverLayoutProps {
-  info: {
-    speechBubble: {
-      id: number;
-      content: string | (string | JSX.Element)[];
-    }[];
-    bottomText?: string;
+  info: { 
     button: string;
     next: string;
-  };
+  } & CoverInfoProps;
   pageSetting: {
     sZIndex: string;
     animate: {
@@ -44,4 +39,18 @@ export interface CoverLayoutProps {
     };
     markerIcon: JSX.Element;
     };
+}
+
+export type BubbleTypes = {
+  id: string;
+  content: string | (string | JSX.Element)[];
+  priority?: number;
+  delay?: number;
+  class?: string;
+}
+
+export interface CoverInfoProps {
+  bubble: BubbleTypes[];
+  button: string;
+  bottomText?: string;
 }

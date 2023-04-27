@@ -1,9 +1,9 @@
 import { CoverLayout, Icons } from 'components';
 import { useState, useEffect } from 'react';
 import { Api } from 'api';
+import { CoverInfoProps, CoverLayoutProps } from '@/types';
 
 const setting = {
-  // page: 'home',
   sZIndex: '-z-10',
   animate: {
     letter: {
@@ -45,10 +45,10 @@ const setting = {
 };
 
 function ThankYou() {
-  const [pageContent, setPageContent] = useState({});
+  const [pageContent, setPageContent] = useState<CoverLayoutProps['info']>();
 
   useEffect(() => {
-    Api.get('/thankyou').then((res) => {
+    Api.get<CoverInfoProps>('/thankyou').then((res) => {
       setPageContent({
         bubble: res.bubble,
         button: res.button,
@@ -58,7 +58,7 @@ function ThankYou() {
     });
   }, []);
 
-  if (!Object.keys(pageContent).length) return <p>Loading...</p>;
+  if (!pageContent) return <p>Loading...</p>;
 
   return <CoverLayout info={pageContent} pageSetting={setting} />;
 }

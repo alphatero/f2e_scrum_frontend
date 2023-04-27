@@ -24,14 +24,12 @@ const selfMotion = {
 };
 
 type ChatLogMotionProps = {
-  page: string;
   propsRef: (instance: Element | null) => void;
   currentChatLogData: MsgTypes[];
   lastMsg: MsgTypes | null;
 };
 
 export function ChatLogMotion({
-  page,
   propsRef,
   currentChatLogData,
   lastMsg,
@@ -45,13 +43,13 @@ export function ChatLogMotion({
       className="flex flex-col space-y-2"
       ref={propsRef}
     >
-      {[...currentChatLogData, lastMsg].map((item) => {
+      {[...currentChatLogData, lastMsg].map((item, idx) => {
         if (!item) return null;
 
         const motionValue = item.character === '我' ? selfMotion : itemMotion;
 
         return (
-          <motion.li key={page + item.id} variants={motionValue}>
+          <motion.li key={idx} variants={motionValue}>
             <ChatLog data={item} />
           </motion.li>
         );

@@ -8,15 +8,19 @@ export type TaskTypes = {
 };
 
 export interface DragLayoutProps {
-  info: {
-    tasks: TaskTypes[];
-    button: string;
-    type: string;
-    next: string;
-  };
+  info: DragInfoProps;
   speechTexts: {
     ready: string;
     success?: string;
     error: string;
   };
+}
+
+export interface DragInfoProps {
+  button: string;
+  next: string;
+  prev: string;
+  tasks: TaskTypes[];
+  type: string;
+  title?: string;
 }

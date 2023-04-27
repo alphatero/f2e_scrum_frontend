@@ -7,6 +7,7 @@ export interface RequestMsgTypes {
 export type SelectListTypes = {
   id: string | number;
   text: string;
+  value: number;
 }
 
 export type MsgTypes = {
@@ -26,14 +27,12 @@ type beginMsgTypes = {
 };
 
 export interface ChatProps {
-  page: string;
   previousPageName: string;
   nextPage: string;
   button: string;
   beginMsg: beginMsgTypes; 
   chattingLog: MsgTypes[];
   speakingLoadingData: MsgTypes;
-  requestMsg: RequestMsgTypes[];
   responseMsg: {
     caption: string;
     selectList: SelectListTypes[];

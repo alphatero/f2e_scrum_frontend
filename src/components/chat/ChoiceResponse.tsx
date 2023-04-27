@@ -1,12 +1,18 @@
 import clsx from 'clsx';
 
+type ChoiceMsgProps = {
+  text: string;
+  value: number;
+};
+
 type ChoiceResponseProps = {
   caption: string;
   selectList: {
     id: string | number;
     text: string;
+    value: number;
   }[];
-  setChoiceMsg: (text: string) => void;
+  setChoiceMsg: ({ text, value }: ChoiceMsgProps) => void;
   disabled: boolean;
 };
 
@@ -20,8 +26,8 @@ export function ChoiceResponse({
     <>
       <p className="text-xs md:text-sm text-slate-600">{caption}</p>
       <ul className="flex flex-row gap-4 overflow-x-auto">
-        {selectList.map((item) => (
-          <li key={`selectList-${item.id}`}>
+        {selectList?.map((item) => (
+          <li key={item.id}>
             <button
               disabled={disabled}
               className={clsx(
@@ -30,7 +36,10 @@ export function ChoiceResponse({
                 'hover:bg-teal-300 active:bg-teal-600',
               )}
               type="submit"
-              onClick={() => !disabled && setChoiceMsg(item.text)}
+              onClick={() =>
+                !disabled &&
+                setChoiceMsg({ text: item.text, value: item.value })
+              }
             >
               {item.text}
             </button>

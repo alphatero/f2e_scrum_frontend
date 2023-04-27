@@ -6,9 +6,13 @@ import {
   ScrumMessageBox,
   Tag,
 } from 'components/introduction';
-import { IntroductionProps } from 'types';
+import { IntroductionInfoProps } from 'types';
 
-export function IntroductionLayout({ info }: IntroductionProps) {
+type Props = {
+  info: IntroductionInfoProps;
+};
+
+export function IntroductionLayout({ info }: Props) {
   const navigate = useNavigate();
 
   const { titles, article, button, tag, guide, image, next } = info;
@@ -56,15 +60,14 @@ export function IntroductionLayout({ info }: IntroductionProps) {
                 <img src="/images/logo-jira.png" alt="jira" />
               </div>
             )}
-            {titles.length > 0 &&
-              titles.map((title) => (
-                <p
-                  key={`title_${title.id}`}
-                  className="font-bold text-lg md:text-2xl"
-                >
-                  {title.content}
-                </p>
-              ))}
+            {titles?.map((title) => (
+              <p
+                key={`title_${title.id}`}
+                className="font-bold text-lg md:text-2xl"
+              >
+                {title.content}
+              </p>
+            ))}
             <div className="mt-6 mb-4">
               <Tag type={tag} />
             </div>

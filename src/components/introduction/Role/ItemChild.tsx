@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import { ItemHeaderTitle } from './ItemHeaderTitle';
 import { ItemHeaderImg } from './ItemHeaderImg';
+import { CardTypes } from 'types';
 
 const classOpt = {
   default: 'transition-all duration-700 origin-top overflow-hidden',
@@ -9,15 +10,7 @@ const classOpt = {
 };
 
 interface ItemChildProps {
-  card: {
-    id: number;
-    title: string;
-    img: string;
-    intro: string[];
-    subtitle: string;
-    introTitle: string;
-    introBriefly: string;
-  };
+  card: CardTypes;
   openState: boolean;
 }
 

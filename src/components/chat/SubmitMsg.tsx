@@ -1,21 +1,29 @@
 import clsx from 'clsx';
 import { Icons } from 'components/common';
 
+type ChoiceMsgProps = {
+  text: string;
+  value: number | null;
+};
+
 type SubmitMsgProps = {
   choiceMsg: string;
-  setChoiceMsg: (msg: string) => void;
+  setChoiceMsg: ({ text, value }: ChoiceMsgProps) => void;
   setSendMsg: (msg: string) => void;
+  onSubmit: () => void;
 };
 
 export function SubmitMsg({
   choiceMsg,
   setChoiceMsg,
   setSendMsg,
+  onSubmit,
 }: SubmitMsgProps) {
   const handleClick = (msg: string) => {
     if (!msg) return;
     setSendMsg(msg);
-    setChoiceMsg('');
+    setChoiceMsg({ text: '', value: null });
+    onSubmit();
   };
 
   return (

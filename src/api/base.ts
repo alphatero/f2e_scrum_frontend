@@ -26,12 +26,17 @@ async function api<T, R>(url: string, method: Method, params?: T): Promise<R> {
   }
 }
 
-function get(url: string) {
+function get<T>(url: string): Promise<T> {
   return api(url, Method.GET);
+}
+
+function post<T, R>(url: string, params?: T): Promise<R> {
+  return api(url, Method.POST, params);
 }
 
 export const Api = {
   get,
+  post
 };
 
 export default Api;

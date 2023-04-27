@@ -1,5 +1,7 @@
+import { Api } from 'api';
+import { DragInfoProps } from 'types';
 import { DragLayout } from 'components';
-import { ExamSprintPointInfo } from 'constants/examSprintPointInfo';
+import { useEffect, useState } from 'react';
 
 const speechTexts = {
   ready:
@@ -8,7 +10,16 @@ const speechTexts = {
 };
 
 export function ExamSprintPoint() {
-  return <DragLayout info={ExamSprintPointInfo} speechTexts={speechTexts} />;
+  const apiUrl = '/exam/sprint-point';
+  const [info, setInfo] = useState<DragInfoProps>();
+
+  useEffect(() => {
+    Api.get<DragInfoProps>(apiUrl).then((data) => setInfo(data));
+  }, []);
+
+  if (!info) return <p>loading</p>;
+
+  return <DragLayout info={info} speechTexts={speechTexts} />;
 }
 
 export default ExamSprintPoint;

@@ -1,6 +1,7 @@
 import { CoverLayout, Icons } from 'components';
 import { useState, useEffect } from 'react';
 import { Api } from 'api';
+import type { CoverInfoProps, CoverLayoutProps } from '@/types';
 
 const rotateDeg = (rotateTime: number) => {
   const finalDeg = -44;
@@ -8,7 +9,6 @@ const rotateDeg = (rotateTime: number) => {
 };
 
 const setting = {
-  // page: 'home',
   sZIndex: 'z-10',
   animate: {
     letter: {
@@ -50,10 +50,10 @@ const setting = {
 };
 
 function Home() {
-  const [pageContent, setPageContent] = useState({});
+  const [pageContent, setPageContent] = useState<CoverLayoutProps['info']>();
 
   useEffect(() => {
-    Api.get('/home').then((res) => {
+    Api.get<CoverInfoProps>('/home').then((res) => {
       setPageContent({
         bubble: res.bubble,
         button: res.button,
@@ -62,7 +62,7 @@ function Home() {
     });
   }, []);
 
-  if (!Object.keys(pageContent).length) return <p>Loading...</p>;
+  if (!pageContent) return <p>loading</p>;
 
   return <CoverLayout info={pageContent} pageSetting={setting} />;
 }

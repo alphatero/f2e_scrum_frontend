@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button, Icons } from 'components/common';
 import { TextBubble } from 'components/home';
-import { CoverLayoutProps } from 'types';
+import { BubbleTypes, CoverLayoutProps } from 'types';
 
 const setTransition = (delaySec: number) => ({
   delay: delaySec,
@@ -34,7 +34,7 @@ const letterBgArr = [
 ];
 
 export function CoverLayout({ info, pageSetting }: CoverLayoutProps) {
-  const { speechBubble, bottomText, button, next } = info;
+  const { button, bubble, next, bottomText } = info;
 
   const navigate = useNavigate();
   const nextPage = () => {
@@ -95,45 +95,29 @@ export function CoverLayout({ info, pageSetting }: CoverLayoutProps) {
       class: 'absolute top-12 ml-6 mr-auto',
       content: '01',
       delay: 4.5,
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-      id: 10,
-=======
       id: Infinity,
->>>>>>> develop:src/components/layout/CoverLayout.jsx
     },
     {
       class: 'absolute top-20 mr-6 ml-auto',
       content: '02',
       delay: 4.7,
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-      id: 11,
-=======
       id: Infinity,
->>>>>>> develop:src/components/layout/CoverLayout.jsx
     },
     {
       class: 'absolute top-[40%] ml-5 mr-auto',
       content: '03',
       delay: 5,
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-      id: 12,
-=======
       id: Infinity,
->>>>>>> develop:src/components/layout/CoverLayout.jsx
     },
     {
       class: 'absolute top-[50%] mr-5 ml-auto',
       content: '04',
       delay: 5.3,
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-      id: 13,
-=======
       id: Infinity,
->>>>>>> develop:src/components/layout/CoverLayout.jsx
     },
   ];
 
-  const [bubbleArr, setBubbleArr] = useState([]);
+  const [bubbleArr, setBubbleArr] = useState<BubbleTypes[] | []>([]);
 
   useEffect(() => {
     if (bubble.length > 0) {
@@ -142,6 +126,7 @@ export function CoverLayout({ info, pageSetting }: CoverLayoutProps) {
         content: bubble[index].content,
         id: bubble[index].id,
       }));
+
       setBubbleArr(newBubbleArr);
     }
   }, [bubble]);
@@ -153,64 +138,33 @@ export function CoverLayout({ info, pageSetting }: CoverLayoutProps) {
         'mx-auto h-full max-w-[375px]',
       )}
     >
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-      {bubbleArr.map((bubble) => (
+      {bubbleArr.map((item) => (
         <TextBubble
-          key={`bubble-${bubble.id}`}
-          classList={bubble.class}
-          data={bubble.data}
-          delaySec={bubble.delay}
+          id={item.id}
+          key={item.id}
+          classList={item.class}
+          content={item.content}
+          delaySec={item.delay}
         />
       ))}
-=======
-      {
-        bubbleArr.map((item) => (
-          <TextBubble
-            id={item.id}
-            key={item.id}
-            classList={item.class}
-            content={item.content}
-            delaySec={item.delay}
-          />
-        ))
-      }
->>>>>>> develop:src/components/layout/CoverLayout.jsx
 
       <div className="absolute top-[28%] left-[50%] translate-x-[-50%] w-full">
         <div className="w-36 ml-4">
           <img src="/images/home-slogan--what-is.png" alt="what is" />
         </div>
         <div className="flex items-end justify-center relative space-x-1">
-<<<<<<< HEAD:src/components/layout/CoverLayout.tsx
-          {letterArr.map((div) => (
+          {letterArr.map((letterItem) => (
             <motion.div
-              key={`letter-${div.id}`}
-              initial={div.initial}
-              animate={div.animate}
-              variants={div.variants}
-              transition={div.transition}
-              className={div.className}
+              key={`letter-${letterItem.id}`}
+              initial={letterItem.initial}
+              animate={letterItem.animate}
+              variants={letterItem.variants}
+              transition={letterItem.transition}
+              className={letterItem.className}
             >
-              {div.IconHtml}
+              {letterItem.IconHtml}
             </motion.div>
           ))}
-=======
-
-          {
-            letterArr.map((letterItem) => (
-              <motion.div
-                key={`letter-${letterItem.id}`}
-                initial={letterItem.initial}
-                animate={letterItem.animate}
-                variants={letterItem.variants}
-                transition={letterItem.transition}
-                className={letterItem.className}
-              >
-                {letterItem.IconHtml}
-              </motion.div>
-            ))
-          }
->>>>>>> develop:src/components/layout/CoverLayout.jsx
         </div>
       </div>
 
