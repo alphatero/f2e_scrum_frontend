@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import useResizeObserver from 'use-resize-observer';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useId } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChatNavBar,
@@ -12,6 +12,22 @@ import {
 import { Button } from '../common';
 import { ChatProps, MsgTypes } from 'types';
 import { Api } from 'api';
+
+type ReqParams = {
+  value: number;
+};
+
+interface DataProps {
+  requestList: ResTypes[];
+}
+
+type ResTypes = {
+  avatar: string;
+  character: string;
+  id: string;
+  content: string[];
+  submitBySelf: boolean;
+};
 
 export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
   const {
@@ -26,7 +42,7 @@ export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
 
   const apiUrl = `/chat/${page}/ask`;
 
-  const [currentChatLogData, setCurrentChatLogData] = useState(chattingLog);
+  const [currentChatLogData, setCurrentChatLogData] = useState<any>();
   const [lastMsg, setLastMsg] = useState<MsgTypes | null>(speakingLoadingData);
   const [choiceMsg, setChoiceMsg] = useState<{
     text: string;
@@ -39,10 +55,11 @@ export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
   const { ref, height = 1 } = useResizeObserver();
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  const updateChatLogData = (msg: string) => {
+  const newId = useId();
+  const updateChatLogData = (msg: string, data: DataProps) => {
     const time = new Date().toLocaleTimeString();
     const newLog = {
-      id: currentChatLogData.length,
+      id: newId,
       character: '我',
       avatar: '/images/chat-ui.png',
       content: msg,
@@ -50,33 +67,40 @@ export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
       submitBySelf: true,
     };
 
-    // const resMsg = requestMsg.find((req) => req.text === msg);
+    const request = data.requestList.map((item) => ({
+      ...item,
+      time: new Date().toLocaleTimeString(),
+    }));
 
-    // if (!resMsg) return;
-    // for (let i = 0; i < resMsg.requestList.length; i += 1) {
-    //   resMsg.requestList[i].time = time;
-    // }
+    setCurrentChatLogData((existingItems: any) => [
+      ...existingItems,
+      newLog,
+      ...request,
+    ]);
 
-    if (msg === responseMsg.selectList[1].text) {
+    if (choiceMsg.value === 2) {
       setLastMsg(null);
     }
-
-    // setCurrentChatLogData((existingItems) => [
-    //   ...existingItems,
-    //   newLog,
-    //   ...resMsg.requestList,
-    // ]);
   };
 
   const onSubmit = () => {
-    Api.post<any, any>(apiUrl, { value: choiceMsg.value }).then((data) => {
-      console.log(data);
-    });
+    if (choiceMsg.value === null) return;
+
+    Api.post<ReqParams, DataProps>(apiUrl, { value: choiceMsg.value }).then(
+      (data) => {
+        updateChatLogData(choiceMsg.text, data);
+        setChoiceMsg({ text: '', value: null });
+      },
+    );
   };
 
   useEffect(() => {
-    if (sendMsg) updateChatLogData(sendMsg);
-  }, [sendMsg]);
+    const chattingLogWithTime = chattingLog.map((item) => ({
+      ...item,
+      time: new Date().toLocaleTimeString(),
+    }));
+    setCurrentChatLogData(chattingLogWithTime);
+  }, [chattingLog]);
 
   useEffect(() => {
     if (bottomRef.current) {
@@ -85,6 +109,8 @@ export function ChatRoom({ props, page }: { props: ChatProps; page: string }) {
       }, 1000);
     }
   }, [height]);
+
+  if (!currentChatLogData) return null;
 
   return (
     <div className="flex flex-col h-full max-w-5xl mx-auto">
