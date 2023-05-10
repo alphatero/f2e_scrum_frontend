@@ -1,14 +1,16 @@
 import clsx from 'clsx';
 
 type BtnType = 'primary' | 'secondary';
+type ClickType = () => void;
 
 interface BtnObjType {
   primary: String,
   secondary: String
 };
+
 interface ParamsType {
   children: React.ReactNode, 
-  onClick: React.MouseEventHandler<HTMLButtonElement>, 
+  onClick: ClickType, 
   className?: string,
   maxWidth?: string,
   btnType?: BtnType,

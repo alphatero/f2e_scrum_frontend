@@ -32,7 +32,7 @@ export function SprintGuide() {
   const [info, setInfo] = useState<InfoType>({});
 
   useEffect(() => {
-    Api.get(apiUrl).then((data) => setInfo(data as InfoType));
+    Api.get<InfoType>(apiUrl).then((data) => setInfo(data as InfoType));
   }, []);
 
   if (!Object.keys(info).length) return <p>loading</p>;

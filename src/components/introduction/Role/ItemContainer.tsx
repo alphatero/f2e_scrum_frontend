@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { BlurBlockBg } from 'components/common';
 
+type ClickType = () => void;
+
 interface ParamsType {
   children?: React.ReactNode, 
-  onClick: React.MouseEventHandler<HTMLDivElement>, 
+  onClick: ClickType, 
   openState: boolean
 };
 

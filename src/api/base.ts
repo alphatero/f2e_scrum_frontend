@@ -9,10 +9,7 @@ async function api<T>(url: string, method: MethodType, params?: object): Promise
     const { data } = await axios[method]<T>(baseURL + url, params);
 
     return data;
-  } catch (error: unknown) {
-    if (error instanceof Error)
-      throw new Error(`message:${error.message}`);
-    else
+  } catch (error) {
       throw new Error(`message:${String(error)}`);
   }
 }
