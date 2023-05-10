@@ -1,6 +1,18 @@
 import clsx from 'clsx';
 
-const tagType = {
+interface TagPropertyType {
+  text: string,
+  style: string
+};
+interface TagTransferType {
+  [key: string]: TagPropertyType
+};
+interface ParamsType {
+  className?: string,
+  type: string
+};
+
+const tagType: TagTransferType = {
   hint: {
     text: 'Hint!!',
     style: 'text-slate-700 bg-yellow-300',
@@ -11,7 +23,7 @@ const tagType = {
   },
 };
 
-export function Tag(props) {
+export function Tag(props: ParamsType) {
   const { className, type = 'basic' } = props;
 
   return (

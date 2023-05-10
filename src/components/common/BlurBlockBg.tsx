@@ -1,12 +1,23 @@
 import clsx from 'clsx';
 
-const category = {
+type CategoryType = 'A' | 'B' | 'C';
+
+interface CategoryTransferType {
+  [key: string]: string
+};
+interface ParamsType {
+  children: React.ReactNode, 
+  className?: string,
+  type?: CategoryType,
+};
+
+const category: CategoryTransferType = {
   A: 'h-full rounded-t-3xl backdrop-blur-2xl p-0 md:p-0',
   B: 'rounded-lg backdrop-blur-md p-5 md:p-10',
   C: 'rounded-xl min-h-[320px] grid grid-col-4 relative p-5 md:p-10',
 };
 
-export function BlurBlockBg(props) {
+export function BlurBlockBg(props: ParamsType) {
   const {
     children, type = 'A', className,
   } = props;

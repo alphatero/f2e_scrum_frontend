@@ -1,6 +1,23 @@
 import { motion } from 'framer-motion';
 
-export function Block({ item }) {
+interface ShapeType {
+  style?: {
+    x: number,
+    y:number,
+  },
+  x: number,
+  y: number,
+};
+interface ItemType {
+  id: number,
+  rect: ShapeType,
+  circle: ShapeType
+};
+interface ParamsType {
+  item: ItemType
+};
+
+export function Block({ item }: ParamsType) {
   const { rect, circle } = item;
 
   return (

@@ -6,10 +6,30 @@ import { Api } from 'api';
 
 const apiUrl = '/introduction/role';
 
+interface CardType {
+  id: string,
+  img: string,
+  title: string,
+  subtitle: string,
+  introTitle: string,
+  introBriefly: string,
+  intro: string[],
+  priority?: number
+};
+
+interface InfoType {
+  button?: string,
+  cards?: CardType[]
+};
+
+interface IsOpenObjType {
+  [key: string]: boolean
+}
+
 export function Role() {
   const navigate = useNavigate();
-  const [info, setInfo] = useState({});
-  const [isOpenObj, setIsOpenObj] = useState({ card_0: true, card_1: false, card_2: false });
+  const [info, setInfo] = useState<InfoType>({});
+  const [isOpenObj, setIsOpenObj] = useState<IsOpenObjType>({ card_0: true, card_1: false, card_2: false });
 
   const nextPage = () => {
     navigate('/introduction/sprint-guide');
@@ -19,7 +39,7 @@ export function Role() {
   };
 
   useEffect(() => {
-    Api.get(apiUrl).then((data) => setInfo(data));
+    Api.get<InfoType>(apiUrl).then((data) => setInfo(data));
   }, []);
 
   if (!Object.keys(info).length) return <p>loading</p>;
@@ -27,7 +47,7 @@ export function Role() {
   return (
     <div className="flex flex-col h-full p-4 pt-8">
       {
-        info.cards.map((card, idx) => (
+        info.cards?.map((card, idx) => (
           <ItemContainer
             key={`card_${card.id}`}
             openState={isOpenObj[`card_${idx}`]}
