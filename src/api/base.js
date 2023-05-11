@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL;
+const baseURL = process.env.REACT_APP_BASE_URL;
 
 async function api(url, method, params) {
   try {
@@ -16,8 +16,13 @@ function get(url) {
   return api(url, 'get');
 }
 
+function post(url, params) {
+  return api(url, 'post', params);
+}
+
 export const Api = {
   get,
+  post
 };
 
 export default Api;
